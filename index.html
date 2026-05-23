@@ -299,6 +299,106 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .avatar-btn{flex:1;padding:12px;border-radius:12px;border:2px solid #f0ddd8;background:#fdf6f0;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;color:#8b5e52;transition:all .2s;text-align:center}
 .avatar-btn.selected{border-color:#c4806e;background:linear-gradient(135deg,#fdf6f0,#fef0ec);font-weight:600}
 .avatar-btn .av-icon{font-size:1.8rem;display:block;margin-bottom:4px}
+
+/* EDIT MODAL */
+.edit-actions { display:flex; gap:6px; margin-top:8px; }
+.btn-edit { background:var(--blue-light);color:var(--blue);border:none;border-radius:8px;padding:4px 10px;font-size:.65rem;font-family:'DM Sans',sans-serif;cursor:pointer; }
+.btn-delete { background:var(--red-light);color:var(--red);border:none;border-radius:8px;padding:4px 10px;font-size:.65rem;font-family:'DM Sans',sans-serif;cursor:pointer; }
+.btn-save { background:var(--green-light);color:var(--green);border:none;border-radius:8px;padding:4px 10px;font-size:.65rem;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:600; }
+
+/* INVITADOS TABS */
+.inv-group-tabs { display:flex; gap:6px; margin-bottom:12px; }
+.inv-group-tab { flex:1;padding:8px;border-radius:10px;border:1.5px solid var(--border);background:white;color:var(--text-mid);cursor:pointer;font-size:.75rem;font-family:'DM Sans',sans-serif;text-align:center;transition:all .2s; }
+.inv-group-tab.active { background:var(--rose-dark);color:white;border-color:var(--rose-dark); }
+
+/* SONG LINK */
+.song-link { display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;background:#1db954;color:white;font-size:.65rem;font-family:'DM Sans',sans-serif;text-decoration:none;margin-top:6px;font-weight:600; }
+.song-link.youtube { background:#ff0000; }
+.song-link.generic { background:var(--blue);color:white; }
+
+/* PDF EXPORT BTN */
+.export-btn { display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--rose-dark),var(--rose));color:white;border:none;border-radius:12px;padding:12px 16px;font-size:.85rem;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;margin-bottom:12px;font-weight:500; }
+.export-btn:active { opacity:.85; }
+
+/* BUDGET EDIT */
+.budget-edit-row { display:flex;align-items:center;gap:8px;background:white;border-radius:12px;padding:10px 12px;margin-bottom:7px;box-shadow:var(--shadow-sm);border-left:3px solid var(--gold); }
+.budget-edit-input { flex:1;border:1.5px solid var(--border);border-radius:8px;padding:6px 10px;font-size:.8rem;font-family:'DM Sans',sans-serif;outline:none;background:var(--rose-pale); }
+.budget-edit-input:focus { border-color:var(--rose); }
+
+/* TIMELINE EDIT */
+.tl-edit-card { background:white;border-radius:12px;padding:12px 14px;margin-bottom:8px;box-shadow:var(--shadow-sm);border-left:3px solid var(--rose); }
+.tl-edit-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:6px; }
+.tl-time-badge { font-size:.7rem;font-weight:600;color:var(--rose-dark);background:var(--rose-pale);padding:2px 8px;border-radius:20px; }
+
+/* PAYMENT ALERT BANNER */
+.payment-alert-banner{background:linear-gradient(135deg,#c0392b,#e74c3c);color:white;border-radius:14px;padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 16px rgba(192,57,43,.3)}
+.pab-icon{font-size:1.8rem;flex-shrink:0}
+.pab-title{font-weight:700;font-size:.9rem}
+.pab-sub{font-size:.72rem;opacity:.9;margin-top:2px}
+
+/* DONUT CHART */
+.donut-wrap{display:flex;align-items:center;gap:16px;padding:8px 0}
+.donut-legend{flex:1}
+.legend-item{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:.78rem}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+/* CALENDAR */
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-nav{background:var(--rose-pale);border:none;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--rose-dark)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-day-label{text-align:center;font-size:.6rem;color:var(--text-soft);padding:3px 0;font-weight:600}
+.cal-day{text-align:center;font-size:.72rem;padding:5px 2px;border-radius:6px;position:relative;cursor:default;min-height:28px;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.cal-day.today{background:var(--rose-pale);color:var(--rose-dark);font-weight:700}
+.cal-day.has-event{background:var(--rose-dark);color:white;font-weight:700;cursor:pointer}
+.cal-day.payment-day{background:var(--red);color:white;font-weight:700}
+.cal-day.other-month{color:var(--border)}
+.cal-dot{width:4px;height:4px;border-radius:50%;background:white;margin-top:1px}
+.cal-legend{display:flex;gap:10px;margin-top:10px;font-size:.65rem;flex-wrap:wrap}
+.cal-legend-item{display:flex;align-items:center;gap:4px;color:var(--text-soft)}
+.cal-legend-dot{width:8px;height:8px;border-radius:50%}
+
+/* MONTHLY PAYMENTS */
+.month-pay-row{display:flex;align-items:center;justify-content:space-between;background:white;border-radius:10px;padding:10px 14px;margin-bottom:7px;box-shadow:var(--shadow-sm);font-size:.82rem}
+.month-pay-month{font-weight:600;color:var(--text);min-width:70px}
+.month-pay-bar{flex:1;height:8px;background:var(--rose-light);border-radius:10px;overflow:hidden;margin:0 12px}
+.month-pay-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--rose-dark),var(--rose))}
+.month-pay-amount{font-weight:700;color:var(--rose-dark);white-space:nowrap}
+
+/* NOTAS COMPARTIDAS */
+.nota-bubble{background:white;border-radius:14px;padding:12px 14px;margin-bottom:8px;box-shadow:var(--shadow-sm);position:relative}
+.nota-bubble.mine{background:linear-gradient(135deg,var(--rose-pale),#fef0ec);border-left:3px solid var(--rose)}
+.nota-bubble.other{background:linear-gradient(135deg,var(--blue-light),#eef4ff);border-left:3px solid var(--blue)}
+.nota-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.nota-author{font-size:.7rem;font-weight:600;color:var(--rose-dark)}
+.nota-bubble.other .nota-author{color:var(--blue)}
+.nota-time{font-size:.62rem;color:var(--text-soft)}
+.nota-text{font-size:.84rem;color:var(--text);line-height:1.5}
+.nota-del{position:absolute;top:8px;right:10px;background:none;border:none;color:#ddd;cursor:pointer;font-size:.8rem}
+.nota-del:active{color:var(--red)}
+.nota-input-row{display:flex;gap:8px;margin-top:8px}
+.nota-input{flex:1;padding:10px 14px;border:1.5px solid var(--border);border-radius:20px;font-size:.84rem;font-family:'DM Sans',sans-serif;color:var(--text);background:var(--rose-pale);outline:none}
+.nota-input:focus{border-color:var(--rose);background:white}
+.nota-send{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--rose-dark),var(--rose));border:none;color:white;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* TEMAS DE COLOR */
+.theme-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.theme-btn{border-radius:12px;padding:10px 6px;border:2px solid transparent;cursor:pointer;text-align:center;font-size:.65rem;font-family:'DM Sans',sans-serif;transition:all .2s}
+.theme-btn.selected{border-color:var(--text)}
+.theme-circle{width:32px;height:32px;border-radius:50%;margin:0 auto 4px}
+
+/* WHATSAPP BTN */
+.wa-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:20px;background:#25d366;color:white;font-size:.65rem;font-family:'DM Sans',sans-serif;border:none;cursor:pointer;margin-top:4px;font-weight:600}
+
+/* DAYS COUNTER */
+.days-badge{display:inline-block;font-size:.6rem;padding:2px 7px;border-radius:10px;margin-left:6px;font-weight:700}
+.days-badge.critical{background:var(--red-light);color:var(--red)}
+.days-badge.warning{background:var(--orange-light);color:var(--orange)}
+.days-badge.ok{background:var(--green-light);color:var(--green)}
+
+/* BACKUP BTN */
+.backup-row{display:flex;gap:8px;margin-bottom:12px}
+.backup-btn{flex:1;padding:10px;border-radius:12px;border:1.5px solid var(--border);background:white;color:var(--text-mid);font-size:.78rem;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.backup-btn:active{background:var(--rose-pale)}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
@@ -336,6 +436,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </div>
 
   <div id="dash-foto-card"></div>
+  <div id="payment-alerts"></div>
+  <button class="export-btn" onclick="exportPDF()">📄 Exportar reporte completo en PDF</button>
 
   <div class="card">
     <div class="card-title">📈 Progreso</div>
@@ -396,9 +498,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="section-header">👥 Invitados</div>
   <div class="inv-stats">
     <div class="inv-stat"><div class="is-num" id="is-total">0</div><div class="is-lbl">Total</div></div>
-    <div class="inv-stat confirmed"><div class="is-num" id="is-conf">0</div><div class="is-lbl">Sí asisten</div></div>
+    <div class="inv-stat confirmed"><div class="is-num" id="is-conf">0</div><div class="is-lbl">Confirmados</div></div>
     <div class="inv-stat pending"><div class="is-num" id="is-pend">0</div><div class="is-lbl">Pendiente</div></div>
     <div class="inv-stat declined"><div class="is-num" id="is-decl">0</div><div class="is-lbl">No asiste</div></div>
+  </div>
+  <div class="inv-group-tabs">
+    <button class="inv-group-tab active" id="inv-tab-all" onclick="switchInvTab('all',this)">👥 Todos</button>
+    <button class="inv-group-tab" id="inv-tab-novia" onclick="switchInvTab('novia',this)">👰 Novia</button>
+    <button class="inv-group-tab" id="inv-tab-novio" onclick="switchInvTab('novio',this)">🤵 Novio</button>
   </div>
   <div class="search-box"><span>🔍</span><input type="text" id="inv-search" placeholder="Buscar invitado..." oninput="renderInvitados()"></div>
   <div id="inv-list-container"></div>
@@ -409,11 +516,31 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div style="height:14px"></div>
   <div class="inner-tabs" id="mas-tabs">
     <button class="inner-tab active" onclick="showMasTab('requisitos',this)">📋 Requisitos</button>
+    <button class="inner-tab" onclick="showMasTab('calendario',this)">📅 Calendario</button>
     <button class="inner-tab" onclick="showMasTab('contratos',this)">📄 Contratos</button>
     <button class="inner-tab" onclick="showMasTab('contactos',this)">📞 Contactos</button>
     <button class="inner-tab" onclick="showMasTab('presupuesto',this)">💰 Presupuesto</button>
     <button class="inner-tab" onclick="showMasTab('compras',this)">🛒 Compras</button>
     <button class="inner-tab" onclick="showMasTab('canciones',this)">🎵 Canciones</button>
+    <button class="inner-tab" onclick="showMasTab('notas',this)">💬 Notas</button>
+  </div>
+
+  <!-- CALENDARIO -->
+  <div id="mas-calendario" style="display:none">
+    <div class="card">
+      <div class="cal-header">
+        <button class="cal-nav" onclick="calPrev()">‹</button>
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--rose-dark)" id="cal-title">Agosto 2026</div>
+        <button class="cal-nav" onclick="calNext()">›</button>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+      <div class="cal-legend">
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--rose-dark)"></div>Evento</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--red)"></div>Pago</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--rose-pale);border:1px solid var(--rose)"></div>Hoy</div>
+      </div>
+    </div>
+    <div id="cal-events-list"></div>
   </div>
 
   <!-- REQUISITOS -->
@@ -453,6 +580,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div id="mas-compras" style="display:none">
     <div id="compras-stats" style="display:flex;gap:8px;margin-bottom:12px"></div>
     <div id="compras-list"></div>
+  </div>
+
+  <!-- NOTAS -->
+  <div id="mas-notas" style="display:none">
+    <div style="background:linear-gradient(135deg,var(--blue-light),#eef4ff);border-radius:14px;padding:14px;color:var(--blue);margin-bottom:12px;font-size:.8rem;line-height:1.5">
+      💬 Deja mensajes y notas para tu pareja. Ambos las ven en tiempo real.
+    </div>
+    <div id="notas-list" style="min-height:200px"></div>
+    <div class="nota-input-row">
+      <input class="nota-input" id="nota-input" placeholder="Escribe una nota..." onkeydown="if(event.key==='Enter')sendNota()">
+      <button class="nota-send" onclick="sendNota()">➤</button>
+    </div>
   </div>
 
   <!-- CANCIONES -->
@@ -508,6 +647,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <button class="nav-item" onclick="goTo('invitados',this)"><span class="nav-icon">👥</span><span class="nav-label">Invitados</span></button>
   <button class="nav-item" onclick="goTo('mas',this)"><span class="nav-icon">📋</span><span class="nav-label">Más</span></button>
   <button class="nav-item" onclick="goTo('galeria',this)"><span class="nav-icon">📸</span><span class="nav-label">Galería</span></button>
+  <button class="nav-item" onclick="goTo('ajustes',this)"><span class="nav-icon">⚙️</span><span class="nav-label">Ajustes</span></button>
 </div>
 
 <!-- FAB -->
@@ -528,6 +668,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <div class="modal-overlay" id="modal-inv"><div class="modal">
   <div class="modal-handle"></div><div class="modal-title">Agregar invitado</div>
   <div class="form-group"><label class="form-label">Nombre completo</label><input class="form-input" id="new-inv-name" placeholder="Nombre del invitado" onkeydown="if(event.key==='Enter')addInvitado()"></div>
+  <div class="form-group"><label class="form-label">Grupo</label><select class="form-select" id="new-inv-group"><option value="novia">👰 Invitado de la novia</option><option value="novio">🤵 Invitado del novio</option><option value="ambos">👥 De ambos</option></select></div>
   <div class="form-group"><label class="form-label">Estado</label><select class="form-select" id="new-inv-status"><option value="pending">⏳ Por confirmar</option><option value="confirmed">✅ Confirmado</option><option value="declined">❌ No asiste</option></select></div>
   <div class="form-group"><label class="form-label">Nota (opcional)</label><input class="form-input" id="new-inv-note" placeholder="Ej: Familia, viene de Lima..."></div>
   <div class="btn-row"><button class="btn-secondary" onclick="closeModal('modal-inv')">Cancelar</button><button class="btn-primary" onclick="addInvitado()">Agregar</button></div>
@@ -593,6 +734,157 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 <input type="file" id="file-contrato-upload" accept=".pdf,image/*" style="display:none" onchange="handleContratoFile(event)">
 <input type="file" id="file-req-upload" accept=".pdf,image/*" style="display:none" onchange="handleReqFile(event)">
+
+
+<!-- AJUSTES SCREEN -->
+<div class="screen" id="screen-ajustes">
+  <div style="height:14px"></div>
+  <div class="section-header">⚙️ Ajustes</div>
+
+  <!-- Backup -->
+  <div class="card">
+    <div class="card-title">💾 Datos y respaldo</div>
+    <div class="backup-row">
+      <button class="backup-btn" onclick="exportBackup()">📤 Exportar datos (JSON)</button>
+      <button class="backup-btn" onclick="document.getElementById('import-backup').click()">📥 Importar datos</button>
+    </div>
+    <input type="file" id="import-backup" accept=".json" style="display:none" onchange="importBackup(event)">
+    <button class="export-btn" onclick="exportPDF()" style="margin-bottom:0">📄 Exportar reporte PDF completo</button>
+  </div>
+
+  <!-- Tema de color -->
+  <div class="card">
+    <div class="card-title">🎨 Tema de color</div>
+    <div class="theme-grid" id="theme-grid"></div>
+  </div>
+
+  <!-- Portada -->
+  <div class="card">
+    <div class="card-title">🖼 Foto de portada</div>
+    <div style="font-size:.78rem;color:var(--text-soft);margin-bottom:10px">Cambia la foto del header de la app</div>
+    <button class="backup-btn" style="width:100%" onclick="document.getElementById('new-cover-photo').click()">📷 Cambiar foto de portada</button>
+    <input type="file" id="new-cover-photo" accept="image/*" style="display:none" onchange="changeCoverPhoto(event)">
+  </div>
+
+  <!-- Sync info -->
+  <div class="card">
+    <div class="card-title">🔄 Sincronización</div>
+    <div style="font-size:.82rem;color:var(--text-mid);margin-bottom:10px" id="sync-info-text">Cargando...</div>
+    <button class="backup-btn" style="width:100%" onclick="resetSetup()">⚙️ Cambiar configuración de sync</button>
+  </div>
+
+  <!-- Info -->
+  <div class="card" style="text-align:center;padding:20px">
+    <div style="font-size:2rem;margin-bottom:8px">💍</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--rose-dark)">Josseline & Clarck</div>
+    <div style="font-size:.72rem;color:var(--text-soft);margin-top:4px">29 de agosto 2026 · Arequipa</div>
+    <div style="font-size:.65rem;color:var(--border);margin-top:12px">Wedding Planner App v2.0</div>
+  </div>
+</div>
+
+<!-- MODAL: EDIT TASK -->
+<div class="modal-overlay" id="modal-edit-task"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Editar tarea</div>
+  <input type="hidden" id="edit-task-id">
+  <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" id="edit-task-name"></div>
+  <div class="form-group"><label class="form-label">Fecha / nota</label><input class="form-input" id="edit-task-meta"></div>
+  <div class="form-group"><label class="form-label">Prioridad</label><select class="form-select" id="edit-task-priority"><option value="urgent">🔴 Urgente</option><option value="soon">🟠 Julio</option><option value="normal">🟡 Agosto</option></select></div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-edit-task')">Cancelar</button>
+    <button class="btn-primary" style="background:var(--red)" onclick="deleteCustomTask()">🗑 Eliminar</button>
+    <button class="btn-primary" onclick="saveEditTask()">Guardar</button>
+  </div>
+</div></div>
+
+<!-- MODAL: EDIT TIMELINE -->
+<div class="modal-overlay" id="modal-edit-tl"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Editar momento</div>
+  <input type="hidden" id="edit-tl-idx">
+  <div class="form-group"><label class="form-label">Hora</label><input class="form-input" id="edit-tl-time" placeholder="ej: 1:30 pm"></div>
+  <div class="form-group"><label class="form-label">Título</label><input class="form-input" id="edit-tl-title"></div>
+  <div class="form-group"><label class="form-label">Descripción</label><textarea class="form-textarea" id="edit-tl-desc"></textarea></div>
+  <div class="form-group"><label class="form-label">Responsable</label><input class="form-input" id="edit-tl-resp" placeholder="ej: DJ · Animador"></div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-edit-tl')">Cancelar</button>
+    <button class="btn-primary" style="background:var(--red)" onclick="deleteTlItem()">🗑 Eliminar</button>
+    <button class="btn-primary" onclick="saveEditTl()">Guardar</button>
+  </div>
+</div></div>
+
+<!-- MODAL: ADD TIMELINE -->
+<div class="modal-overlay" id="modal-add-tl"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Nuevo momento</div>
+  <div class="form-group"><label class="form-label">Hora</label><input class="form-input" id="new-tl-time" placeholder="ej: 9:00 pm"></div>
+  <div class="form-group"><label class="form-label">Título</label><input class="form-input" id="new-tl-title" placeholder="ej: 🎆 Fuegos artificiales"></div>
+  <div class="form-group"><label class="form-label">Descripción</label><textarea class="form-textarea" id="new-tl-desc" placeholder="Descripción del momento..."></textarea></div>
+  <div class="form-group"><label class="form-label">Responsable</label><input class="form-input" id="new-tl-resp" placeholder="ej: DJ · Animador"></div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-add-tl')">Cancelar</button>
+    <button class="btn-primary" onclick="addTlItem()">Agregar</button>
+  </div>
+</div></div>
+
+<!-- MODAL: EDIT COMPRA -->
+<div class="modal-overlay" id="modal-edit-compra"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Editar compra</div>
+  <input type="hidden" id="edit-cmp-idx">
+  <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" id="edit-cmp-nombre"></div>
+  <div class="form-group"><label class="form-label">Categoría</label><select class="form-select" id="edit-cmp-cat"><option>🍾 Bebidas</option><option>🎁 Recuerdos</option><option>💒 Ceremonia</option><option>💄 Belleza</option><option>🪧 Decoración</option><option>📦 Kit emergencia</option><option>🛒 Otros</option></select></div>
+  <div class="form-group"><label class="form-label">Nota</label><input class="form-input" id="edit-cmp-nota"></div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-edit-compra')">Cancelar</button>
+    <button class="btn-primary" style="background:var(--red)" onclick="deleteCompraFromEdit()">🗑 Eliminar</button>
+    <button class="btn-primary" onclick="saveEditCompra()">Guardar</button>
+  </div>
+</div></div>
+
+<!-- MODAL: EDIT CANCION -->
+<div class="modal-overlay" id="modal-edit-cancion"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Editar canción</div>
+  <input type="hidden" id="edit-song-idx">
+  <div class="form-group"><label class="form-label">Momento</label><select class="form-select" id="edit-song-momento"><option>💍 Entrada de novios</option><option>💃 Primer baile</option><option>👨‍👩‍👧 Baile con padres</option><option>🥂 Brindis</option><option>🎉 Hora loca</option><option>🎵 Ambiente general</option><option>🌹 Cierre</option></select></div>
+  <div class="form-group"><label class="form-label">Título</label><input class="form-input" id="edit-song-titulo"></div>
+  <div class="form-group"><label class="form-label">Artista</label><input class="form-input" id="edit-song-artista"></div>
+  <div class="form-group"><label class="form-label">🔗 Link (Spotify, YouTube, etc.)</label><input class="form-input" id="edit-song-link" placeholder="https://..."></div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-edit-cancion')">Cancelar</button>
+    <button class="btn-primary" style="background:var(--red)" onclick="deleteCancionFromEdit()">🗑 Eliminar</button>
+    <button class="btn-primary" onclick="saveEditCancion()">Guardar</button>
+  </div>
+</div></div>
+
+<!-- MODAL: EDIT PRESUPUESTO -->
+<div class="modal-overlay" id="modal-edit-gasto"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Editar gasto</div>
+  <input type="hidden" id="edit-gas-idx">
+  <div class="form-group"><label class="form-label">Descripción</label><input class="form-input" id="edit-gas-nombre"></div>
+  <div class="form-group"><label class="form-label">Monto (S/)</label><input class="form-input" id="edit-gas-monto" type="number"></div>
+  <div class="form-group"><label class="form-label">Categoría</label><select class="form-select" id="edit-gas-cat"><option>🏛 Local/Catering</option><option>📷 Fotografía</option><option>🎵 Música/DJ</option><option>💐 Decoración/Flores</option><option>👗 Vestido/Traje</option><option>🎂 Torta</option><option>💄 Maquillaje</option><option>💍 Argollas</option><option>🍾 Bebidas</option><option>🎁 Recuerdos</option><option>📋 Trámites</option><option>🛒 Otros</option></select></div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-edit-gasto')">Cancelar</button>
+    <button class="btn-primary" style="background:var(--red)" onclick="deleteGastoFromEdit()">🗑 Eliminar</button>
+    <button class="btn-primary" onclick="saveEditGasto()">Guardar</button>
+  </div>
+</div></div>
+
+<!-- MODAL: EDIT CONTRATO -->
+<div class="modal-overlay" id="modal-edit-contrato"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Editar contrato</div>
+  <input type="hidden" id="edit-con-idx">
+  <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" id="edit-con-nombre"></div>
+  <div class="form-group"><label class="form-label">Categoría</label><select class="form-select" id="edit-con-cat"><option>🎵 Música/DJ</option><option>👗 Vestido</option><option>💐 Decoración</option><option>⛺ Toldo</option><option>🍹 Mozos/Bebidas</option><option>🎂 Torta</option><option>💄 Maquillaje</option><option>🏛 Local</option><option>📷 Fotografía</option><option>📋 Otro</option></select></div>
+  <div class="form-group"><label class="form-label">Total (S/)</label><input class="form-input" id="edit-con-total" type="number"></div>
+  <div class="form-group"><label class="form-label">Pagado (S/)</label><input class="form-input" id="edit-con-pagado" type="number"></div>
+  <div class="form-group"><label class="form-label">Fecha vencimiento</label><input class="form-input" id="edit-con-fecha"></div>
+  <div class="form-group"><label class="form-label">Notas</label><textarea class="form-textarea" id="edit-con-notas"></textarea></div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-edit-contrato')">Cancelar</button>
+    <button class="btn-primary" style="background:var(--red)" onclick="deleteContratoFromEdit()">🗑 Eliminar</button>
+    <button class="btn-primary" onclick="saveEditContrato()">Guardar</button>
+  </div>
+</div></div>
+
+<input type="file" id="file-contrato-edit-upload" accept=".pdf,image/*" style="display:none" onchange="handleContratoFileEdit(event)">
 
 <input type="file" id="file-galeria" accept="image/*" multiple style="display:none" onchange="handleGaleriaUpload(event)">
 
@@ -760,6 +1052,7 @@ let canciones=[...cancionesDefault];
 let galeriaFotos=[];
 let currentScreen='dashboard';
 let currentMasTab='requisitos';
+let currentInvTab='all';
 
 // ══════════════════════════════════════
 // STORAGE
@@ -940,6 +1233,8 @@ function subscribeToFirebase(){
       renderCurrentScreen();
     }
   });
+  // Subscribe to notas separately
+  loadNotas();
 }
 
 function renderCurrentScreen(){
@@ -1023,14 +1318,15 @@ function goTo(screen,btn){
   if(screen==='checklist'||screen==='invitados'||screen==='galeria'){fab.textContent='＋';}
   else if(screen==='mas'){
     fab.textContent='＋';
-    if(currentMasTab==='requisitos')fab.className='fab hidden';
+    if(currentMasTab==='requisitos'||currentMasTab==='notas'||currentMasTab==='calendario')fab.className='fab hidden';
   }
   else{fab.className='fab hidden';}
-  if(screen==='dashboard')renderDashboard();
+  if(screen==='dashboard'){renderDashboard();renderPaymentAlerts();}
   if(screen==='checklist')renderChecklist();
   if(screen==='invitados')renderInvitados();
   if(screen==='mas')renderMasTab(currentMasTab);
   if(screen==='galeria')renderGaleria();
+  if(screen==='ajustes')renderAjustes();
 }
 
 function showMasTab(tab,btn){
@@ -1052,6 +1348,8 @@ function renderMasTab(tab){
   if(tab==='presupuesto')renderPresupuesto();
   if(tab==='compras')renderCompras();
   if(tab==='canciones')renderCanciones();
+  if(tab==='notas'){renderNotas();}
+  if(tab==='calendario')renderCalendar();
 }
 
 // ══════════════════════════════════════
@@ -1068,6 +1366,118 @@ function updateCountdown(){
   }
 }
 updateCountdown();setInterval(updateCountdown,30000);
+
+function openEditTl(i){
+  const t=tlData[i];
+  document.getElementById('edit-tl-idx').value=i;
+  document.getElementById('edit-tl-time').value=t.time;
+  document.getElementById('edit-tl-title').value=t.title;
+  document.getElementById('edit-tl-desc').value=t.desc;
+  document.getElementById('edit-tl-resp').value=t.resp||'';
+  openModal('modal-edit-tl');
+}
+function saveEditTl(){
+  const i=parseInt(document.getElementById('edit-tl-idx').value);
+  tlData[i]={...tlData[i],
+    time:document.getElementById('edit-tl-time').value,
+    title:document.getElementById('edit-tl-title').value,
+    desc:document.getElementById('edit-tl-desc').value,
+    resp:document.getElementById('edit-tl-resp').value,
+  };
+  closeModal('modal-edit-tl');renderDashboard();
+}
+function deleteTlItem(){
+  const i=parseInt(document.getElementById('edit-tl-idx').value);
+  tlData.splice(i,1);closeModal('modal-edit-tl');renderDashboard();
+}
+function addTlItem(){
+  const time=document.getElementById('new-tl-time').value.trim();
+  const title=document.getElementById('new-tl-title').value.trim();
+  if(!time||!title)return;
+  tlData.push({time,title,desc:document.getElementById('new-tl-desc').value,resp:document.getElementById('new-tl-resp').value,color:'#c4806e'});
+  ['new-tl-time','new-tl-title','new-tl-desc','new-tl-resp'].forEach(id=>document.getElementById(id).value='');
+  closeModal('modal-add-tl');renderDashboard();
+}
+
+function exportPDF(){
+  const allTasks=[...tasksData,...customTasks];
+  const done=allTasks.filter(t=>completedTasks.has(t.id)).length;
+  const conf=invitados.filter(i=>i.status==='confirmed').length;
+  const totalPagado=contratos.reduce((s,c)=>s+c.pagado,0)+gastos.reduce((s,g)=>s+g.monto,0);
+  const totalComp=contratos.reduce((s,c)=>s+c.total,0);
+  const today=new Date().toLocaleDateString('es-PE');
+
+  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8">
+  <style>
+    body{font-family:Georgia,serif;color:#2d1f1a;padding:30px;max-width:800px;margin:0 auto}
+    h1{color:#8b5e52;font-size:2rem;text-align:center;margin-bottom:4px}
+    .sub{text-align:center;color:#b07a6e;margin-bottom:30px;font-style:italic}
+    h2{color:#8b5e52;font-size:1.1rem;border-bottom:2px solid #f0ddd8;padding-bottom:6px;margin:24px 0 12px}
+    .kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+    .kpi{background:#fdf6f0;border-radius:10px;padding:14px;text-align:center;border:1px solid #f0ddd8}
+    .kpi-num{font-size:1.8rem;font-weight:bold;color:#8b5e52}
+    .kpi-lbl{font-size:.75rem;color:#b07a6e;margin-top:3px}
+    table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:.85rem}
+    th{background:#8b5e52;color:white;padding:8px 10px;text-align:left}
+    td{padding:7px 10px;border-bottom:1px solid #f0ddd8}
+    tr:nth-child(even) td{background:#fdf6f0}
+    .done{color:#4a8c6a;font-weight:600}
+    .pending{color:#d4813a}
+    .urgent{color:#c0392b;font-weight:600}
+    .footer{text-align:center;color:#b07a6e;font-size:.75rem;margin-top:30px;border-top:1px solid #f0ddd8;padding-top:14px}
+    @media print{body{padding:15px}}
+  </style></head><body>
+  <h1>💍 Josseline & Clarck</h1>
+  <div class="sub">Reporte de planificación · Generado el ${today} · Boda: 29 de agosto 2026</div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-num">${done}/${allTasks.length}</div><div class="kpi-lbl">Tareas completadas</div></div>
+    <div class="kpi"><div class="kpi-num">${conf}/40</div><div class="kpi-lbl">Invitados confirmados</div></div>
+    <div class="kpi"><div class="kpi-num">S/ ${totalPagado.toFixed(0)}</div><div class="kpi-lbl">Pagado de S/ ${totalComp.toFixed(0)}</div></div>
+  </div>
+
+  <h2>✅ Checklist de tareas</h2>
+  <table><tr><th>Tarea</th><th>Estado</th><th>Prioridad</th></tr>
+  ${allTasks.map(t=>`<tr><td>${t.label}</td><td class="${completedTasks.has(t.id)?'done':'pending'}">${completedTasks.has(t.id)?'✓ Completado':'Pendiente'}</td><td class="${t.urgency==='urgent'?'urgent':''}">${t.urgency==='urgent'?'🔴 Urgente':t.urgency==='soon'?'🟠 Julio':'🟡 Agosto'}</td></tr>`).join('')}
+  </table>
+
+  <h2>👥 Invitados (${invitados.length} registrados)</h2>
+  <table><tr><th>Nombre</th><th>Grupo</th><th>Estado</th></tr>
+  ${invitados.map(i=>`<tr><td>${i.name}</td><td>${i.group==='novio'?'🤵 Novio':i.group==='ambos'?'👥 Ambos':'👰 Novia'}</td><td class="${i.status==='confirmed'?'done':i.status==='declined'?'urgent':'pending'}">${i.status==='confirmed'?'✅ Confirmado':i.status==='declined'?'❌ No asiste':'⏳ Pendiente'}</td></tr>`).join('')}
+  </table>
+
+  <h2>📄 Contratos</h2>
+  <table><tr><th>Proveedor</th><th>Total</th><th>Pagado</th><th>Por pagar</th><th>Vence</th></tr>
+  ${contratos.map(c=>`<tr><td>${c.cat} ${c.nombre}</td><td>S/ ${c.total.toFixed(2)}</td><td class="done">S/ ${c.pagado.toFixed(2)}</td><td class="pending">S/ ${(c.total-c.pagado).toFixed(2)}</td><td>${c.fecha}</td></tr>`).join('')}
+  </table>
+
+  <h2>💰 Gastos adicionales</h2>
+  ${gastos.length?`<table><tr><th>Descripción</th><th>Categoría</th><th>Monto</th></tr>${gastos.map(g=>`<tr><td>${g.nombre}</td><td>${g.cat}</td><td>S/ ${g.monto.toFixed(2)}</td></tr>`).join('')}</table>`:'<p style="color:#b07a6e;font-style:italic">Sin gastos adicionales registrados</p>'}
+
+  <h2>🛒 Lista de compras</h2>
+  <table><tr><th>Ítem</th><th>Categoría</th><th>Estado</th></tr>
+  ${compras.map(c=>`<tr><td>${c.nombre}${c.nota?' ('+c.nota+')':''}</td><td>${c.cat}</td><td class="${c.done?'done':'pending'}">${c.done?'✓ Comprado':'Pendiente'}</td></tr>`).join('')}
+  </table>
+
+  <h2>🎵 Canciones seleccionadas</h2>
+  <table><tr><th>Momento</th><th>Canción</th><th>Artista</th><th>Votos</th></tr>
+  ${canciones.map(s=>`<tr><td>${s.momento}</td><td>${s.titulo}</td><td>${s.artista||'-'}</td><td>${s.votos.j&&s.votos.c?'✅ Ambos aprueban':s.votos.j?'👰':s.votos.c?'🤵':'-'}</td></tr>`).join('')}
+  </table>
+
+  <h2>📋 Requisitos</h2>
+  <table><tr><th>Requisito</th><th>Tipo</th><th>Estado</th></tr>
+  ${reqData.church.map(r=>`<tr><td>${r.name}</td><td>⛪ Religioso</td><td class="${reqDone.has(r.id)?'done':'pending'}">${reqDone.has(r.id)?'✓ Cumplido':'Pendiente'}</td></tr>`).join('')}
+  ${reqData.civil.map(r=>`<tr><td>${r.name}</td><td>⚖️ Civil</td><td class="${reqDone.has(r.id)?'done':'pending'}">${reqDone.has(r.id)?'✓ Cumplido':'Pendiente'}</td></tr>`).join('')}
+  </table>
+
+  <div class="footer">Generado por Wedding Planner App · Josseline & Clarck · 29 agosto 2026<br>💍 ¡Que sea el día más feliz de sus vidas!</div>
+  </body></html>`;
+
+  const win=window.open('','_blank');
+  win.document.write(html);
+  win.document.close();
+  setTimeout(()=>win.print(),500);
+}
 
 function resetSetup(){
   if(confirm('¿Cambiar configuración de sincronización?')){
@@ -1091,6 +1501,7 @@ function renderDashboard(){
   const total=allTasks.length;
   const done=allTasks.filter(t=>completedTasks.has(t.id)).length;
   document.getElementById('kpi-done').textContent=done;
+  renderPaymentAlerts();
   // User info bar
   const uib=document.getElementById('user-info-bar');
   if(uib){
@@ -1137,14 +1548,18 @@ function renderDashboard(){
     <span class="status-badge ${p.status==='ok'?'sb-ok':p.status==='warn'?'sb-warn':'sb-pending'}">${p.label}</span></div>`).join('');
 
   // Timeline
-  document.getElementById('tl-items').innerHTML=tlData.map(t=>`
+  document.getElementById('tl-items').innerHTML=tlData.map((t,i)=>`
     <div style="margin-bottom:16px;position:relative">
-      <div style="position:absolute;left:-18px;top:4px;width:12px;height:12px;border-radius:50%;background:${t.color};border:2px solid white;box-shadow:0 0 0 2px ${t.color}40"></div>
-      <div style="font-size:.72rem;font-weight:600;color:var(--rose-dark)">${t.time}</div>
+      <div style="position:absolute;left:-18px;top:4px;width:12px;height:12px;border-radius:50%;background:${t.color||'var(--rose)'};border:2px solid white;box-shadow:0 0 0 2px ${(t.color||'var(--rose)')}40"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div style="font-size:.72rem;font-weight:600;color:var(--rose-dark)">${t.time}</div>
+        <button class="btn-edit" onclick="openEditTl(${i})" style="font-size:.58rem;padding:2px 6px">✏️</button>
+      </div>
       <div style="font-size:.84rem;color:var(--text);font-weight:500;margin-top:1px">${t.title}</div>
       <div style="font-size:.68rem;color:var(--text-soft);margin-top:2px;line-height:1.5">${t.desc}</div>
       ${t.resp?`<div style="font-size:.62rem;background:var(--rose-pale);color:var(--rose-dark);border-radius:6px;padding:2px 7px;display:inline-block;margin-top:4px">${t.resp}</div>`:''}
-    </div>`).join('');
+    </div>`).join('') +
+    `<div style="margin-top:8px"><button onclick="openModal('modal-add-tl')" style="width:100%;padding:10px;border:1.5px dashed var(--border);border-radius:10px;background:none;color:var(--text-soft);font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer">＋ Agregar momento</button></div>`;
 
   // Urgente badge
   const urgPending=tasksData.filter(t=>t.phase==='urgent'&&t.urgency==='urgent'&&!completedTasks.has(t.id)).length;
@@ -1171,11 +1586,13 @@ function renderChecklist(){
     tasks.forEach(t=>{
       const isDone=completedTasks.has(t.id);
       const isLocked=t.locked;
+      const isCustom=t.id.startsWith('ct_');
       html+=`<div class="task-card ${isDone?'done':''} ${isLocked?'locked':''} ${t.urgency==='urgent'?'urgent-task':t.urgency==='soon'?'soon-task':''}"
         onclick="${isLocked?'':  `toggleTask('${t.id}')`}">
         <div class="task-check">${isDone||isLocked?'✓':''}</div>
-        <div style="flex:1"><div class="task-title">${t.label}</div><div class="task-meta ${t.urgency||''}">${t.meta}</div></div>
-        ${!isLocked&&!isDone&&t.urgency==='urgent'?'<div style="font-size:.65rem;color:var(--red);font-weight:600;flex-shrink:0">URGENTE</div>':''}
+        <div style="flex:1"><div class="task-title">${t.label}${t.deadline?getDaysBadge(t.deadline):''}</div><div class="task-meta ${t.urgency||''}">${t.meta}</div></div>
+        ${isCustom?`<button class="btn-edit" onclick="event.stopPropagation();openEditTask('${t.id}')" style="font-size:.6rem;padding:3px 7px;flex-shrink:0">✏️</button>`:''}
+        ${!isLocked&&!isDone&&t.urgency==='urgent'&&!isCustom?'<div style="font-size:.65rem;color:var(--red);font-weight:600;flex-shrink:0">URGENTE</div>':''}
       </div>`;
     });
   });
@@ -1191,9 +1608,17 @@ function toggleTask(id){
 // ══════════════════════════════════════
 // INVITADOS
 // ══════════════════════════════════════
+function switchInvTab(tab, btn){
+  currentInvTab=tab;
+  document.querySelectorAll('.inv-group-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderInvitados();
+}
 function renderInvitados(){
   const searchEl=document.getElementById('inv-search');const search=searchEl?searchEl.value.toLowerCase():'';
-  const filtered=invitados.filter(i=>i.name.toLowerCase().includes(search));
+  let filtered=invitados.filter(i=>i.name.toLowerCase().includes(search));
+  if(currentInvTab==='novia') filtered=filtered.filter(i=>i.group==='novia'||!i.group);
+  else if(currentInvTab==='novio') filtered=filtered.filter(i=>i.group==='novio');
   document.getElementById('is-total').textContent=invitados.length;
   document.getElementById('is-conf').textContent=invitados.filter(i=>i.status==='confirmed').length;
   document.getElementById('is-pend').textContent=invitados.filter(i=>i.status==='pending').length;
@@ -1207,9 +1632,11 @@ function renderInvitados(){
     const initials=inv.name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
     const col=inv.status==='confirmed'?'var(--green)':inv.status==='declined'?'var(--red)':'var(--orange)';
     const bg=inv.status==='confirmed'?'var(--green-light)':inv.status==='declined'?'var(--red-light)':'var(--rose-light)';
+    const groupIcon = inv.group==='novio'?'🤵':inv.group==='ambos'?'👥':'👰';
     return `<div class="inv-item">
       <div class="inv-avatar" style="background:${bg};color:${col}">${initials}</div>
-      <div style="flex:1;min-width:0"><div class="inv-name">${inv.name}</div>${inv.note?`<div style="font-size:.65rem;color:var(--text-soft);margin-top:1px">${inv.note}</div>`:''}</div>
+      <div style="flex:1;min-width:0"><div class="inv-name">${inv.name} <span style="font-size:.6rem;opacity:.7">${groupIcon}</span></div>${inv.note?`<div style="font-size:.65rem;color:var(--text-soft);margin-top:1px">${inv.note}</div>`:''}</div>
+      <button class="wa-btn" onclick="sendWAInvitado('${inv.name.replace(/'/g, '')}')" title="Enviar por WhatsApp">💬</button>
       <select onchange="changeInvStatus(${ri},this.value)" style="font-size:.65rem;padding:4px 6px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;background:white;color:var(--text);outline:none">
         <option value="pending" ${inv.status==='pending'?'selected':''}>⏳</option>
         <option value="confirmed" ${inv.status==='confirmed'?'selected':''}>✅</option>
@@ -1222,7 +1649,7 @@ function renderInvitados(){
 function addInvitado(){
   const name=document.getElementById('new-inv-name').value.trim();
   if(!name)return;
-  invitados.push({name,status:document.getElementById('new-inv-status').value,note:document.getElementById('new-inv-note').value});
+  invitados.push({name,status:document.getElementById('new-inv-status').value,note:document.getElementById('new-inv-note').value,group:document.getElementById('new-inv-group').value});
   document.getElementById('new-inv-name').value='';
   document.getElementById('new-inv-note').value='';
   saveData();closeModal('modal-inv');renderInvitados();
@@ -1286,6 +1713,7 @@ function renderContratos(){
     const pct=c.total>0?Math.round(c.pagado/c.total*100):0;
     const col=pct===100?'var(--green)':pct>0?'var(--orange)':'var(--red)';
     html+=`<div class="contrato-card" style="border-left-color:${col}">
+      <button class="btn-edit" onclick="openEditContrato(${i})" style="position:absolute;top:12px;right:40px;font-size:.6rem;padding:3px 7px">✏️</button>
       <button class="contrato-del" onclick="deleteContrato(${i})">✕</button>
       <div class="contrato-nombre">${c.cat} ${c.nombre}</div>
       <div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-soft);margin-bottom:4px"><span>Pagado: S/ ${c.pagado.toFixed(2)}</span><span>${pct}%</span></div><div style="height:6px;background:var(--rose-light);border-radius:10px;overflow:hidden"><div style="height:100%;width:${pct}%;background:${col};border-radius:10px"></div></div></div>
@@ -1310,6 +1738,44 @@ function addContrato(){
   saveData();closeModal('modal-contrato');renderContratos();
 }
 function deleteContrato(i){if(confirm('¿Eliminar contrato?')){contratos.splice(i,1);saveData();renderContratos();}}
+function openEditContrato(i){
+  const c=contratos[i];
+  document.getElementById('edit-con-idx').value=i;
+  document.getElementById('edit-con-nombre').value=c.nombre;
+  document.getElementById('edit-con-cat').value=c.cat;
+  document.getElementById('edit-con-total').value=c.total;
+  document.getElementById('edit-con-pagado').value=c.pagado;
+  document.getElementById('edit-con-fecha').value=c.fecha;
+  document.getElementById('edit-con-notas').value=c.notas||'';
+  openModal('modal-edit-contrato');
+}
+function saveEditContrato(){
+  const i=parseInt(document.getElementById('edit-con-idx').value);
+  contratos[i]={...contratos[i],
+    nombre:document.getElementById('edit-con-nombre').value,
+    cat:document.getElementById('edit-con-cat').value,
+    total:parseFloat(document.getElementById('edit-con-total').value)||0,
+    pagado:parseFloat(document.getElementById('edit-con-pagado').value)||0,
+    fecha:document.getElementById('edit-con-fecha').value,
+    notas:document.getElementById('edit-con-notas').value,
+  };
+  saveData();closeModal('modal-edit-contrato');renderContratos();
+}
+function deleteContratoFromEdit(){
+  const i=parseInt(document.getElementById('edit-con-idx').value);
+  if(confirm('¿Eliminar contrato?')){contratos.splice(i,1);saveData();closeModal('modal-edit-contrato');renderContratos();}
+}
+function handleContratoFileEdit(e){
+  const file=e.target.files[0];
+  if(!file||!pendingFileTarget)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    contratoFiles[pendingFileTarget.id]={name:file.name,type:file.type,data:ev.target.result};
+    saveFilesLocal();showToast('📎 Archivo adjuntado');renderContratos();
+  };
+  reader.readAsDataURL(file);
+  e.target.value='';
+}
 
 // ══════════════════════════════════════
 // CONTACTOS
@@ -1363,7 +1829,7 @@ function renderPresupuesto(){
   if(gastos.length){
     html+='<div style="font-size:.72rem;font-weight:600;color:var(--blue);margin:12px 0 6px">💳 Otros gastos registrados</div>';
     gastos.forEach((g,i)=>{
-      html+=`<div class="budget-row custom-expense"><span class="br-name">${g.cat} ${g.nombre}</span><div style="display:flex;align-items:center;gap:6px"><span class="br-amount green">S/ ${g.monto.toFixed(2)}</span><button class="br-del" onclick="deleteGasto(${i})">✕</button></div></div>`;
+      html+=`<div class="budget-row custom-expense"><span class="br-name">${g.cat} ${g.nombre}</span><div style="display:flex;align-items:center;gap:4px"><span class="br-amount green">S/ ${g.monto.toFixed(2)}</span><button class="btn-edit" onclick="openEditGasto(${i})" style="font-size:.6rem;padding:3px 7px">✏️</button></div></div>`;
     });
   }
   html+=`<div style="background:var(--rose-dark);color:white;border-radius:12px;padding:14px;margin-top:12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:.82rem">Total gastado / comprometido</span><span style="font-size:1rem;font-weight:700">S/ ${grandTotal.toFixed(2)}</span></div>`;
@@ -1377,6 +1843,27 @@ function addGasto(){
   saveData();closeModal('modal-gasto');renderPresupuesto();
 }
 function deleteGasto(i){gastos.splice(i,1);saveData();renderPresupuesto();}
+function openEditGasto(i){
+  const g=gastos[i];
+  document.getElementById('edit-gas-idx').value=i;
+  document.getElementById('edit-gas-nombre').value=g.nombre;
+  document.getElementById('edit-gas-monto').value=g.monto;
+  document.getElementById('edit-gas-cat').value=g.cat;
+  openModal('modal-edit-gasto');
+}
+function saveEditGasto(){
+  const i=parseInt(document.getElementById('edit-gas-idx').value);
+  gastos[i]={...gastos[i],
+    nombre:document.getElementById('edit-gas-nombre').value,
+    monto:parseFloat(document.getElementById('edit-gas-monto').value)||0,
+    cat:document.getElementById('edit-gas-cat').value,
+  };
+  saveData();closeModal('modal-edit-gasto');renderPresupuesto();
+}
+function deleteGastoFromEdit(){
+  const i=parseInt(document.getElementById('edit-gas-idx').value);
+  gastos.splice(i,1);saveData();closeModal('modal-edit-gasto');renderPresupuesto();
+}
 
 // ══════════════════════════════════════
 // COMPRAS
@@ -1392,11 +1879,32 @@ function renderCompras(){
     <div class="compra-item ${c.done?'done':''}" onclick="toggleCompra(${i})">
       <div class="compra-check">${c.done?'✓':''}</div>
       <div style="flex:1"><div class="compra-nombre">${c.nombre}</div>${c.nota?`<div style="font-size:.65rem;color:var(--text-soft);margin-top:1px">${c.nota}</div>`:''}</div>
-      <span class="compra-cat">${c.cat}</span>
-      <button class="compra-del" onclick="event.stopPropagation();deleteCompra(${i})">✕</button>
+      <span class="compra-cat" style="font-size:.6rem">${c.cat}</span>
+      <button class="btn-edit" onclick="event.stopPropagation();openEditCompra(${i})" style="margin-left:4px;font-size:.6rem;padding:3px 7px">✏️</button>
     </div>`).join('');
 }
 function toggleCompra(i){compras[i].done=!compras[i].done;if(compras[i].done&&navigator.vibrate)navigator.vibrate(30);saveData();renderCompras();}
+function openEditCompra(i){
+  const c=compras[i];
+  document.getElementById('edit-cmp-idx').value=i;
+  document.getElementById('edit-cmp-nombre').value=c.nombre;
+  document.getElementById('edit-cmp-cat').value=c.cat;
+  document.getElementById('edit-cmp-nota').value=c.nota||'';
+  openModal('modal-edit-compra');
+}
+function saveEditCompra(){
+  const i=parseInt(document.getElementById('edit-cmp-idx').value);
+  compras[i]={...compras[i],
+    nombre:document.getElementById('edit-cmp-nombre').value,
+    cat:document.getElementById('edit-cmp-cat').value,
+    nota:document.getElementById('edit-cmp-nota').value,
+  };
+  saveData();closeModal('modal-edit-compra');renderCompras();
+}
+function deleteCompraFromEdit(){
+  const i=parseInt(document.getElementById('edit-cmp-idx').value);
+  compras.splice(i,1);saveData();closeModal('modal-edit-compra');renderCompras();
+}
 function addCompra(){
   const nombre=document.getElementById('new-cmp-nombre').value.trim();
   if(!nombre)return;
@@ -1410,23 +1918,56 @@ function deleteCompra(i){compras.splice(i,1);saveData();renderCompras();}
 // CANCIONES
 // ══════════════════════════════════════
 function renderCanciones(){
-  document.getElementById('canciones-list').innerHTML=canciones.map((s,i)=>`
-    <div class="cancion-card">
-      <div class="cancion-momento">${s.momento}</div>
-      <div class="cancion-titulo">${s.titulo}</div>
+  document.getElementById('canciones-list').innerHTML=canciones.map((s,i)=>{
+    const isSpotify = s.link&&s.link.includes('spotify');
+    const isYT = s.link&&(s.link.includes('youtube')||s.link.includes('youtu.be'));
+    const linkClass = isSpotify?'song-link':isYT?'song-link youtube':'song-link generic';
+    const linkIcon = isSpotify?'🎧':isYT?'▶️':'🔗';
+    const ambos = s.votos.j&&s.votos.c;
+    return `<div class="cancion-card" style="${ambos?'border-left:3px solid var(--green)':''}">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div class="cancion-momento">${s.momento}</div>
+        <button class="btn-edit" onclick="openEditCancion(${i})">✏️ Editar</button>
+      </div>
+      <div class="cancion-titulo">${s.titulo}${ambos?' ✅':''}</div>
       ${s.artista?`<div class="cancion-artista">${s.artista}</div>`:''}
-      <div class="cancion-votos">
+      ${s.link?`<a href="${s.link}" target="_blank" class="${linkClass}">${linkIcon} Escuchar</a>`:''}
+      <div class="cancion-votos" style="margin-top:8px">
         <button class="voto-btn ${s.votos.j?'voted':''}" onclick="votarCancion(${i},'j')">💍 Josseline ${s.votos.j?'✓':''}</button>
         <button class="voto-btn ${s.votos.c?'voted':''}" onclick="votarCancion(${i},'c')">💙 Clarck ${s.votos.c?'✓':''}</button>
       </div>
-      ${i>=cancionesDefault.length?`<button style="margin-top:8px;background:none;border:none;color:#ddd;font-size:.75rem;cursor:pointer" onclick="deleteCancion(${i})">Eliminar</button>`:''}
-    </div>`).join('');
+    </div>`;
+  }).join('');
+}
+
+function openEditCancion(i){
+  const s=canciones[i];
+  document.getElementById('edit-song-idx').value=i;
+  document.getElementById('edit-song-momento').value=s.momento;
+  document.getElementById('edit-song-titulo').value=s.titulo;
+  document.getElementById('edit-song-artista').value=s.artista||'';
+  document.getElementById('edit-song-link').value=s.link||'';
+  openModal('modal-edit-cancion');
+}
+function saveEditCancion(){
+  const i=parseInt(document.getElementById('edit-song-idx').value);
+  canciones[i]={...canciones[i],
+    momento:document.getElementById('edit-song-momento').value,
+    titulo:document.getElementById('edit-song-titulo').value,
+    artista:document.getElementById('edit-song-artista').value,
+    link:document.getElementById('edit-song-link').value,
+  };
+  saveData();closeModal('modal-edit-cancion');renderCanciones();
+}
+function deleteCancionFromEdit(){
+  const i=parseInt(document.getElementById('edit-song-idx').value);
+  canciones.splice(i,1);saveData();closeModal('modal-edit-cancion');renderCanciones();
 }
 function votarCancion(i,quien){canciones[i].votos[quien]=!canciones[i].votos[quien];saveData();renderCanciones();}
 function addCancion(){
   const titulo=document.getElementById('new-song-titulo').value.trim();
   if(!titulo)return;
-  canciones.push({id:'s_'+Date.now(),momento:document.getElementById('new-song-momento').value,titulo,artista:document.getElementById('new-song-artista').value,votos:{j:false,c:false}});
+  canciones.push({id:'s_'+Date.now(),momento:document.getElementById('new-song-momento').value,titulo,artista:document.getElementById('new-song-artista').value,link:'',votos:{j:false,c:false}});
   ['new-song-titulo','new-song-artista'].forEach(id=>document.getElementById(id).value='');
   saveData();closeModal('modal-cancion');renderCanciones();
 }
@@ -1481,6 +2022,35 @@ function openAddModal(){
 }
 function openModal(id){document.getElementById(id).classList.add('open');}
 function closeModal(id){document.getElementById(id).classList.remove('open');}
+function openEditTask(id){
+  const t=customTasks.find(t=>t.id===id);
+  if(!t)return;
+  document.getElementById('edit-task-id').value=id;
+  document.getElementById('edit-task-name').value=t.label;
+  document.getElementById('edit-task-meta').value=t.meta;
+  const p=t.urgency==='urgent'?'urgent':t.urgency==='soon'?'soon':'normal';
+  document.getElementById('edit-task-priority').value=p;
+  openModal('modal-edit-task');
+}
+function saveEditTask(){
+  const id=document.getElementById('edit-task-id').value;
+  const idx=customTasks.findIndex(t=>t.id===id);
+  if(idx<0)return;
+  const p=document.getElementById('edit-task-priority').value;
+  customTasks[idx]={...customTasks[idx],
+    label:document.getElementById('edit-task-name').value,
+    meta:document.getElementById('edit-task-meta').value,
+    phase:p==='urgent'?'urgent':p==='soon'?'july':'august',
+    urgency:p,
+  };
+  saveData();closeModal('modal-edit-task');renderChecklist();
+}
+function deleteCustomTask(){
+  const id=document.getElementById('edit-task-id').value;
+  const idx=customTasks.findIndex(t=>t.id===id);
+  if(idx>=0){customTasks.splice(idx,1);completedTasks.delete(id);}
+  saveData();closeModal('modal-edit-task');renderChecklist();
+}
 function addTask(){
   const name=document.getElementById('new-task-name').value.trim();
   if(!name)return;
@@ -1609,9 +2179,281 @@ function loadFilesLocal() {
 loadFilesLocal();
 
 // ══════════════════════════════════════
+// PAYMENT ALERTS
+// ══════════════════════════════════════
+function renderPaymentAlerts(){
+  const el=document.getElementById('payment-alerts');
+  if(!el)return;
+  const now=new Date();
+  const alerts=[];
+  contratos.forEach(c=>{
+    if(c.pagado>=c.total)return;
+    // Try to parse date from fecha field
+    const pending=c.total-c.pagado;
+    alerts.push({title:`${c.cat} ${c.nombre}`,sub:`Por pagar: S/ ${pending.toFixed(2)} · ${c.fecha}`,urgent:c.fecha.toLowerCase().includes('agosto')});
+  });
+  if(!alerts.length){el.innerHTML='';return;}
+  el.innerHTML=alerts.map(a=>`
+    <div class="payment-alert-banner" style="${a.urgent?'':'background:linear-gradient(135deg,#d4813a,#e67e22)'}">
+      <div class="pab-icon">${a.urgent?'🚨':'💳'}</div>
+      <div><div class="pab-title">${a.title}</div><div class="pab-sub">${a.sub}</div></div>
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════
+// DAYS COUNTER BADGE
+// ══════════════════════════════════════
+function getDaysBadge(deadline){
+  try{
+    const d=new Date(deadline);
+    const now=new Date();
+    const days=Math.ceil((d-now)/(1000*60*60*24));
+    if(days<0)return'';
+    const cls=days<=7?'critical':days<=30?'warning':'ok';
+    return `<span class="days-badge ${cls}">${days}d</span>`;
+  }catch(e){return'';}
+}
+
+// ══════════════════════════════════════
+// WHATSAPP INVITADO
+// ══════════════════════════════════════
+function sendWAInvitado(nombre){
+  const msg=encodeURIComponent(`Hola ${nombre}! 💍\n\nTe invitamos a nuestra boda el *29 de agosto de 2026* en *Casona Khunan Pacha*, San Francisco 217, Cercado - Arequipa.\n\nLa ceremonia religiosa es a las *11:00 am* en la Parroquia Santa Marta y la recepción desde la *1:00 pm*.\n\n¿Podrás acompañarnos? Por favor confírmanos tu asistencia. 🥂\n\n*Josseline & Clarck* 💕`);
+  window.open(`https://wa.me/?text=${msg}`,'_blank');
+}
+
+// ══════════════════════════════════════
+// NOTAS COMPARTIDAS
+// ══════════════════════════════════════
+let notas=[];
+
+function sendNota(){
+  const input=document.getElementById('nota-input');
+  const text=input.value.trim();
+  if(!text||!currentUser)return;
+  const nota={id:'n_'+Date.now(),autor:currentUser,texto:text,hora:new Date().toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'}),fecha:new Date().toLocaleDateString('es-PE')};
+  notas.push(nota);
+  input.value='';
+  if(syncEnabled&&db){
+    db.ref(`bodas/${bodaCode}/notas`).set(notas).catch(e=>console.log(e));
+  }
+  renderNotas();
+}
+
+function renderNotas(){
+  const el=document.getElementById('notas-list');
+  if(!el)return;
+  if(!notas.length){
+    el.innerHTML=`<div style="text-align:center;color:var(--text-soft);padding:30px;font-style:italic;font-size:.84rem">Sin notas aún. ¡Deja el primer mensaje!</div>`;
+    return;
+  }
+  el.innerHTML=notas.map((n,i)=>{
+    const isMe=n.autor===currentUser;
+    return `<div class="nota-bubble ${isMe?'mine':'other'}">
+      <div class="nota-header">
+        <span class="nota-author">${n.autor==='josseline'?'👰 Josseline':'🤵 Clarck'}</span>
+        <span class="nota-time">${n.fecha} ${n.hora}</span>
+      </div>
+      <div class="nota-text">${n.texto}</div>
+      ${isMe?`<button class="nota-del" onclick="deleteNota(${i})">✕</button>`:''}
+    </div>`;
+  }).join('');
+  el.scrollTop=el.scrollHeight;
+}
+
+function deleteNota(i){
+  notas.splice(i,1);
+  if(syncEnabled&&db) db.ref(`bodas/${bodaCode}/notas`).set(notas).catch(e=>console.log(e));
+  renderNotas();
+}
+
+function loadNotas(){
+  if(!syncEnabled||!db)return;
+  db.ref(`bodas/${bodaCode}/notas`).on('value',snap=>{
+    const d=snap.val();
+    if(d&&JSON.stringify(d)!==JSON.stringify(notas)){
+      notas=d;
+      renderNotas();
+      if(currentScreen!=='mas'||currentMasTab!=='notas') showToast('💬 Nueva nota de tu pareja');
+    }
+  });
+}
+
+// ══════════════════════════════════════
+// CALENDAR
+// ══════════════════════════════════════
+let calYear=2026, calMonth=7; // August 2026 (0-indexed)
+
+const calEvents=[
+  {date:'2026-08-15',label:'💳 Pago KP',type:'payment'},
+  {date:'2026-08-28',label:'🛏 Novia llega KP',type:'event'},
+  {date:'2026-08-29',label:'💍 ¡La Boda!',type:'event'},
+  {date:'2026-07-01',label:'📨 Enviar invitaciones',type:'event'},
+  {date:'2026-07-10',label:'👗 Límite vestido',type:'event'},
+  {date:'2026-06-15',label:'📷 Límite fotógrafo',type:'event'},
+  {date:'2026-06-15',label:'⛪ Confirmar iglesia',type:'event'},
+];
+
+function renderCalendar(){
+  const months=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  document.getElementById('cal-title').textContent=`${months[calMonth]} ${calYear}`;
+  const grid=document.getElementById('cal-grid');
+  const days=['Lu','Ma','Mi','Ju','Vi','Sa','Do'];
+  let html=days.map(d=>`<div class="cal-day-label">${d}</div>`).join('');
+  const firstDay=new Date(calYear,calMonth,1).getDay();
+  const offset=(firstDay===0?6:firstDay-1);
+  const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+  const today=new Date();
+  for(let i=0;i<offset;i++) html+=`<div class="cal-day other-month"></div>`;
+  for(let d=1;d<=daysInMonth;d++){
+    const dateStr=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const evs=calEvents.filter(e=>e.date===dateStr);
+    const isToday=today.getFullYear()===calYear&&today.getMonth()===calMonth&&today.getDate()===d;
+    const hasPayment=evs.some(e=>e.type==='payment');
+    const hasEvent=evs.length>0;
+    const cls=hasPayment?'payment-day':hasEvent?'has-event':isToday?'today':'';
+    html+=`<div class="cal-day ${cls}" onclick="${hasEvent?`showCalEvents('${dateStr}')`:''}">${d}${hasEvent?'<div class="cal-dot"></div>':''}</div>`;
+  }
+  grid.innerHTML=html;
+  // Show events for current month
+  const monthEvs=calEvents.filter(e=>e.date.startsWith(`${calYear}-${String(calMonth+1).padStart(2,'0')}`));
+  const evEl=document.getElementById('cal-events-list');
+  if(evEl&&monthEvs.length){
+    evEl.innerHTML=`<div style="font-size:.72rem;font-weight:600;color:var(--text-soft);margin:8px 0 6px;text-transform:uppercase;letter-spacing:1px">Eventos del mes</div>`+
+      monthEvs.map(e=>`<div style="background:white;border-radius:10px;padding:9px 14px;margin-bottom:6px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:10px;font-size:.82rem">
+        <div style="width:36px;height:36px;border-radius:8px;background:${e.type==='payment'?'var(--red-light)':'var(--rose-pale)'};display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">${e.type==='payment'?'💳':'📌'}</div>
+        <div><div style="font-weight:600;color:var(--text)">${e.label}</div><div style="font-size:.68rem;color:var(--text-soft)">${new Date(e.date+'T12:00:00').toLocaleDateString('es-PE',{weekday:'long',day:'numeric',month:'long'})}</div></div>
+      </div>`).join('');
+  } else if(evEl){ evEl.innerHTML=''; }
+}
+
+function calPrev(){calMonth--;if(calMonth<0){calMonth=11;calYear--;}renderCalendar();}
+function calNext(){calMonth++;if(calMonth>11){calMonth=0;calYear++;}renderCalendar();}
+function showCalEvents(date){
+  const evs=calEvents.filter(e=>e.date===date);
+  if(evs.length) showToast(evs.map(e=>e.label).join(' · '));
+}
+
+// ══════════════════════════════════════
+// TEMAS DE COLOR
+// ══════════════════════════════════════
+const themes=[
+  {name:'Rosa',key:'rose',primary:'#8b5e52',accent:'#c4806e',light:'#fdf6f0'},
+  {name:'Dorado',key:'gold',primary:'#8a6a30',accent:'#c9a96e',light:'#f5edd8'},
+  {name:'Verde',key:'green',primary:'#2d6a4f',accent:'#4a8c6a',light:'#e6f4ed'},
+  {name:'Azul',key:'blue',primary:'#1a4a7a',accent:'#3a7bd5',light:'#e8f0fd'},
+];
+let currentTheme='rose';
+
+function renderThemes(){
+  const grid=document.getElementById('theme-grid');
+  if(!grid)return;
+  grid.innerHTML=themes.map(t=>`
+    <div class="theme-btn ${currentTheme===t.key?'selected':''}" onclick="applyTheme('${t.key}')" style="background:${t.light}">
+      <div class="theme-circle" style="background:linear-gradient(135deg,${t.primary},${t.accent})"></div>
+      <div style="color:${t.primary};font-weight:600">${t.name}</div>
+    </div>`).join('');
+}
+
+function applyTheme(key){
+  const t=themes.find(t=>t.key===key);
+  if(!t)return;
+  currentTheme=key;
+  document.documentElement.style.setProperty('--rose-dark',t.primary);
+  document.documentElement.style.setProperty('--rose',t.accent);
+  document.documentElement.style.setProperty('--rose-pale',t.light);
+  localStorage.setItem('boda_theme',key);
+  renderThemes();
+  showToast('🎨 Tema aplicado');
+}
+
+function loadTheme(){
+  const saved=localStorage.getItem('boda_theme');
+  if(saved) applyTheme(saved);
+}
+
+// ══════════════════════════════════════
+// COVER PHOTO
+// ══════════════════════════════════════
+function changeCoverPhoto(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    document.getElementById('header-bg').style.backgroundImage=`url('${ev.target.result}')`;
+    try{localStorage.setItem('boda_cover',ev.target.result);}catch(err){showToast('⚠ Foto grande, no se guardó');}
+    showToast('✅ Foto de portada actualizada');
+  };
+  reader.readAsDataURL(file);
+  e.target.value='';
+}
+
+function loadCoverPhoto(){
+  const saved=localStorage.getItem('boda_cover');
+  if(saved) document.getElementById('header-bg').style.backgroundImage=`url('${saved}')`;
+}
+
+// ══════════════════════════════════════
+// BACKUP EXPORT/IMPORT
+// ══════════════════════════════════════
+function exportBackup(){
+  const data={completed:[...completedTasks],customTasks,invitados,reqDone:[...reqDone],contratos,contactos,gastos,compras,canciones,notas,exported:new Date().toISOString()};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`boda_backup_${new Date().toLocaleDateString('es-PE').replace(/\//g,'-')}.json`;
+  a.click();
+  showToast('✅ Backup exportado');
+}
+
+function importBackup(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      const d=JSON.parse(ev.target.result);
+      if(confirm('¿Importar datos? Esto reemplazará los datos actuales.')){
+        if(d.completed) completedTasks=new Set(d.completed);
+        if(d.customTasks) customTasks=d.customTasks;
+        if(d.invitados) invitados=d.invitados;
+        if(d.reqDone) reqDone=new Set(d.reqDone);
+        if(d.contratos) contratos=d.contratos;
+        if(d.contactos) contactos=d.contactos;
+        if(d.gastos) gastos=d.gastos;
+        if(d.compras) compras=d.compras;
+        if(d.canciones) canciones=d.canciones;
+        if(d.notas) notas=d.notas;
+        saveData();renderDashboard();
+        showToast('✅ Datos importados correctamente');
+      }
+    }catch(err){showToast('❌ Error al leer el archivo');}
+  };
+  reader.readAsText(file);
+  e.target.value='';
+}
+
+// ══════════════════════════════════════
+// AJUSTES SCREEN RENDER
+// ══════════════════════════════════════
+function renderAjustes(){
+  renderThemes();
+  const el=document.getElementById('sync-info-text');
+  if(el){
+    if(syncEnabled&&currentUser){
+      el.innerHTML=`Conectado como <strong>${currentUser==='josseline'?'👰 Josseline':'🤵 Clarck'}</strong><br>Código: <strong>${bodaCode}</strong><br><span style="color:var(--green)">● Sincronización activa</span>`;
+    } else {
+      el.innerHTML='📱 Modo local — sin sincronización';
+    }
+  }
+}
+
+// ══════════════════════════════════════
 // INIT
 // ══════════════════════════════════════
 checkSetup();
+loadTheme();
+loadCoverPhoto();
 // Auto-refresh dashboard every 60s
 setInterval(()=>{if(currentScreen==='dashboard')renderDashboard();},60000);
 </script>
