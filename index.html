@@ -442,6 +442,24 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .album-name{font-weight:600;font-size:.88rem;color:var(--text)}
 .album-count{font-size:.74rem;color:var(--text-mid)}
 .album-back{display:flex;align-items:center;gap:8px;margin-bottom:12px;cursor:pointer;color:var(--rose-dark);font-size:.82rem;font-weight:600}
+
+/* INVITADOS ENHANCED */
+.inv-checkbox { width:20px;height:20px;border-radius:6px;border:2px solid var(--border);flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s }
+.inv-checkbox.checked { background:var(--rose-dark);border-color:var(--rose-dark);color:white;font-size:11px }
+.inv-select-bar { background:var(--rose-dark);color:white;padding:10px 14px;border-radius:12px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;font-size:.82rem;display:none }
+.inv-select-bar.show { display:flex }
+.inv-select-bar-btn { background:rgba(255,255,255,.2);border:none;color:white;border-radius:8px;padding:5px 10px;font-size:.72rem;font-family:'DM Sans',sans-serif;cursor:pointer }
+.inv-phone { font-size:.68rem;color:var(--blue);margin-top:1px }
+.msg-template { background:var(--rose-pale);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:.78rem;color:var(--text);line-height:1.5;border:1.5px solid var(--border);cursor:pointer;transition:border-color .2s }
+.msg-template.selected { border-color:var(--rose-dark);background:white }
+.msg-template-title { font-weight:700;font-size:.72rem;color:var(--rose-dark);margin-bottom:4px }
+
+/* CANCIONES ENHANCED */
+.dj-export-btn { background:linear-gradient(135deg,#1db954,#17a849);color:white;border:none;border-radius:12px;padding:11px 16px;font-size:.82rem;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600 }
+.song-play-btn { display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;font-size:.65rem;font-family:'DM Sans',sans-serif;border:none;cursor:pointer;font-weight:600;margin-top:4px }
+.play-spotify { background:#1db954;color:white }
+.play-youtube { background:#ff0000;color:white }
+.play-generic { background:var(--blue);color:white }
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
@@ -553,7 +571,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <!-- 3. INVITADOS -->
 <div class="screen" id="screen-invitados">
   <div style="height:14px"></div>
-  <div class="section-header">👥 Invitados</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+    <div class="section-header" style="margin-bottom:0">👥 Invitados</div>
+    <div style="display:flex;gap:6px">
+      <button onclick="toggleSelectAll()" style="font-size:.7rem;padding:6px 10px;border-radius:10px;border:1.5px solid var(--border);background:white;color:var(--text-mid);cursor:pointer;font-family:'DM Sans',sans-serif">☑ Seleccionar</button>
+      <button onclick="exportInvPDF()" style="font-size:.7rem;padding:6px 10px;border-radius:10px;border:none;background:var(--rose-dark);color:white;cursor:pointer;font-family:'DM Sans',sans-serif">📄 PDF</button>
+    </div>
+  </div>
+  <div class="inv-select-bar" id="inv-select-bar">
+    <span id="inv-select-count">0 seleccionados</span>
+    <div style="display:flex;gap:6px">
+      <button class="inv-select-bar-btn" onclick="openWAMasivo()">💬 WhatsApp</button>
+      <button class="inv-select-bar-btn" onclick="clearSelection()">✕ Cancelar</button>
+    </div>
+  </div>
   <div class="inv-stats">
     <div class="inv-stat"><div class="is-num" id="is-total">0</div><div class="is-lbl">Total</div></div>
     <div class="inv-stat confirmed"><div class="is-num" id="is-conf">0</div><div class="is-lbl">Confirmados</div></div>
@@ -687,8 +718,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
   <!-- CANCIONES -->
   <div id="mas-canciones" style="display:none">
-    <div style="background:linear-gradient(135deg,#667eea,#c4806e);border-radius:14px;padding:14px;color:white;margin-bottom:14px;font-size:.8rem;line-height:1.5">
-      🎵 Vota por tus canciones favoritas para cada momento del día. ¡Josseline y Clarck votan por separado!
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <div style="flex:1;background:linear-gradient(135deg,#667eea,#c4806e);border-radius:14px;padding:12px;color:white;font-size:.78rem;line-height:1.5">
+        🎵 Vota por tus canciones favoritas. ¡Josseline y Clarck votan por separado!
+      </div>
+      <button onclick="exportCancionesPDF()" style="flex-shrink:0;padding:10px 12px;border-radius:14px;border:none;background:linear-gradient(135deg,#1db954,#17a849);color:white;font-size:.72rem;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:600;line-height:1.3">📄 PDF<br>para DJ</button>
     </div>
     <div id="canciones-list"></div>
   </div>
@@ -763,11 +797,59 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 <div class="modal-overlay" id="modal-inv"><div class="modal">
   <div class="modal-handle"></div><div class="modal-title">Agregar invitado</div>
-  <div class="form-group"><label class="form-label">Nombre completo</label><input class="form-input" id="new-inv-name" placeholder="Nombre del invitado" onkeydown="if(event.key==='Enter')addInvitado()"></div>
+  <div class="form-group"><label class="form-label">Nombre completo</label><input class="form-input" id="new-inv-name" placeholder="Nombre del invitado" onkeydown="if(event.key==='Enter')document.getElementById('new-inv-phone').focus()"></div>
+  <div class="form-group"><label class="form-label">📱 Celular (con código país)</label><input class="form-input" id="new-inv-phone" type="tel" placeholder="Ej: 51987654321"></div>
   <div class="form-group"><label class="form-label">Grupo</label><select class="form-select" id="new-inv-group"><option value="novia">👰 Invitado de la novia</option><option value="novio">🤵 Invitado del novio</option><option value="ambos">👥 De ambos</option></select></div>
   <div class="form-group"><label class="form-label">Estado</label><select class="form-select" id="new-inv-status"><option value="pending">⏳ Por confirmar</option><option value="confirmed">✅ Confirmado</option><option value="declined">❌ No asiste</option></select></div>
   <div class="form-group"><label class="form-label">Nota (opcional)</label><input class="form-input" id="new-inv-note" placeholder="Ej: Familia, viene de Lima..."></div>
   <div class="btn-row"><button class="btn-secondary" onclick="closeModal('modal-inv')">Cancelar</button><button class="btn-primary" onclick="addInvitado()">Agregar</button></div>
+</div></div>
+
+<!-- MODAL: EDIT INVITADO -->
+<div class="modal-overlay" id="modal-edit-inv"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Editar invitado</div>
+  <input type="hidden" id="edit-inv-idx">
+  <div class="form-group"><label class="form-label">Nombre completo</label><input class="form-input" id="edit-inv-name" placeholder="Nombre"></div>
+  <div class="form-group"><label class="form-label">📱 Celular</label><input class="form-input" id="edit-inv-phone" type="tel" placeholder="Ej: 51987654321"></div>
+  <div class="form-group"><label class="form-label">Grupo</label><select class="form-select" id="edit-inv-group"><option value="novia">👰 Invitado de la novia</option><option value="novio">🤵 Invitado del novio</option><option value="ambos">👥 De ambos</option></select></div>
+  <div class="form-group"><label class="form-label">Estado</label><select class="form-select" id="edit-inv-status"><option value="pending">⏳ Por confirmar</option><option value="confirmed">✅ Confirmado</option><option value="declined">❌ No asiste</option></select></div>
+  <div class="form-group"><label class="form-label">Nota</label><input class="form-input" id="edit-inv-note" placeholder="Nota opcional"></div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-edit-inv')">Cancelar</button>
+    <button class="btn-primary" style="background:var(--red)" onclick="deleteInvFromEdit()">🗑</button>
+    <button class="btn-primary" onclick="saveEditInv()">Guardar</button>
+  </div>
+</div></div>
+
+<!-- MODAL: MENSAJE MASIVO WHATSAPP -->
+<div class="modal-overlay" id="modal-wa-masivo"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">💬 Enviar WhatsApp</div>
+  <div style="font-size:.78rem;color:var(--text-mid);margin-bottom:12px" id="wa-selected-count">0 invitados seleccionados</div>
+  <div style="font-size:.75rem;font-weight:600;color:var(--text);margin-bottom:8px">Elige una plantilla:</div>
+  <div class="msg-template selected" id="tmpl-0" onclick="selectTemplate(0)">
+    <div class="msg-template-title">💍 Invitación formal</div>
+    Hola [NOMBRE]! Te invitamos a nuestra boda el 29 de agosto 2026 en Casona Khunan Pacha, San Francisco 217, Cercado - Arequipa. Misa 11:00am en Parroquia Santa Marta y recepción desde 1:00pm. ¡Confirma tu asistencia! 🥂 Josseline & Clarck
+  </div>
+  <div class="msg-template" id="tmpl-1" onclick="selectTemplate(1)">
+    <div class="msg-template-title">📍 Instrucciones y llegada</div>
+    Hola [NOMBRE]! Para nuestra boda el 29/08: 🕙 Misa 11am — Parroquia Santa Marta, Plaza España 105, Cercado. 🍽 Recepción 1pm — Casona Khunan Pacha, San Francisco 217, Cercado. Las calles cercanas tienen estacionamiento disponible. ¡Te esperamos! 💕
+  </div>
+  <div class="msg-template" id="tmpl-2" onclick="selectTemplate(2)">
+    <div class="msg-template-title">🅿️ Estacionamiento</div>
+    Hola [NOMBRE]! Para nuestra boda, el estacionamiento más cercano está en las calles aledañas a San Francisco 217, Cercado de Arequipa. También puedes usar el estacionamiento de la Plaza de Armas (a 5 min caminando). ¡Nos vemos el 29 de agosto! 🎉
+  </div>
+  <div class="msg-template" id="tmpl-3" onclick="selectTemplate(3)">
+    <div class="msg-template-title">✅ Confirmación de asistencia</div>
+    Hola [NOMBRE]! 💍 Solo queríamos confirmar si podrás acompañarnos en nuestra boda el 29 de agosto 2026 en Arequipa. Por favor avísanos para tener todo listo para ti. ¡Significaría mucho para nosotros! 🥂 Josseline & Clarck
+  </div>
+  <div class="form-group" style="margin-top:10px">
+    <label class="form-label">O escribe tu propio mensaje:</label>
+    <textarea class="form-textarea" id="wa-custom-msg" placeholder="Escribe aquí... usa [NOMBRE] para personalizar" style="min-height:80px"></textarea>
+  </div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-wa-masivo')">Cancelar</button>
+    <button class="btn-primary" onclick="sendMasivoWA()" style="background:#25d366">💬 Enviar a todos</button>
+  </div>
 </div></div>
 
 <div class="modal-overlay" id="modal-contrato"><div class="modal">
@@ -1054,8 +1136,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 </script>
 
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script>
 // ══════════════════════════════════════
 // DATA CONSTANTS
@@ -1887,6 +1967,258 @@ function goToMasTab(tab){
     if(tabBtn) showMasTab(tab, tabBtn);
   }, 100);
 }
+// ══════════════════════════════════════
+// INVITADOS ENHANCED
+// ══════════════════════════════════════
+let selectedInvitados = new Set();
+let selectMode = false;
+let selectedTemplate = 0;
+
+function toggleSelectAll(){
+  selectMode = !selectMode;
+  if(!selectMode){ selectedInvitados.clear(); }
+  updateSelectBar();
+  renderInvitados();
+}
+
+function toggleInvSelect(ri){
+  if(selectedInvitados.has(ri)) selectedInvitados.delete(ri);
+  else selectedInvitados.add(ri);
+  updateSelectBar();
+  renderInvitados();
+}
+
+function updateSelectBar(){
+  const bar = document.getElementById('inv-select-bar');
+  const cnt = document.getElementById('inv-select-count');
+  if(selectedInvitados.size > 0){
+    bar.classList.add('show');
+    cnt.textContent = selectedInvitados.size + ' seleccionado' + (selectedInvitados.size>1?'s':'');
+  } else {
+    bar.classList.remove('show');
+  }
+}
+
+function clearSelection(){
+  selectedInvitados.clear();
+  selectMode = false;
+  updateSelectBar();
+  renderInvitados();
+}
+
+function openEditInv(ri){
+  const inv = invitados[ri];
+  if(!inv) return;
+  document.getElementById('edit-inv-idx').value = ri;
+  document.getElementById('edit-inv-name').value = inv.name;
+  document.getElementById('edit-inv-phone').value = inv.phone||'';
+  document.getElementById('edit-inv-group').value = inv.group||'novia';
+  document.getElementById('edit-inv-status').value = inv.status||'pending';
+  document.getElementById('edit-inv-note').value = inv.note||'';
+  openModal('modal-edit-inv');
+}
+
+function saveEditInv(){
+  const ri = parseInt(document.getElementById('edit-inv-idx').value);
+  invitados[ri] = {
+    ...invitados[ri],
+    name: document.getElementById('edit-inv-name').value,
+    phone: document.getElementById('edit-inv-phone').value.replace(/\D/g,''),
+    group: document.getElementById('edit-inv-group').value,
+    status: document.getElementById('edit-inv-status').value,
+    note: document.getElementById('edit-inv-note').value,
+  };
+  saveData(); closeModal('modal-edit-inv'); renderInvitados();
+  showToast('✓ Invitado actualizado');
+}
+
+function deleteInvFromEdit(){
+  const ri = parseInt(document.getElementById('edit-inv-idx').value);
+  if(confirm('¿Eliminar a ' + invitados[ri].name + '?')){
+    invitados.splice(ri,1);
+    saveData(); closeModal('modal-edit-inv'); renderInvitados();
+  }
+}
+
+function sendWAInvitadoPhone(ri){
+  const inv = invitados[ri];
+  if(!inv) return;
+  const msg = encodeURIComponent(
+    `Hola ${inv.name}! 💍\n\nTe invitamos a nuestra boda el *29 de agosto de 2026* en *Casona Khunan Pacha*, San Francisco 217, Cercado - Arequipa.\n\n🕙 Misa: *11:00 am* — Parroquia Santa Marta, Plaza España 105\n🍽 Recepción: desde la *1:00 pm* en Khunan Pacha\n\n¿Podrás acompañarnos? Por favor confírmanos.\n\n*Josseline & Clarck* 💕`
+  );
+  if(inv.phone){
+    window.open(`https://wa.me/${inv.phone}?text=${msg}`, '_blank');
+  } else {
+    window.open(`https://wa.me/?text=${msg}`, '_blank');
+  }
+}
+
+function openWAMasivo(){
+  if(selectedInvitados.size === 0){ showToast('⚠ Selecciona al menos un invitado'); return; }
+  const el = document.getElementById('wa-selected-count');
+  if(el) el.textContent = selectedInvitados.size + ' invitados seleccionados';
+  openModal('modal-wa-masivo');
+}
+
+function selectTemplate(idx){
+  selectedTemplate = idx;
+  document.querySelectorAll('.msg-template').forEach((el,i) => {
+    el.classList.toggle('selected', i===idx);
+  });
+  document.getElementById('wa-custom-msg').value = '';
+}
+
+function sendMasivoWA(){
+  const templates = [
+    `Hola [NOMBRE]! 💍 Te invitamos a nuestra boda el *29 de agosto 2026* en *Casona Khunan Pacha*, San Francisco 217, Cercado - Arequipa. Misa *11:00am* en Parroquia Santa Marta y recepción desde la *1:00pm*. ¡Confirma tu asistencia! 🥂 Josseline & Clarck`,
+    `Hola [NOMBRE]! Para nuestra boda el 29/08: 🕙 Misa *11am* — Parroquia Santa Marta, Plaza España 105, Cercado. 🍽 Recepción *1pm* — Casona Khunan Pacha, San Francisco 217, Cercado. Las calles cercanas tienen estacionamiento. ¡Te esperamos! 💕`,
+    `Hola [NOMBRE]! Para nuestra boda, el estacionamiento más cercano está en las calles aledañas a San Francisco 217, Cercado de Arequipa. También puedes usar el estacionamiento de la Plaza de Armas (5 min caminando). ¡Nos vemos el 29 de agosto! 🎉`,
+    `Hola [NOMBRE]! 💍 Solo queríamos confirmar si podrás acompañarnos en nuestra boda el *29 de agosto 2026* en Arequipa. Por favor avísanos para tener todo listo. ¡Significaría mucho para nosotros! 🥂 Josseline & Clarck`
+  ];
+  const customMsg = document.getElementById('wa-custom-msg').value.trim();
+  const baseMsg = customMsg || templates[selectedTemplate];
+  const selectedList = [...selectedInvitados].map(ri => invitados[ri]).filter(Boolean);
+  
+  // Open WA for each with a small delay - opens multiple tabs
+  selectedList.forEach((inv, i) => {
+    setTimeout(() => {
+      const msg = encodeURIComponent(baseMsg.replace('[NOMBRE]', inv.name));
+      const url = inv.phone ? `https://wa.me/${inv.phone}?text=${msg}` : `https://wa.me/?text=${msg}`;
+      window.open(url, '_blank');
+    }, i * 800);
+  });
+  closeModal('modal-wa-masivo');
+  clearSelection();
+  showToast(`💬 Enviando a ${selectedList.length} invitados...`, 3000);
+}
+
+// PDF de invitados
+function exportInvPDF(){
+  const today = new Date().toLocaleDateString('es-PE');
+  const conf = invitados.filter(i=>i.status==='confirmed');
+  const pend = invitados.filter(i=>i.status==='pending');
+  const decl = invitados.filter(i=>i.status==='declined');
+
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
+  <style>
+    body{font-family:Georgia,serif;padding:20px;color:#2d1f1a;max-width:800px;margin:0 auto}
+    h1{color:#8b5e52;text-align:center;font-size:1.6rem;margin-bottom:4px}
+    .sub{text-align:center;color:#b07a6e;font-style:italic;margin-bottom:6px;font-size:.85rem}
+    .stats{display:flex;gap:16px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+    .stat{background:#fdf6f0;border-radius:10px;padding:10px 20px;text-align:center;border:1px solid #f0ddd8}
+    .stat-num{font-size:1.6rem;font-weight:bold;color:#8b5e52}
+    .stat-lbl{font-size:.72rem;color:#b07a6e}
+    .stat.green .stat-num{color:#4a8c6a}
+    .stat.red .stat-num{color:#c0392b}
+    h2{color:#8b5e52;font-size:1rem;margin:20px 0 8px;border-bottom:2px solid #f0ddd8;padding-bottom:4px;display:flex;align-items:center;gap:8px}
+    table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:.82rem}
+    th{background:#8b5e52;color:white;padding:8px 10px;text-align:left;font-size:.78rem}
+    td{padding:8px 10px;border-bottom:1px solid #f0ddd8;vertical-align:top}
+    tr:nth-child(even) td{background:#fdf6f0}
+    .check-box{width:16px;height:16px;border:1.5px solid #ccc;display:inline-block;border-radius:3px;vertical-align:middle}
+    .footer{text-align:center;color:#b07a6e;font-size:.72rem;margin-top:24px;border-top:1px solid #f0ddd8;padding-top:12px}
+    @media print{body{padding:10px}}
+  </style></head><body>
+  <h1>💍 Control de Invitados</h1>
+  <div class="sub">Josseline & Clarck · 29 de agosto 2026 · Generado: ${today}</div>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">${invitados.length}</div><div class="stat-lbl">Total</div></div>
+    <div class="stat green"><div class="stat-num">${conf.length}</div><div class="stat-lbl">Confirmados</div></div>
+    <div class="stat"><div class="stat-num">${pend.length}</div><div class="stat-lbl">Pendientes</div></div>
+    <div class="stat red"><div class="stat-num">${decl.length}</div><div class="stat-lbl">No asisten</div></div>
+  </div>
+
+  <h2>✅ Confirmados (${conf.length})</h2>
+  <table><tr><th>✓ Ingresó</th><th>Nombre</th><th>Grupo</th><th>Teléfono</th><th>Nota</th></tr>
+  ${conf.map(i=>`<tr><td><span class="check-box"></span></td><td><strong>${i.name}</strong></td><td>${i.group==='novio'?'🤵 Novio':i.group==='ambos'?'👥 Ambos':'👰 Novia'}</td><td>${i.phone||'-'}</td><td>${i.note||''}</td></tr>`).join('')}
+  </table>
+
+  ${pend.length?`<h2>⏳ Por confirmar (${pend.length})</h2>
+  <table><tr><th>Nombre</th><th>Grupo</th><th>Teléfono</th><th>Nota</th></tr>
+  ${pend.map(i=>`<tr><td>${i.name}</td><td>${i.group==='novio'?'🤵':i.group==='ambos'?'👥':'👰'}</td><td>${i.phone||'-'}</td><td>${i.note||''}</td></tr>`).join('')}
+  </table>`:''}
+
+  ${decl.length?`<h2>❌ No asisten (${decl.length})</h2>
+  <table><tr><th>Nombre</th><th>Grupo</th></tr>
+  ${decl.map(i=>`<tr><td>${i.name}</td><td>${i.group==='novio'?'🤵':i.group==='ambos'?'👥':'👰'}</td></tr>`).join('')}
+  </table>`:''}
+
+  <div class="footer">Casona Khunan Pacha · San Francisco 217, Cercado · Arequipa · 29 agosto 2026<br>Aforo máximo: 40 personas</div>
+  </body></html>`;
+
+  const win = window.open('','_blank');
+  win.document.write(html);
+  win.document.close();
+  setTimeout(()=>win.print(), 500);
+}
+
+// PDF de canciones para DJ
+function exportCancionesPDF(){
+  const today = new Date().toLocaleDateString('es-PE');
+  const momentos = ['💍 Entrada de novios','💃 Primer baile','👨‍👩‍👧 Baile con padres','🥂 Brindis','🎉 Hora loca','🎵 Ambiente general','🌹 Cierre'];
+  
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
+  <style>
+    body{font-family:Georgia,serif;padding:24px;color:#2d1f1a;max-width:700px;margin:0 auto}
+    h1{color:#1db954;text-align:center;font-size:1.5rem;margin-bottom:4px}
+    .sub{text-align:center;color:#666;font-style:italic;margin-bottom:20px;font-size:.85rem}
+    h2{color:#1db954;font-size:.95rem;margin:18px 0 8px;border-left:4px solid #1db954;padding-left:10px;background:#f0fff4;padding:6px 10px;border-radius:0 8px 8px 0}
+    table{width:100%;border-collapse:collapse;margin-bottom:6px;font-size:.82rem}
+    th{background:#1db954;color:white;padding:7px 10px;text-align:left;font-size:.76rem}
+    td{padding:7px 10px;border-bottom:1px solid #e0f0e8;vertical-align:top}
+    tr:nth-child(even) td{background:#f9fffe}
+    .winner{background:#fff9e6!important;font-weight:bold}
+    .winner td{border-left:3px solid #f0c040}
+    .votes{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.68rem;font-weight:bold}
+    .v2{background:#c8f7c5;color:#1a5c18}
+    .v1{background:#fff3c8;color:#8a6a00}
+    .v0{background:#f5f5f5;color:#666}
+    .link-note{font-size:.68rem;color:#1db954}
+    .footer{text-align:center;color:#999;font-size:.72rem;margin-top:24px;border-top:1px solid #ddd;padding-top:12px}
+    .nota-dj{background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px;margin-bottom:16px;font-size:.82rem}
+    @media print{body{padding:10px}}
+  </style></head><body>
+  <h1>🎵 Lista de Canciones — DJ</h1>
+  <div class="sub">Boda Josseline & Clarck · 29 agosto 2026 · Generado: ${today}</div>
+  <div class="nota-dj">
+    📌 <strong>Notas para el DJ:</strong> Sin luces láser (dañan cámaras). Respetar normativa sonora municipal de Arequipa. 
+    El evento es de 1:15pm a 8:00pm. Hora loca: 5:35pm–6:20pm. 
+    Las canciones marcadas con 🏆 son las elegidas por ambos novios.
+  </div>
+  ${momentos.map(momento=>{
+    const songs = canciones.filter(s=>s.momento===momento);
+    if(!songs.length) return `<h2>${momento}</h2><p style="color:#999;font-size:.8rem;padding:0 10px">Sin canciones definidas aún</p>`;
+    const winner = songs.length>0?songs.reduce((a,b)=>{const va=(a.votos.j?1:0)+(a.votos.c?1:0);const vb=(b.votos.j?1:0)+(b.votos.c?1:0);return vb>va?b:a;}):null;
+    return `<h2>${momento}</h2>
+    <table><tr><th>Canción</th><th>Artista</th><th>Votos</th><th>Link</th></tr>
+    ${songs.map(s=>{
+      const v=(s.votos.j?1:0)+(s.votos.c?1:0);
+      const isW=winner&&s.id===winner.id&&v>0;
+      return `<tr class="${isW?'winner':''}">
+        <td>${isW?'🏆 ':''}${s.titulo}</td>
+        <td>${s.artista||'-'}</td>
+        <td><span class="votes ${v===2?'v2':v===1?'v1':'v0'}">${v===2?'✅ Ambos':v===1?'👍 Uno':'Sin votos'}</span></td>
+        <td>${s.link?`<span class="link-note">${s.link.substring(0,35)}...</span>`:'Sin link'}</td>
+      </tr>`;
+    }).join('')}
+    </table>`;
+  }).join('')}
+  <div class="footer">Boda Josseline & Clarck · Casona Khunan Pacha · San Francisco 217, Cercado, Arequipa</div>
+  </body></html>`;
+  
+  const win = window.open('','_blank');
+  win.document.write(html);
+  win.document.close();
+  setTimeout(()=>win.print(), 500);
+}
+
+// Play song function
+function playSong(link, title){
+  if(!link){ showToast('⚠ Sin link disponible'); return; }
+  window.open(link, '_blank');
+  showToast('🎵 Abriendo: '+title, 2000);
+}
+
 function switchInvTab(tab, btn){
   currentInvTab=tab;
   document.querySelectorAll('.inv-group-tab').forEach(t=>t.classList.remove('active'));
@@ -1930,24 +2262,35 @@ function renderInvitados(){
     const col=inv.status==='confirmed'?'var(--green)':inv.status==='declined'?'var(--red)':'var(--orange)';
     const bg=inv.status==='confirmed'?'var(--green-light)':inv.status==='declined'?'var(--red-light)':'var(--rose-light)';
     const groupIcon = inv.group==='novio'?'🤵':inv.group==='ambos'?'👥':'👰';
-    return `<div class="inv-item">
-      <div class="inv-avatar" style="background:${bg};color:${col}">${initials}</div>
-      <div style="flex:1;min-width:0"><div class="inv-name">${inv.name} <span style="font-size:.6rem;opacity:.7">${groupIcon}</span></div>${inv.note?`<div style="font-size:.65rem;color:var(--text-soft);margin-top:1px">${inv.note}</div>`:''}</div>
-      <button class="wa-btn" onclick="sendWAInvitado('${inv.name.replace(/'/g, '')}')" title="Enviar por WhatsApp">💬</button>
+    const isSelected = selectedInvitados.has(ri);
+    return `<div class="inv-item" style="${isSelected?'background:var(--rose-pale);border-left:3px solid var(--rose-dark)':''}">
+      <div class="inv-checkbox ${isSelected?'checked':''}" onclick="toggleInvSelect(${ri})">${isSelected?'✓':''}</div>
+      <div style="flex:1;min-width:0;cursor:pointer" onclick="openEditInv(${ri})">
+        <div class="inv-name">${inv.name} <span style="font-size:.6rem;opacity:.7">${groupIcon}</span></div>
+        ${inv.phone?`<div class="inv-phone">📱 ${inv.phone}</div>`:''}
+        ${inv.note?`<div style="font-size:.65rem;color:var(--text-soft);margin-top:1px">${inv.note}</div>`:''}
+      </div>
+      ${inv.phone?`<button class="wa-btn" onclick="sendWAInvitadoPhone(${ri})" title="WhatsApp">💬</button>`:''}
       <select onchange="changeInvStatus(${ri},this.value)" style="font-size:.65rem;padding:4px 6px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;background:white;color:var(--text);outline:none">
         <option value="pending" ${inv.status==='pending'?'selected':''}>⏳</option>
         <option value="confirmed" ${inv.status==='confirmed'?'selected':''}>✅</option>
         <option value="declined" ${inv.status==='declined'?'selected':''}>❌</option>
       </select>
-      <button class="inv-del" onclick="deleteInv(${ri})">✕</button>
     </div>`;
   }).join('');
 }
 function addInvitado(){
   const name=document.getElementById('new-inv-name').value.trim();
   if(!name)return;
-  invitados.push({name,status:document.getElementById('new-inv-status').value,note:document.getElementById('new-inv-note').value,group:document.getElementById('new-inv-group').value});
+  invitados.push({
+    name,
+    phone:document.getElementById('new-inv-phone').value.replace(/\D/g,''),
+    status:document.getElementById('new-inv-status').value,
+    note:document.getElementById('new-inv-note').value,
+    group:document.getElementById('new-inv-group').value
+  });
   document.getElementById('new-inv-name').value='';
+  document.getElementById('new-inv-phone').value='';
   document.getElementById('new-inv-note').value='';
   saveData();closeModal('modal-inv');renderInvitados();
 }
@@ -2326,7 +2669,7 @@ function renderCanciones(){
             <button class="btn-edit" onclick="openEditCancion(${i})" style="font-size:.58rem;padding:2px 6px">✏️</button>
           </div>
           ${s.artista?`<div class="cancion-artista">${s.artista}</div>`:''}
-          ${s.link?`<a href="${s.link}" target="_blank" class="${linkClass}" style="font-size:.62rem;padding:3px 8px">${linkIcon} Escuchar</a>`:''}
+          ${s.link?`<button onclick="playSong('${s.link.replace(/'/g,'')}','${s.titulo.replace(/'/g,'').substring(0,20)}')" class="song-play-btn ${isSpotify?'play-spotify':isYT?'play-youtube':'play-generic'}">${linkIcon} Escuchar</button>`:''}
           <div style="margin-top:8px">
             <div style="display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-soft);margin-bottom:3px"><span>Votos</span><span>${votos}/2 (${pct}%)</span></div>
             <div style="height:5px;background:var(--rose-light);border-radius:10px;overflow:hidden;margin-bottom:6px"><div style="height:100%;width:${pct}%;background:${isWinner?'var(--green)':'var(--rose)'};border-radius:10px;transition:width .3s"></div></div>
@@ -2994,11 +3337,88 @@ function renderAjustes(){
 // ══════════════════════════════════════
 // INIT
 // ══════════════════════════════════════
-checkSetup();
-loadTheme();
-loadCoverPhoto();
+// Wait for everything to be ready before initializing
+function waitForFirebaseAndInit(attempts){
+  attempts = attempts || 0;
+  if(typeof firebase !== 'undefined' && typeof firebase.app === 'function'){
+    console.log('Firebase ready after ' + attempts + ' attempts');
+    checkSetup();
+    loadTheme();
+    loadCoverPhoto();
+  } else if(attempts < 30){
+    setTimeout(()=>waitForFirebaseAndInit(attempts+1), 200);
+  } else {
+    console.log('Firebase SDK not available - local mode only');
+    // Start without Firebase
+    syncEnabled = false;
+    loadLocalData();
+    renderDashboard();
+    loadTheme();
+    loadCoverPhoto();
+    // Hide setup overlay
+    const so = document.getElementById('setup-overlay');
+    if(so) so.style.display = 'none';
+    showToast('📱 Modo local — sin sincronización', 3000);
+  }
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', ()=>waitForFirebaseAndInit());
+} else {
+  waitForFirebaseAndInit();
+}
 // Auto-refresh dashboard every 60s
 setInterval(()=>{if(currentScreen==='dashboard')renderDashboard();},60000);
+</script>
+<!-- Firebase via multiple CDN fallbacks -->
+<script>
+(function(){
+  var cdns = [
+    'https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-app-compat.min.js',
+    'https://cdn.jsdelivr.net/npm/firebase@9.23.0/firebase-app-compat.js'
+  ];
+  var dbCdns = [
+    'https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-database-compat.min.js',
+    'https://cdn.jsdelivr.net/npm/firebase@9.23.0/firebase-database-compat.js'
+  ];
+  
+  function loadScript(url, onSuccess, onError){
+    var s = document.createElement('script');
+    s.src = url;
+    s.onload = onSuccess;
+    s.onerror = onError;
+    document.head.appendChild(s);
+  }
+  
+  function loadDB(cdnList, idx){
+    if(idx >= cdnList.length){ 
+      console.log('All DB CDNs failed');
+      window._firebaseDBFailed = true;
+      return; 
+    }
+    loadScript(cdnList[idx], 
+      function(){ console.log('Firebase DB loaded from CDN ' + idx); },
+      function(){ loadDB(cdnList, idx+1); }
+    );
+  }
+  
+  function loadApp(cdnList, idx){
+    if(idx >= cdnList.length){ 
+      console.log('All app CDNs failed');
+      window._firebaseAppFailed = true;
+      return; 
+    }
+    loadScript(cdnList[idx],
+      function(){ 
+        console.log('Firebase app loaded from CDN ' + idx);
+        loadDB(dbCdns, 0);
+      },
+      function(){ loadApp(cdnList, idx+1); }
+    );
+  }
+  
+  loadApp(cdns, 0);
+})();
 </script>
 </body>
 </html>
