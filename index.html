@@ -10,8 +10,7 @@
 <meta name="theme-color" content="#8b5e52">
 <title>💍 Josseline & Clarck</title>
 <!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -33,20 +32,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .header-content{position:relative;z-index:1}
 .header-names{font-family:'Playfair Display',serif;font-size:2rem;color:white;letter-spacing:.5px}
 .header-names span{font-style:italic;opacity:.85}
-.header-date{font-size:.8rem;color:rgba(255,255,255,.8);margin-top:4px;letter-spacing:1.5px;text-transform:uppercase}
+.header-date{font-size:.8rem;color:rgba(255,255,255,.95);margin-top:4px;letter-spacing:1.5px;text-transform:uppercase}
 .header-countdown{display:flex;gap:10px;margin-top:18px}
 .hc-box{background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:8px 14px;text-align:center;min-width:58px}
 .hc-num{font-size:1.5rem;font-weight:600;color:white;line-height:1}
-.hc-lbl{font-size:.58rem;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.hc-lbl{font-size:.65rem;color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
 
 /* NAV */
 .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:white;border-top:1px solid var(--border);display:flex;z-index:100;box-shadow:0 -4px 20px rgba(139,94,82,.08)}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:10px 2px 14px;cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif;transition:all .2s;position:relative}
 .nav-icon{font-size:1.2rem;transition:transform .2s}
-.nav-label{font-size:.55rem;color:#bbb;margin-top:3px;letter-spacing:.3px}
-.nav-item.active .nav-label{color:var(--rose-dark);font-weight:500}
+.nav-label{font-size:.62rem;color:#999;margin-top:3px;letter-spacing:.3px}
+.nav-item.active .nav-label{color:var(--rose-dark);font-weight:700}
 .nav-item.active .nav-icon{transform:translateY(-2px)}
-.nav-badge{position:absolute;top:6px;right:calc(50% - 18px);background:var(--red);color:white;font-size:.5rem;min-width:14px;height:14px;border-radius:7px;display:flex;align-items:center;justify-content:center;padding:0 3px;display:none}
+.nav-badge{position:absolute;top:6px;right:calc(50% - 18px);background:var(--red);color:white;font-size:.6rem;min-width:16px;height:14px;border-radius:7px;display:flex;align-items:center;justify-content:center;padding:0 3px;display:none}
 .nav-badge.show{display:flex}
 
 /* SCREENS */
@@ -56,14 +55,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* CARDS */
 .card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow-sm)}
-.card-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--rose-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--rose-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px;font-weight:600}
 .section-header{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--rose-dark);margin-bottom:16px;padding-top:4px}
 
 /* KPI */
 .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
 .kpi{background:var(--rose-pale);border-radius:12px;padding:12px 8px;text-align:center;border:1px solid var(--border)}
 .kpi-num{font-size:1.5rem;font-weight:600;color:var(--rose-dark);line-height:1}
-.kpi-lbl{font-size:.58rem;color:var(--text-soft);margin-top:3px;line-height:1.3}
+.kpi-lbl{font-size:.68rem;color:var(--text-mid);margin-top:3px;line-height:1.3}
 .kpi.green .kpi-num{color:var(--green)}.kpi.red .kpi-num{color:var(--red)}
 .kpi.blue .kpi-num{color:var(--blue)}.kpi.gold .kpi-num{color:var(--gold)}
 
@@ -72,7 +71,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .pr-label{font-size:.7rem;color:var(--text-mid);width:90px;flex-shrink:0}
 .pr-bar{flex:1;height:7px;background:var(--rose-light);border-radius:10px;overflow:hidden}
 .pr-fill{height:100%;border-radius:10px;transition:width .5s ease}
-.pr-pct{font-size:.68rem;font-weight:600;color:var(--rose-dark);width:30px;text-align:right}
+.pr-pct{font-size:.72rem;font-weight:700;color:var(--rose-dark);width:32px;text-align:right}
 
 /* ALERTS */
 .alert-row{display:flex;align-items:flex-start;gap:10px;background:var(--orange-light);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;padding:9px 12px;margin-bottom:7px;font-size:.78rem}
@@ -83,21 +82,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .alert-row.red-alert .alert-title{color:var(--red)}
 
 /* PROVIDERS */
-.prov-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.8rem}
+.prov-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:.84rem}
 .prov-row:last-child{border-bottom:none}
 .prov-icon{font-size:1.1rem;width:24px;text-align:center}
 .prov-name{flex:1;color:var(--text)}
-.status-badge{font-size:.62rem;font-weight:600;padding:3px 8px;border-radius:20px;white-space:nowrap}
+.status-badge{font-size:.68rem;font-weight:600;padding:4px 10px;border-radius:20px;white-space:nowrap}
 .sb-ok{background:var(--green-light);color:var(--green)}
 .sb-warn{background:var(--orange-light);color:var(--orange)}
 .sb-pending{background:var(--blue-light);color:var(--blue)}
 
 /* CHECKLIST */
-.phase-label{font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--text-soft);margin:16px 0 8px 4px;display:flex;align-items:center;gap:6px}
+.phase-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-mid);font-weight:600;margin:16px 0 8px 4px;display:flex;align-items:center;gap:6px}
 .phase-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .task-card{display:flex;align-items:flex-start;gap:12px;background:var(--card);border-radius:12px;padding:12px 14px;margin-bottom:7px;box-shadow:var(--shadow-sm);cursor:pointer;transition:all .2s;border-left:3px solid transparent;-webkit-user-select:none}
 .task-card:active{transform:scale(.98)}
-.task-card.done{opacity:.45}
+.task-card.done{opacity:.5}
 .task-card.done .task-title{text-decoration:line-through;color:var(--text-soft)}
 .task-card.locked{cursor:default;border-left-color:var(--green);background:var(--green-light)}
 .task-card.urgent-task{border-left-color:var(--red)}
@@ -106,7 +105,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .task-card.done .task-check,.task-card.locked .task-check{background:var(--rose);border-color:var(--rose)}
 .task-card.locked .task-check{background:var(--green);border-color:var(--green)}
 .task-title{font-size:.84rem;color:var(--text);line-height:1.4}
-.task-meta{font-size:.68rem;color:var(--text-soft);margin-top:3px}
+.task-meta{font-size:.72rem;color:var(--text-mid);margin-top:3px}
 .task-meta.urgent{color:var(--red);font-weight:500}
 .task-meta.soon{color:var(--orange)}
 .progress-summary{background:var(--rose-pale);border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
@@ -127,7 +126,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .modal-handle{width:40px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px}
 .modal-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--rose-dark);margin-bottom:18px}
 .form-group{margin-bottom:14px}
-.form-label{font-size:.75rem;color:var(--text-mid);font-weight:500;margin-bottom:5px;display:block;letter-spacing:.3px}
+.form-label{font-size:.78rem;color:var(--text);font-weight:600;margin-bottom:5px;display:block;letter-spacing:.2px}
 .form-input,.form-select,.form-textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:12px;font-size:.85rem;font-family:'DM Sans',sans-serif;color:var(--text);background:var(--rose-pale);outline:none;transition:border-color .2s}
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--rose);background:white}
 .form-textarea{min-height:80px;resize:vertical}
@@ -140,7 +139,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .inv-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
 .inv-stat{background:white;border-radius:10px;padding:10px 6px;text-align:center;box-shadow:var(--shadow-sm)}
 .inv-stat .is-num{font-size:1.3rem;font-weight:600;color:var(--rose-dark)}
-.inv-stat .is-lbl{font-size:.58rem;color:var(--text-soft)}
+.inv-stat .is-lbl{font-size:.68rem;color:var(--text-mid)}
 .inv-stat.confirmed .is-num{color:var(--green)}
 .inv-stat.pending .is-num{color:var(--orange)}
 .inv-stat.declined .is-num{color:var(--red)}
@@ -157,13 +156,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .req-item{display:flex;align-items:flex-start;gap:10px;background:white;padding:11px 14px;margin-bottom:1px;cursor:pointer;transition:background .15s}
 .req-item:last-child{border-radius:0 0 12px 12px;margin-bottom:14px}
 .req-item:active{background:var(--rose-pale)}
-.req-item.done{opacity:.5}
+.req-item.done{opacity:.55}
 .req-item.done .req-name{text-decoration:line-through}
 .req-check{width:20px;height:20px;border-radius:4px;border:2px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:white;transition:all .2s}
 .req-item.done.church-item .req-check{background:var(--purple);border-color:var(--purple)}
 .req-item.done.civil-item .req-check{background:var(--blue);border-color:var(--blue)}
 .req-name{font-size:.82rem;color:var(--text);line-height:1.4}
-.req-note{font-size:.67rem;color:var(--text-soft);margin-top:2px}
+.req-note{font-size:.72rem;color:var(--text-mid);margin-top:2px}
 
 /* CONTRATOS */
 .contrato-card{background:white;border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow-sm);border-left:4px solid var(--gold);position:relative}
@@ -176,7 +175,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .contacto-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--rose-light),var(--gold-light));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
 .contacto-info{flex:1;min-width:0}
 .contacto-nombre{font-weight:600;font-size:.88rem;color:var(--text)}
-.contacto-empresa{font-size:.7rem;color:var(--text-soft);margin-top:1px}
+.contacto-empresa{font-size:.74rem;color:var(--text-mid);margin-top:1px}
 .contacto-btns{display:flex;gap:6px;margin-top:6px}
 .contacto-btn{display:flex;align-items:center;gap:4px;padding:5px 10px;border-radius:20px;border:none;font-size:.65rem;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:500;text-decoration:none}
 .btn-call{background:var(--green-light);color:var(--green)}
@@ -187,13 +186,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* PRESUPUESTO */
 .budget-summary-card{background:linear-gradient(135deg,var(--rose-dark),var(--rose));border-radius:16px;padding:18px;margin-bottom:12px;color:white}
-.bsc-title{font-size:.72rem;opacity:.8;text-transform:uppercase;letter-spacing:1px}
+.bsc-title{font-size:.75rem;opacity:1;font-weight:600;text-transform:uppercase;letter-spacing:1px}
 .bsc-amount{font-family:'Playfair Display',serif;font-size:2rem;margin:6px 0 2px}
-.bsc-sub{font-size:.72rem;opacity:.75}
+.bsc-sub{font-size:.75rem;opacity:.9}
 .bsc-row{display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.2)}
 .bsc-item{text-align:center}
 .bsc-item .bi-val{font-size:.9rem;font-weight:600}
-.bsc-item .bi-lbl{font-size:.6rem;opacity:.75;margin-top:2px}
+.bsc-item .bi-lbl{font-size:.7rem;opacity:.9;margin-top:2px}
 .budget-row{display:flex;align-items:center;justify-content:space-between;background:white;border-radius:12px;padding:11px 14px;margin-bottom:7px;box-shadow:var(--shadow-sm);font-size:.82rem}
 .budget-row.confirmed{border-left:3px solid var(--green)}
 .budget-row.remaining{border-left:3px solid var(--gold)}
@@ -206,18 +205,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* COMPRAS */
 .compra-item{display:flex;align-items:center;gap:10px;background:white;border-radius:12px;padding:11px 14px;margin-bottom:7px;box-shadow:var(--shadow-sm);cursor:pointer}
-.compra-item.done{opacity:.45}
+.compra-item.done{opacity:.5}
 .compra-item.done .compra-nombre{text-decoration:line-through;color:var(--text-soft)}
 .compra-check{width:20px;height:20px;border-radius:4px;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:white;transition:all .2s}
 .compra-item.done .compra-check{background:var(--green);border-color:var(--green)}
 .compra-nombre{flex:1;font-size:.84rem;color:var(--text)}
-.compra-cat{font-size:.62rem;padding:2px 7px;border-radius:8px;background:var(--rose-pale);color:var(--text-soft)}
+.compra-cat{font-size:.68rem;padding:2px 8px;border-radius:8px;background:var(--rose-pale);color:var(--text-mid);font-weight:500}
 .compra-del{background:none;border:none;color:#ddd;cursor:pointer;font-size:.9rem}
 .compra-del:active{color:var(--red)}
 
 /* CANCIONES */
 .cancion-card{background:white;border-radius:12px;padding:12px 14px;margin-bottom:8px;box-shadow:var(--shadow-sm)}
-.cancion-momento{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-soft);margin-bottom:4px}
+.cancion-momento{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-mid);margin-bottom:4px;font-weight:600}
 .cancion-titulo{font-size:.88rem;font-weight:600;color:var(--text)}
 .cancion-artista{font-size:.72rem;color:var(--text-soft);margin-top:2px}
 .cancion-votos{display:flex;gap:8px;margin-top:8px}
@@ -242,9 +241,25 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* DARK MODE */
 @media(prefers-color-scheme:dark){
-  :root{--bg:#1a1210;--card:#251a17;--border:#3d2820;--text:#f0e0da;--text-mid:#c4a098;--text-soft:#8b6d64;--rose-pale:#2a1815}
-  .bottom-nav{background:#1f1412;border-top-color:#3d2820}
-  .hc-box{background:rgba(0,0,0,.3)}
+  :root{--bg:#1a1210;--card:#2a1d1a;--border:#4a3028;--text:#f5e8e2;--text-mid:#d4b0a4;--text-soft:#a08070;--rose-pale:#2d1c18;--gold-light:#2a2010;--blue-light:#12182a;--green-light:#0e2018;--red-light:#2a1010;--orange-light:#2a1a08}
+  .bottom-nav{background:#1f1412;border-top-color:#4a3028}
+  .hc-box{background:rgba(0,0,0,.4);border-color:rgba(255,255,255,.15)}
+  .card{background:#2a1d1a;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+  .task-card,.inv-item,.req-item,.cotiz-card,.cancion-card,.contrato-card,.contacto-card,.compra-item,.budget-row,.month-pay-row,.cotiz-card{background:#2a1d1a}
+  .nota-bubble{background:#2a1d1a}
+  .nota-bubble.mine{background:linear-gradient(135deg,#2d1c18,#351e18)}
+  .nota-bubble.other{background:linear-gradient(135deg,#12182a,#141e30)}
+  .search-box{background:#2a1d1a;border-color:#4a3028}
+  .modal{background:#2a1d1a}
+  .form-input,.form-select,.form-textarea{background:#1a1210;border-color:#4a3028;color:#f5e8e2}
+  .form-input:focus,.form-select:focus{background:#2a1d1a;border-color:var(--rose)}
+  .kpi{background:#251a17;border-color:#4a3028}
+  .inner-tab{background:#2a1d1a;border-color:#4a3028;color:var(--text-mid)}
+  .inv-group-tab,.req-filter-tab{background:#2a1d1a;border-color:#4a3028;color:var(--text-mid)}
+  .album-card{background:#2a1d1a}
+  .backup-btn{background:#2a1d1a;border-color:#4a3028;color:var(--text-mid)}
+  .btn-secondary{background:#2a1d1a;border-color:#4a3028;color:var(--rose-light)}
+  .voto-btn{background:#2a1d1a;border-color:#4a3028;color:var(--text-mid)}
 }
 
 
@@ -273,13 +288,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* SYNC STATUS */
 .sync-bar{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:500;display:flex;align-items:center;justify-content:center;gap:6px;padding:6px 16px;font-size:.72rem;font-family:'DM Sans',sans-serif;transition:all .3s;pointer-events:none}
-.sync-bar.synced{background:rgba(74,140,106,.9);color:white}
-.sync-bar.syncing{background:rgba(201,169,110,.9);color:white}
+.sync-bar.synced{background:rgba(74,140,106,.95);color:white;font-size:.76rem}
+.sync-bar.syncing{background:rgba(201,169,110,.95);color:white;font-size:.76rem}
 .sync-bar.offline{background:rgba(192,57,43,.9);color:white}
 .sync-bar.hidden{opacity:0}
 .sync-dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.online-indicator{position:fixed;top:8px;right:16px;z-index:501;display:flex;align-items:center;gap:4px;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);border-radius:20px;padding:4px 10px;font-size:.65rem;color:white;font-family:'DM Sans',sans-serif}
+.online-indicator{position:fixed;top:8px;right:16px;z-index:501;display:flex;align-items:center;gap:4px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border-radius:20px;padding:5px 12px;font-size:.7rem;color:white;font-family:'DM Sans',sans-serif}
 .online-dot{width:6px;height:6px;border-radius:50%;background:#4caf50}
 .online-dot.offline{background:#f44336}
 .online-dot.syncing{background:#ffc107;animation:pulse 1s infinite}
@@ -288,7 +303,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .setup-overlay{position:fixed;inset:0;background:linear-gradient(160deg,#8b5e52,#c4806e);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}
 .setup-card{background:white;border-radius:24px;padding:28px 24px;width:100%;max-width:380px;text-align:center}
 .setup-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:#8b5e52;margin-bottom:8px}
-.setup-sub{font-size:.82rem;color:#b07a6e;margin-bottom:24px;line-height:1.5}
+.setup-sub{font-size:.85rem;color:#8a5a4a;margin-bottom:24px;line-height:1.6}
 .setup-btn{width:100%;padding:14px;border-radius:12px;border:none;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;cursor:pointer;margin-bottom:10px;transition:all .2s}
 .setup-btn.primary{background:linear-gradient(135deg,#8b5e52,#c4806e);color:white}
 .setup-btn.secondary{background:#fdf6f0;color:#8b5e52;border:1.5px solid #f0ddd8}
@@ -302,7 +317,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* EDIT MODAL */
 .edit-actions { display:flex; gap:6px; margin-top:8px; }
-.btn-edit { background:var(--blue-light);color:var(--blue);border:none;border-radius:8px;padding:4px 10px;font-size:.65rem;font-family:'DM Sans',sans-serif;cursor:pointer; }
+.btn-edit { background:var(--blue-light);color:var(--blue);border:none;border-radius:8px;padding:5px 10px;font-size:.7rem;font-family:'DM Sans',sans-serif;cursor:pointer; }
 .btn-delete { background:var(--red-light);color:var(--red);border:none;border-radius:8px;padding:4px 10px;font-size:.65rem;font-family:'DM Sans',sans-serif;cursor:pointer; }
 .btn-save { background:var(--green-light);color:var(--green);border:none;border-radius:8px;padding:4px 10px;font-size:.65rem;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:600; }
 
@@ -334,7 +349,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .payment-alert-banner{background:linear-gradient(135deg,#c0392b,#e74c3c);color:white;border-radius:14px;padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 16px rgba(192,57,43,.3)}
 .pab-icon{font-size:1.8rem;flex-shrink:0}
 .pab-title{font-weight:700;font-size:.9rem}
-.pab-sub{font-size:.72rem;opacity:.9;margin-top:2px}
+.pab-sub{font-size:.76rem;opacity:1;margin-top:2px}
 
 /* DONUT CHART */
 .donut-wrap{display:flex;align-items:center;gap:16px;padding:8px 0}
@@ -346,15 +361,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .cal-nav{background:var(--rose-pale);border:none;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--rose-dark)}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
-.cal-day-label{text-align:center;font-size:.6rem;color:var(--text-soft);padding:3px 0;font-weight:600}
+.cal-day-label{text-align:center;font-size:.68rem;color:var(--text-mid);font-weight:700;padding:3px 0;font-weight:600}
 .cal-day{text-align:center;font-size:.72rem;padding:5px 2px;border-radius:6px;position:relative;cursor:default;min-height:28px;display:flex;align-items:center;justify-content:center;flex-direction:column}
 .cal-day.today{background:var(--rose-pale);color:var(--rose-dark);font-weight:700}
 .cal-day.has-event{background:var(--rose-dark);color:white;font-weight:700;cursor:pointer}
 .cal-day.payment-day{background:var(--red);color:white;font-weight:700}
 .cal-day.other-month{color:var(--border)}
 .cal-dot{width:4px;height:4px;border-radius:50%;background:white;margin-top:1px}
-.cal-legend{display:flex;gap:10px;margin-top:10px;font-size:.65rem;flex-wrap:wrap}
-.cal-legend-item{display:flex;align-items:center;gap:4px;color:var(--text-soft)}
+.cal-legend{display:flex;gap:10px;margin-top:10px;font-size:.72rem;flex-wrap:wrap}
+.cal-legend-item{display:flex;align-items:center;gap:4px;color:var(--text-mid)}
 .cal-legend-dot{width:8px;height:8px;border-radius:50%}
 
 /* MONTHLY PAYMENTS */
@@ -369,9 +384,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .nota-bubble.mine{background:linear-gradient(135deg,var(--rose-pale),#fef0ec);border-left:3px solid var(--rose)}
 .nota-bubble.other{background:linear-gradient(135deg,var(--blue-light),#eef4ff);border-left:3px solid var(--blue)}
 .nota-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.nota-author{font-size:.7rem;font-weight:600;color:var(--rose-dark)}
+.nota-author{font-size:.75rem;font-weight:700;color:var(--rose-dark)}
 .nota-bubble.other .nota-author{color:var(--blue)}
-.nota-time{font-size:.62rem;color:var(--text-soft)}
+.nota-time{font-size:.68rem;color:var(--text-mid)}
 .nota-text{font-size:.84rem;color:var(--text);line-height:1.5}
 .nota-del{position:absolute;top:8px;right:10px;background:none;border:none;color:#ddd;cursor:pointer;font-size:.8rem}
 .nota-del:active{color:var(--red)}
@@ -399,6 +414,34 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .backup-row{display:flex;gap:8px;margin-bottom:12px}
 .backup-btn{flex:1;padding:10px;border-radius:12px;border:1.5px solid var(--border);background:white;color:var(--text-mid);font-size:.78rem;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
 .backup-btn:active{background:var(--rose-pale)}
+
+/* REQUISITOS ENHANCED */
+.req-filter-tabs{display:flex;gap:6px;margin-bottom:12px}
+.req-filter-tab{flex:1;padding:7px;border-radius:10px;border:1.5px solid var(--border);background:white;color:var(--text-mid);cursor:pointer;font-size:.72rem;font-family:'DM Sans',sans-serif;text-align:center;transition:all .2s}
+.req-filter-tab.active{background:var(--rose-dark);color:white;border-color:var(--rose-dark)}
+.req-item-actions{display:flex;gap:4px;flex-shrink:0}
+
+/* COTIZACIONES */
+.cotiz-card{background:white;border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow-sm);border-left:4px solid var(--border);position:relative;transition:all .2s}
+.cotiz-card.winner{border-left-color:var(--green);background:linear-gradient(135deg,var(--green-light),white)}
+.cotiz-nombre{font-weight:600;font-size:.88rem;color:var(--text);margin-bottom:4px}
+.cotiz-precio{font-size:1.1rem;font-weight:700;color:var(--rose-dark);margin-bottom:6px}
+.cotiz-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.cotiz-tag{font-size:.62rem;padding:2px 8px;border-radius:8px;background:var(--rose-pale);color:var(--text-mid)}
+.cotiz-btns{display:flex;gap:6px}
+.cotiz-choose{flex:1;padding:8px;border-radius:10px;border:none;background:var(--green);color:white;font-size:.75rem;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:600}
+.cotiz-choose.selected{background:var(--green-dark)}
+.cotiz-del-btn{padding:8px 12px;border-radius:10px;border:none;background:var(--red-light);color:var(--red);font-size:.75rem;font-family:'DM Sans',sans-serif;cursor:pointer}
+.cotiz-winner-badge{position:absolute;top:10px;right:10px;background:var(--green);color:white;font-size:.68rem;padding:3px 10px;border-radius:10px;font-weight:700}
+
+/* GALERIA ALBUMS */
+.album-card{background:white;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:12px;cursor:pointer}
+.album-cover{height:120px;background:linear-gradient(135deg,var(--rose-pale),var(--gold-light));display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+.album-cover img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.album-info{padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
+.album-name{font-weight:600;font-size:.88rem;color:var(--text)}
+.album-count{font-size:.74rem;color:var(--text-mid)}
+.album-back{display:flex;align-items:center;gap:8px;margin-bottom:12px;cursor:pointer;color:var(--rose-dark);font-size:.82rem;font-weight:600}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
@@ -432,6 +475,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div class="kpi blue"><div class="kpi-num" id="kpi-req">0/16</div><div class="kpi-lbl">Requisitos</div></div>
     <div class="kpi green"><div class="kpi-num" id="kpi-inv">0</div><div class="kpi-lbl">Confirmados</div></div>
     <div class="kpi"><div class="kpi-num">40</div><div class="kpi-lbl">Invitados</div></div>
+    <div class="kpi"><div class="kpi-num" id="kpi-contratos">0</div><div class="kpi-lbl">Contratos</div></div>
     <div class="kpi gold"><div class="kpi-num" id="kpi-gastado">S/0</div><div class="kpi-lbl">Gastado</div></div>
   </div>
 
@@ -462,6 +506,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
   </div>
 
+  <div class="card" style="padding:12px 16px">
+    <div style="font-size:.82rem;font-weight:600;color:var(--rose-dark);margin-bottom:10px">⚡ Acciones rápidas</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button onclick="goToTab('checklist')" style="padding:10px;border-radius:12px;border:1.5px solid var(--border);background:var(--rose-pale);color:var(--rose-dark);font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer;font-weight:500">✅ Ver tareas</button>
+      <button onclick="goToTab('invitados')" style="padding:10px;border-radius:12px;border:1.5px solid var(--border);background:var(--rose-pale);color:var(--rose-dark);font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer;font-weight:500">👥 Invitados</button>
+      <button onclick="goToMasTab('notas')" style="padding:10px;border-radius:12px;border:1.5px solid var(--border);background:var(--blue-light);color:var(--blue);font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer;font-weight:500">💬 Notas</button>
+      <button onclick="goToMasTab('calendario')" style="padding:10px;border-radius:12px;border:1.5px solid var(--border);background:var(--rose-pale);color:var(--rose-dark);font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer;font-weight:500">📅 Calendario</button>
+    </div>
+  </div>
+
   <div class="card">
     <div class="card-title">🌤 Clima — 29 agosto 2026</div>
     <div id="clima-container"><div style="text-align:center;padding:16px;color:var(--text-soft);font-size:.8rem">
@@ -489,6 +543,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div class="ps-bar-bg"><div class="ps-bar" id="checklist-bar" style="width:9%"></div></div>
     <span class="ps-text" id="checklist-text">5 / 57 tareas</span>
   </div>
+  <div class="search-box" style="margin-bottom:10px">
+    <span>🔍</span>
+    <input type="text" id="task-search" placeholder="Buscar tarea..." oninput="renderChecklist()">
+  </div>
   <div id="checklist-content"></div>
 </div>
 
@@ -502,12 +560,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div class="inv-stat pending"><div class="is-num" id="is-pend">0</div><div class="is-lbl">Pendiente</div></div>
     <div class="inv-stat declined"><div class="is-num" id="is-decl">0</div><div class="is-lbl">No asiste</div></div>
   </div>
+  <div id="inv-capacity-warn" style="text-align:center;font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:10px;margin-bottom:8px;min-height:28px"></div>
   <div class="inv-group-tabs">
     <button class="inv-group-tab active" id="inv-tab-all" onclick="switchInvTab('all',this)">👥 Todos</button>
     <button class="inv-group-tab" id="inv-tab-novia" onclick="switchInvTab('novia',this)">👰 Novia</button>
     <button class="inv-group-tab" id="inv-tab-novio" onclick="switchInvTab('novio',this)">🤵 Novio</button>
   </div>
-  <div class="search-box"><span>🔍</span><input type="text" id="inv-search" placeholder="Buscar invitado..." oninput="renderInvitados()"></div>
+  <div style="display:flex;gap:8px;margin-bottom:12px">
+    <div class="search-box" style="flex:1;margin-bottom:0"><span>🔍</span><input type="text" id="inv-search" placeholder="Buscar invitado..." oninput="renderInvitados()"></div>
+    <select id="inv-sort" onchange="renderInvitados()" style="padding:8px 10px;border:1.5px solid var(--border);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:.78rem;background:white;color:var(--text);outline:none">
+      <option value="name">A-Z</option>
+      <option value="status">Estado</option>
+      <option value="group">Grupo</option>
+    </select>
+  </div>
   <div id="inv-list-container"></div>
 </div>
 
@@ -523,6 +589,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <button class="inner-tab" onclick="showMasTab('compras',this)">🛒 Compras</button>
     <button class="inner-tab" onclick="showMasTab('canciones',this)">🎵 Canciones</button>
     <button class="inner-tab" onclick="showMasTab('notas',this)">💬 Notas</button>
+    <button class="inner-tab" onclick="showMasTab('cotizaciones',this)">💼 Cotizaciones</button>
   </div>
 
   <!-- CALENDARIO -->
@@ -557,6 +624,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
   <!-- CONTACTOS -->
   <div id="mas-contactos" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <span style="font-size:.78rem;color:var(--text-mid);font-weight:500" id="contact-count">0 contactos</span>
+    </div>
     <div class="search-box"><span>🔍</span><input type="text" id="contact-search" placeholder="Buscar contacto..." oninput="renderContactos()"></div>
     <div id="contactos-list"></div>
   </div>
@@ -594,6 +664,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
   </div>
 
+  <!-- COTIZACIONES -->
+  <div id="mas-cotizaciones" style="display:none">
+    <div style="background:var(--gold-light);border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:.78rem;color:#8a6a30;line-height:1.5">
+      💼 Compara cotizaciones de proveedores y marca la ganadora. Se sincroniza con tu pareja en tiempo real.
+    </div>
+    <div class="form-group" style="margin-bottom:10px">
+      <select class="form-select" id="cotiz-proveedor-filter" onchange="renderCotizaciones()">
+        <option value="">Todos los proveedores</option>
+        <option value="dj">🎵 DJ / Música</option>
+        <option value="decoracion">💐 Decoración</option>
+        <option value="vestido">👗 Vestido</option>
+        <option value="torta">🎂 Torta</option>
+        <option value="toldo">⛺ Toldo</option>
+        <option value="mozos">🍹 Mozos</option>
+        <option value="maquillaje">💄 Maquillaje</option>
+        <option value="otros">📋 Otros</option>
+      </select>
+    </div>
+    <div id="cotizaciones-list"></div>
+  </div>
+
   <!-- CANCIONES -->
   <div id="mas-canciones" style="display:none">
     <div style="background:linear-gradient(135deg,#667eea,#c4806e);border-radius:14px;padding:14px;color:white;margin-bottom:14px;font-size:.8rem;line-height:1.5">
@@ -628,8 +719,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
     <input class="setup-input" id="setup-code" placeholder="Código de boda (ej: boda2608)" maxlength="20">
     <div style="font-size:.7rem;color:#b07a6e;margin-bottom:16px;line-height:1.5">Ambos deben ingresar el mismo código para sincronizarse. Elige uno fácil de recordar.</div>
-    <button class="setup-btn primary" onclick="doSetup()">✨ Conectar y sincronizar</button>
+    <button class="setup-btn primary" onclick="doSetup()" id="setup-connect-btn">✨ Conectar y sincronizar</button>
+    <div id="setup-status" style="font-size:.75rem;min-height:20px;margin-bottom:8px;color:var(--rose-dark)"></div>
     <button class="setup-btn secondary" onclick="skipSetup()">Usar sin sincronización</button>
+    <div style="font-size:.68rem;color:#b07a6e;margin-top:8px;line-height:1.5">
+      💡 Ambos deben usar el mismo código para sincronizarse
+    </div>
   </div>
 </div>
 
@@ -661,6 +756,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="modal-handle"></div><div class="modal-title">Nueva tarea</div>
   <div class="form-group"><label class="form-label">Nombre de la tarea</label><input class="form-input" id="new-task-name" placeholder="Ej: Contratar fotógrafo extra" onkeydown="if(event.key==='Enter')addTask()"></div>
   <div class="form-group"><label class="form-label">Fecha límite / nota</label><input class="form-input" id="new-task-date" placeholder="Ej: Antes del 15 de julio"></div>
+  <div class="form-group"><label class="form-label">Fecha para calendario (opcional)</label><input class="form-input" id="new-task-deadline" type="date"></div>
   <div class="form-group"><label class="form-label">Prioridad</label><select class="form-select" id="new-task-priority"><option value="urgent">🔴 Urgente</option><option value="soon" selected>🟠 Julio</option><option value="normal">🟡 Agosto</option></select></div>
   <div class="btn-row"><button class="btn-secondary" onclick="closeModal('modal-task')">Cancelar</button><button class="btn-primary" onclick="addTask()">Agregar</button></div>
 </div></div>
@@ -770,7 +866,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="card">
     <div class="card-title">🔄 Sincronización</div>
     <div style="font-size:.82rem;color:var(--text-mid);margin-bottom:10px" id="sync-info-text">Cargando...</div>
-    <button class="backup-btn" style="width:100%" onclick="resetSetup()">⚙️ Cambiar configuración de sync</button>
+    <div style="display:flex;gap:8px">
+      <button class="backup-btn" style="flex:1" onclick="testFirebaseConnection()">🔌 Probar conexión</button>
+      <button class="backup-btn" style="flex:1" onclick="resetSetup()">⚙️ Cambiar sync</button>
+    </div>
   </div>
 
   <!-- Info -->
@@ -778,9 +877,69 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div style="font-size:2rem;margin-bottom:8px">💍</div>
     <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--rose-dark)">Josseline & Clarck</div>
     <div style="font-size:.72rem;color:var(--text-soft);margin-top:4px">29 de agosto 2026 · Arequipa</div>
-    <div style="font-size:.65rem;color:var(--border);margin-top:12px">Wedding Planner App v2.0</div>
+    <div style="font-size:.65rem;color:var(--text-soft);margin-top:12px">Wedding Planner App v2.0</div>
   </div>
 </div>
+
+
+<!-- MODAL: ADD REQUISITO -->
+<div class="modal-overlay" id="modal-add-req"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Nuevo requisito</div>
+  <input type="hidden" id="add-req-type">
+  <div class="form-group"><label class="form-label">Descripción</label><input class="form-input" id="add-req-name" placeholder="Ej: Certificado de soltería"></div>
+  <div class="form-group"><label class="form-label">Nota / detalle</label><input class="form-input" id="add-req-note" placeholder="Ej: Solicitarlo en..."></div>
+  <div class="form-group"><label class="form-label">Para quién</label>
+    <select class="form-select" id="add-req-persona">
+      <option value="ambos">👥 Ambos</option>
+      <option value="novia">👰 Solo la novia</option>
+      <option value="novio">🤵 Solo el novio</option>
+    </select>
+  </div>
+  <div class="btn-row"><button class="btn-secondary" onclick="closeModal('modal-add-req')">Cancelar</button><button class="btn-primary" onclick="saveAddReq()">Agregar</button></div>
+</div></div>
+
+<!-- MODAL: EDIT REQUISITO -->
+<div class="modal-overlay" id="modal-edit-req"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Editar requisito</div>
+  <input type="hidden" id="edit-req-id">
+  <input type="hidden" id="edit-req-type">
+  <div class="form-group"><label class="form-label">Descripción</label><input class="form-input" id="edit-req-name"></div>
+  <div class="form-group"><label class="form-label">Nota</label><input class="form-input" id="edit-req-note"></div>
+  <div class="form-group"><label class="form-label">Para quién</label>
+    <select class="form-select" id="edit-req-persona">
+      <option value="ambos">👥 Ambos</option>
+      <option value="novia">👰 Solo la novia</option>
+      <option value="novio">🤵 Solo el novio</option>
+    </select>
+  </div>
+  <div class="btn-row">
+    <button class="btn-secondary" onclick="closeModal('modal-edit-req')">Cancelar</button>
+    <button class="btn-primary" id="edit-req-del-btn" style="background:var(--red);display:none" onclick="deleteCustomReq()">🗑 Eliminar</button>
+    <button class="btn-primary" onclick="saveEditReq()">Guardar</button>
+  </div>
+</div></div>
+
+<!-- MODAL: ADD COTIZACION -->
+<div class="modal-overlay" id="modal-cotizacion"><div class="modal">
+  <div class="modal-handle"></div><div class="modal-title">Nueva cotización</div>
+  <div class="form-group"><label class="form-label">Proveedor / Empresa</label><input class="form-input" id="new-cotiz-nombre" placeholder="Ej: DJ Luna Music"></div>
+  <div class="form-group"><label class="form-label">Categoría</label>
+    <select class="form-select" id="new-cotiz-cat">
+      <option value="dj">🎵 DJ / Música</option>
+      <option value="decoracion">💐 Decoración</option>
+      <option value="vestido">👗 Vestido</option>
+      <option value="torta">🎂 Torta</option>
+      <option value="toldo">⛺ Toldo</option>
+      <option value="mozos">🍹 Mozos</option>
+      <option value="maquillaje">💄 Maquillaje</option>
+      <option value="otros">📋 Otros</option>
+    </select>
+  </div>
+  <div class="form-group"><label class="form-label">Precio (S/)</label><input class="form-input" id="new-cotiz-precio" type="number" placeholder="0.00"></div>
+  <div class="form-group"><label class="form-label">¿Qué incluye?</label><textarea class="form-textarea" id="new-cotiz-incluye" placeholder="Lista lo que incluye el servicio..."></textarea></div>
+  <div class="form-group"><label class="form-label">Notas</label><input class="form-input" id="new-cotiz-notas" placeholder="Disponibilidad, condiciones..."></div>
+  <div class="btn-row"><button class="btn-secondary" onclick="closeModal('modal-cotizacion')">Cancelar</button><button class="btn-primary" onclick="saveCotizacion()">Guardar</button></div>
+</div></div>
 
 <!-- MODAL: EDIT TASK -->
 <div class="modal-overlay" id="modal-edit-task"><div class="modal">
@@ -895,30 +1054,53 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 </script>
 
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script>
 // ══════════════════════════════════════
 // DATA CONSTANTS
 // ══════════════════════════════════════
 const tlData=[
-  {time:'28 ago · 3pm',title:'🛏 Novia llega a Khunan Pacha',desc:'Check-in Suite de la Dama · Preparación',color:'#888',resp:''},
-  {time:'7:00 am',title:'📷 Novio + Studio 24 inician',desc:'Habitación del novio · Cobertura fotográfica desde temprano',color:'#f57f17',resp:'Studio 24'},
-  {time:'10:30 am',title:'💄 Novia lista → traslado iglesia',desc:'Salida hacia Parroquia Santa Marta',color:'#c4806e',resp:'Coordinador/a del día'},
-  {time:'11:00 am',title:'⛪ Ceremonia religiosa',desc:'Parroquia Santa Marta · Plaza España 105 · ~1 hora',color:'#7b68b0',resp:'Párroco · Studio 24'},
-  {time:'12:00 pm',title:'📸 Fotos + traslado al local',desc:'Centro histórico · Sillar blanco · ~5 min a KP',color:'#5aaa6a',resp:'Studio 24'},
-  {time:'12:30 pm',title:'⚖️ Matrimonio Civil',desc:'En Khunan Pacha · Funcionario municipal · ~40 min',color:'#3a7bd5',resp:'Funcionario Municipalidad'},
-  {time:'~1:10 pm',title:'🥂 Llegada de invitados al local',desc:'Mozos reciben con bandejas · Chicha, limonada, agua · Barra abierta · Música ambiental',color:'#c4806e',resp:'🍹 Mozos propios + DJ'},
-  {time:'~1:15 pm',title:'💍 Ingreso de los novios',desc:'Animador presenta con canción de entrada · Studio 24 enfocado',color:'#c4806e',resp:'🎤 Animador · Studio 24'},
-  {time:'~1:20 pm',title:'🥂 Brindis oficial',desc:'Copa en mano · Palabras de novios y padres · Mozos pasan champagne',color:'#c9a96e',resp:'🎤 Animador · 🍹 Mozos'},
-  {time:'~1:30 pm',title:'💃 Primer baile',desc:'Solo Josseline & Clarck · Al terminar todos se unen a la pista',color:'#8b5e52',resp:'🎵 DJ · Studio 24'},
-  {time:'~1:45 pm',title:'👨‍👩‍👧 Baile con padres',desc:'Momento emotivo · Una canción compartida',color:'#b07a6e',resp:'🎵 DJ · 🎤 Animador'},
-  {time:'~2:00 pm',title:'🍽 Almuerzo',desc:'Mozos KP sirven · Mozos propios con bebidas entre mesas · Barra abierta',color:'#4a8c6a',resp:'🍽 Mozos KP + 🍹 Mozos propios'},
-  {time:'~3:15 pm',title:'💐 Tiro del bouquet',desc:'Animador convoca a mujeres solteras · Studio 24 listo',color:'#c4806e',resp:'🎤 Animador · Studio 24'},
-  {time:'~3:30 pm',title:'🎙 Palabras libres',desc:'Micrófono abierto para invitados · Máx 15 min',color:'#7b68b0',resp:'🎤 Animador'},
-  {time:'~3:45 pm',title:'🕺 Baile libre',desc:'DJ sube el ritmo · Baladas → pop → bailable · Mozos activos',color:'#c4806e',resp:'🎵 DJ · 🍹 Mozos'},
-  {time:'~5:30 pm',title:'🎉 Hora loca',desc:'Sombreros, antifaces, pelucas · DJ a full · 30–45 min',color:'#d4813a',resp:'🎤 Animador · 🎵 DJ · Studio 24'},
-  {time:'~6:15 pm',title:'🎵 Baile libre final',desc:'DJ lee la energía · Mozos activos · Barra abierta',color:'#c4806e',resp:'🎵 DJ · 🍹 Mozos'},
-  {time:'~7:30 pm',title:'📸 Cierre emotivo',desc:'Fotos grupales · Novios agradecen · Última canción especial',color:'#8b5e52',resp:'🎤 Animador · Studio 24'},
-  {time:'8:00 pm',title:'🏁 Fin del evento',desc:'Coordinador activa plan de recojo · Desinstalación máx 3 hrs',color:'#aaa',resp:'📦 Coordinador/a del día'},
+  // DÍA PREVIO
+  {time:'28 ago · 3:00 pm',title:'🛏 Novia llega a Khunan Pacha',desc:'Check-in Suite de la Dama · Preparación y descanso',color:'#888',resp:''},
+  // BLOQUE 1 - PREPARACIÓN
+  {time:'6:00 am',title:'💄 Llegada equipo de estilismo',desc:'Instalación en Khunan Pacha · Preparación del espacio de maquillaje',color:'#c4806e',resp:'Estilista'},
+  {time:'7:00 am',title:'💅 Maquillaje y peinado',desc:'Novia, mamá de la novia y mamá del novio en paralelo · Novio se arregla en su habitación',color:'#c4806e',resp:'Estilista · Studio 24'},
+  {time:'8:45 am',title:'🤵 Novio se viste',desc:'El novio se cambia y arregla en su habitación alterna',color:'#8b5e52',resp:''},
+  {time:'9:15 am',title:'📷 Sesión del novio',desc:'Fotos individuales y retratos con su mamá en el primer patio · Al terminar regresa a su habitación',color:'#f57f17',resp:'Studio 24'},
+  {time:'9:30 am',title:'👰 Llegada damas de honor',desc:'Llegan listas para ponerse el vestido en sala asignada',color:'#7b68b0',resp:''},
+  {time:'9:35 am',title:'💛 First Look con el padre',desc:'El papá de la novia ingresa al primer patio para ver a su hija vestida de blanco por primera vez',color:'#c9a96e',resp:'Studio 24'},
+  {time:'9:50 am',title:'📸 Sesión con damas de honor',desc:'Fotos grupales con la novia en el primer patio',color:'#7b68b0',resp:'Studio 24'},
+  {time:'10:10 am',title:'🚗 Salida de la novia',desc:'Sube al auto con su padre rumbo a la iglesia · Viaje de 15 min',color:'#5aaa6a',resp:''},
+  {time:'10:15 am',title:'🚗 Salida del novio',desc:'El novio baja directo al auto rumbo a la iglesia · Viaje de 15 min',color:'#5aaa6a',resp:''},
+  // BLOQUE 2 - RELIGIOSO
+  {time:'10:30 am',title:'⛪ Novio llega a Santa Marta',desc:'Llega 30 min antes para recibir a los invitados',color:'#7b68b0',resp:''},
+  {time:'10:40 am',title:'👰 Novia llega a Santa Marta',desc:'El auto estaciona fuera · Ella espera adentro hasta el inicio de la marcha nupcial',color:'#c4806e',resp:'Studio 24'},
+  {time:'11:00 am',title:'⛪ Misa de matrimonio',desc:'Ceremonia religiosa · Parroquia Santa Marta · Plaza España 105 · Duración ~45 min',color:'#7b68b0',resp:'Párroco · Studio 24'},
+  {time:'11:45 am',title:'📸 Salida al atrio',desc:'Felicitaciones y fotos rápidas en la fachada de la iglesia',color:'#5aaa6a',resp:'Studio 24'},
+  // BLOQUE 3 - CÓCTEL Y CIVIL
+  {time:'12:00 pm',title:'🚗 Traslado a Khunan Pacha',desc:'Regreso al local · ~20 min',color:'#5aaa6a',resp:''},
+  {time:'12:20 pm',title:'🥂 Cóctel de bienvenida',desc:'Primer patio · Mozos sirven bocaditos salados fríos y Chilcanos / Pisco Sour · Fotos de novios en el patio',color:'#c4806e',resp:'🍹 Mozos · Studio 24'},
+  {time:'12:40 pm',title:'⚖️ Boda civil',desc:'Ceremonia legal en la bóveda del primer patio · ~20 min',color:'#3a7bd5',resp:'Funcionario Municipal'},
+  // BLOQUE 4 - ALMUERZO
+  {time:'1:00 pm',title:'🚪 Se abre el segundo patio',desc:'Invitados ingresan y toman asiento en la gran mesa única de 40 personas',color:'#4a8c6a',resp:'🎤 Animador · Mozos KP'},
+  {time:'1:10 pm',title:'💍 Ingreso de los novios',desc:'Entrada festiva directo a la pista del segundo patio',color:'#c4806e',resp:'🎤 Animador · Studio 24'},
+  {time:'1:15 pm',title:'🎙 Protocolo de honor',desc:'Palabras del padre (3 min) · Palabras de los novios (4 min) · Brindis (3 min) · Primer baile (5 min) · Baile novia con padre (4 min) · Baile novio con madre (4 min)',color:'#c9a96e',resp:'🎤 Animador · 🎵 DJ'},
+  {time:'1:40 pm',title:'🍽 Almuerzo',desc:'Se sirve el plato principal en la mesa única de 40 personas',color:'#4a8c6a',resp:'🍽 Mozos KP'},
+  // BLOQUE 5 - APERTURA
+  {time:'2:45 pm',title:'🍰 Mesa de dulces y barra libre',desc:'Se habilitan postres con café · Se activa la barra con carta de tragos',color:'#d4813a',resp:'🍹 Mozos'},
+  {time:'3:00 pm',title:'📸 Gran foto grupal en la escalera',desc:'40 asistentes en el backdrop · Fotógrafo acomoda a la familia en la escalera en V para que todos sean visibles',color:'#f57f17',resp:'Studio 24 · 🎤 Animador'},
+  {time:'3:20 pm',title:'🕺 Apertura de la pista de baile',desc:'Los novios inician oficialmente la fiesta',color:'#c4806e',resp:'🎵 DJ'},
+  {time:'4:00 pm',title:'🍢 3ra ronda de bocaditos',desc:'Bocaditos salados calientes servidos directo en la pista de baile',color:'#4a8c6a',resp:'🍹 Mozos'},
+  // BLOQUE 6 - HORA LOCA Y CIERRE
+  {time:'5:00 pm',title:'🍔 4ta ronda de bocaditos',desc:'Finger food contundentes',color:'#4a8c6a',resp:'🍹 Mozos'},
+  {time:'5:15 pm',title:'💐 Lanzamiento del ramo',desc:'La novia lanza el ramo · Animador convoca a las mujeres solteras',color:'#c4806e',resp:'🎤 Animador · Studio 24'},
+  {time:'5:25 pm',title:'🥃 Lanzamiento caja de Whisky',desc:'El novio lanza la caja de Whisky',color:'#8b5e52',resp:'🎤 Animador · Studio 24'},
+  {time:'5:35 pm',title:'🎉 Hora loca',desc:'Cotillón y música al máximo · ~45 min',color:'#d4813a',resp:'🎤 Animador · 🎵 DJ · Studio 24'},
+  {time:'6:20 pm',title:'🎵 Fiesta y barra libre',desc:'Fiesta general a pleno rendimiento · Barra libre',color:'#c4806e',resp:'🎵 DJ · 🍹 Mozos'},
+  {time:'7:00 pm',title:'🥪 5ta ronda "La Bajona"',desc:'Mini sándwiches contundentes para cerrar la noche',color:'#4a8c6a',resp:'🍹 Mozos'},
+  {time:'7:45 pm',title:'🎵 Última canción',desc:'Cierre definitivo · Desinstalación máx. 3 horas',color:'#8b5e52',resp:'🎤 Animador · Studio 24'},
+  {time:'8:00 pm',title:'🏁 Cierre del local',desc:'Fin del evento según contrato · Coordinador activa plan de recojo',color:'#aaa',resp:'📦 Coordinador/a'},
 ];
 
 const tasksData=[
@@ -1053,6 +1235,10 @@ let galeriaFotos=[];
 let currentScreen='dashboard';
 let currentMasTab='requisitos';
 let currentInvTab='all';
+let currentReqFilter='all'; // all, novia, novio, church, civil
+let currentAlbum=null; // null = show albums list, string = show album photos
+let cotizaciones={}; // {proveedorKey: [{id, nombre, precio, notas, file, selected}]}
+let customReqs={church:[],civil:[]}; // custom added requisitos
 
 // ══════════════════════════════════════
 // STORAGE
@@ -1085,7 +1271,8 @@ function showToast(msg, duration=1800){
   const t=document.getElementById('toast');
   t.textContent=msg||'✓ Guardado';
   t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),duration);
+  clearTimeout(t._timer);
+  t._timer=setTimeout(()=>t.classList.remove('show'),duration);
 }
 
 function showSyncBar(msg, type){
@@ -1122,7 +1309,16 @@ function doSetup(){
   localStorage.setItem('boda_sync_user', currentUser);
   localStorage.setItem('boda_sync_code', code);
   document.getElementById('setup-overlay').style.display='none';
-  initFirebase();
+  const setupBtn=document.getElementById('setup-connect-btn');
+  if(setupBtn){setupBtn.disabled=true;setupBtn.textContent='⏳ Conectando...';}
+  const setupStatus=document.getElementById('setup-status');
+  if(setupStatus) setupStatus.textContent='⏳ Conectando a Firebase...';
+  setTimeout(()=>{
+    initFirebase();
+    setTimeout(()=>{
+      if(setupBtn){setupBtn.disabled=false;setupBtn.textContent='✨ Conectar y sincronizar';}
+    },5000);
+  },300);
 }
 
 function skipSetup(){
@@ -1151,25 +1347,45 @@ function checkSetup(){
 
 // ── FIREBASE INIT ──
 function initFirebase(){
+  // Check if Firebase SDK loaded
+  if(typeof firebase === 'undefined'){
+    console.log('Firebase SDK not loaded - retrying in 1s...');
+    setTimeout(()=>{
+      if(typeof firebase !== 'undefined'){
+        initFirebase();
+      } else {
+        syncEnabled=false;
+        loadLocalData();
+        renderDashboard();
+        showToast('⚠ Sin internet — modo local',3000);
+        const s=document.getElementById('setup-status');
+        if(s) s.textContent='⚠️ Sin conexión — usando modo local';
+      }
+    }, 1000);
+    return;
+  }
   try{
     if(!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
     db = firebase.database();
     syncEnabled = true;
     updateOnlineIndicator('syncing');
     showSyncBar('Conectando...','syncing');
-    // Load from Firebase first, then subscribe
     loadFromFirebase();
-    // Monitor connection
     firebase.database().ref('.info/connected').on('value', snap=>{
-      if(snap.val()===true) updateOnlineIndicator('online');
-      else updateOnlineIndicator('offline');
+      if(snap.val()===true){
+        updateOnlineIndicator('online');
+      } else {
+        updateOnlineIndicator('offline');
+        showSyncBar('Sin conexión — datos guardados localmente','offline');
+      }
     });
   }catch(e){
-    console.log('Firebase init error:',e);
+    console.log('Firebase init error:',e.message);
     syncEnabled=false;
     loadLocalData();
     renderDashboard();
-    showToast('⚠ Sin sincronización — modo local');
+    const msg = e.message||'Error desconocido';
+    showToast('⚠ Error: '+msg.substring(0,40),4000);
   }
 }
 
@@ -1201,10 +1417,15 @@ function loadFromFirebase(){
     showSyncBar('✓ Sincronizado','synced');
     updateOnlineIndicator('online');
   }).catch(e=>{
-    console.log('Firebase load error:',e);
+    console.log('Firebase load error:',e.code, e.message);
     loadLocalData();
     renderDashboard();
-    showSyncBar('Sin conexión — datos locales','offline');
+    if(e.code==='PERMISSION_DENIED'){
+      showSyncBar('⚠ Verifica las reglas de Firebase','offline');
+      showToast('⚠ Permiso denegado — revisa las reglas de Firebase',4000);
+    } else {
+      showSyncBar('Sin conexión — datos locales','offline');
+    }
     updateOnlineIndicator('offline');
   });
 }
@@ -1220,12 +1441,14 @@ function subscribeToFirebase(){
     if(d.completed){const ns=new Set(d.completed);if(JSON.stringify([...ns])!==JSON.stringify([...completedTasks])){completedTasks=ns;changed=true;}}
     if(d.customTasks&&JSON.stringify(d.customTasks)!==JSON.stringify(customTasks)){customTasks=d.customTasks;changed=true;}
     if(d.invitados&&JSON.stringify(d.invitados)!==JSON.stringify(invitados)){invitados=d.invitados;changed=true;}
-    if(d.reqDone){const ns=new Set(d.reqDone);if(JSON.stringify([...ns])!==JSON.stringify([...reqDone])){reqDone=ns;changed=true;}}
+    if(d.reqDone){const ns2=new Set(d.reqDone);if(JSON.stringify([...ns2])!==JSON.stringify([...reqDone])){reqDone=ns2;changed=true;}}
     if(d.contratos&&JSON.stringify(d.contratos)!==JSON.stringify(contratos)){contratos=d.contratos;changed=true;}
     if(d.contactos&&JSON.stringify(d.contactos)!==JSON.stringify(contactos)){contactos=d.contactos;changed=true;}
     if(d.gastos&&JSON.stringify(d.gastos)!==JSON.stringify(gastos)){gastos=d.gastos;changed=true;}
     if(d.compras&&JSON.stringify(d.compras)!==JSON.stringify(compras)){compras=d.compras;changed=true;}
     if(d.canciones&&JSON.stringify(d.canciones)!==JSON.stringify(canciones)){canciones=d.canciones;changed=true;}
+    if(d.cotizaciones&&JSON.stringify(d.cotizaciones)!==JSON.stringify(cotizaciones)){cotizaciones=d.cotizaciones;changed=true;}
+    if(d.customReqs&&JSON.stringify(d.customReqs)!==JSON.stringify(customReqs)){customReqs=d.customReqs;changed=true;}
     isRemoteUpdate=false;
     if(changed){
       const other=currentUser==='josseline'?'🤵 Clarck':'👰 Josseline';
@@ -1253,7 +1476,7 @@ function pushToFirebase(){
       completed:[...completedTasks],
       customTasks, invitados,
       reqDone:[...reqDone],
-      contratos, contactos, gastos, compras, canciones,
+      contratos, contactos, gastos, compras, canciones, cotizaciones, customReqs,
       lastUpdated: Date.now(),
       lastUpdatedBy: currentUser||'unknown'
     };
@@ -1279,6 +1502,8 @@ function saveLocalBackup(){
     localStorage.setItem('boda_v2_gastos',JSON.stringify(gastos));
     localStorage.setItem('boda_v2_compras',JSON.stringify(compras));
     localStorage.setItem('boda_v2_canciones',JSON.stringify(canciones));
+    localStorage.setItem('boda_v2_cotizaciones',JSON.stringify(cotizaciones));
+    localStorage.setItem('boda_v2_customReqs',JSON.stringify(customReqs));
   }catch(e){}
 }
 
@@ -1293,6 +1518,9 @@ function loadLocalData(){
     const gas=localStorage.getItem('boda_v2_gastos');if(gas)gastos=JSON.parse(gas);
     const cmp=localStorage.getItem('boda_v2_compras');if(cmp)compras=JSON.parse(cmp);
     const sng=localStorage.getItem('boda_v2_canciones');if(sng)canciones=JSON.parse(sng);
+    const nts=localStorage.getItem('boda_notas');if(nts)try{notas=JSON.parse(nts);}catch(e){}
+    const ctz=localStorage.getItem('boda_v2_cotizaciones');if(ctz)cotizaciones=JSON.parse(ctz);
+    const cre=localStorage.getItem('boda_v2_customReqs');if(cre)customReqs=JSON.parse(cre);
   }catch(e){console.log('Local load error',e);}
 }
 
@@ -1319,6 +1547,7 @@ function goTo(screen,btn){
   else if(screen==='mas'){
     fab.textContent='＋';
     if(currentMasTab==='requisitos'||currentMasTab==='notas'||currentMasTab==='calendario')fab.className='fab hidden';
+    else if(currentMasTab==='cotizaciones'){fab.className='fab';fab.textContent='＋';}
   }
   else{fab.className='fab hidden';}
   if(screen==='dashboard'){renderDashboard();renderPaymentAlerts();}
@@ -1349,6 +1578,7 @@ function renderMasTab(tab){
   if(tab==='compras')renderCompras();
   if(tab==='canciones')renderCanciones();
   if(tab==='notas'){renderNotas();}
+  if(tab==='cotizaciones')renderCotizaciones();
   if(tab==='calendario')renderCalendar();
 }
 
@@ -1400,8 +1630,11 @@ function addTlItem(){
 }
 
 function exportPDF(){
-  const allTasks=[...tasksData,...customTasks];
-  const done=allTasks.filter(t=>completedTasks.has(t.id)).length;
+  const searchEl=document.getElementById('task-search');
+  const taskSearch=searchEl?searchEl.value.toLowerCase():'';
+  const allTasks=[...tasksData,...customTasks].filter(t=>!taskSearch||t.label.toLowerCase().includes(taskSearch)||t.meta.toLowerCase().includes(taskSearch));
+  const allTasksTotal=[...tasksData,...customTasks];
+  const done=allTasksTotal.filter(t=>completedTasks.has(t.id)).length;
   const conf=invitados.filter(i=>i.status==='confirmed').length;
   const totalPagado=contratos.reduce((s,c)=>s+c.pagado,0)+gastos.reduce((s,g)=>s+g.monto,0);
   const totalComp=contratos.reduce((s,c)=>s+c.total,0);
@@ -1479,6 +1712,25 @@ function exportPDF(){
   setTimeout(()=>win.print(),500);
 }
 
+function testFirebaseConnection(){
+  if(!syncEnabled||!db){
+    showToast('❌ No hay conexión activa. Usa ⚙️ Cambiar sync para reconectar.',4000);
+    return;
+  }
+  showToast('🔌 Probando conexión...',2000);
+  db.ref('.info/connected').once('value').then(snap=>{
+    if(snap.val()){
+      showToast('✅ Conexión Firebase OK!',3000);
+      updateOnlineIndicator('online');
+    } else {
+      showToast('⚠️ Sin conexión a Firebase',3000);
+      updateOnlineIndicator('offline');
+    }
+  }).catch(e=>{
+    showToast('❌ Error: '+e.message.substring(0,50),4000);
+  });
+}
+
 function resetSetup(){
   if(confirm('¿Cambiar configuración de sincronización?')){
     localStorage.removeItem('boda_sync_user');
@@ -1520,6 +1772,12 @@ function renderDashboard(){
   document.getElementById('kpi-inv').textContent=invitados.filter(i=>i.status==='confirmed').length;
   const totalGastado=contratos.reduce((s,c)=>s+c.pagado,0)+gastos.reduce((s,g)=>s+g.monto,0);
   document.getElementById('kpi-gastado').textContent='S/'+Math.round(totalGastado).toLocaleString();
+  const kpiCon=document.getElementById('kpi-contratos');
+  if(kpiCon) kpiCon.textContent=contratos.length;
+  // Update badge with urgent tasks count
+  const urgPending=[...tasksData,...customTasks].filter(t=>t.urgency==='urgent'&&!completedTasks.has(t.id)&&!t.locked).length;
+  const badge=document.getElementById('badge-tasks');
+  if(badge){badge.textContent=urgPending;urgPending>0?badge.classList.add('show'):badge.classList.remove('show');}
 
   const pct=(arr)=>arr.length?Math.round(arr.filter(t=>completedTasks.has(t.id)).length/arr.length*100):0;
   const setBar=(bar,p,el)=>{document.getElementById(bar).style.width=p+'%';document.getElementById(el).textContent=p+'%';};
@@ -1552,28 +1810,27 @@ function renderDashboard(){
     <div style="margin-bottom:16px;position:relative">
       <div style="position:absolute;left:-18px;top:4px;width:12px;height:12px;border-radius:50%;background:${t.color||'var(--rose)'};border:2px solid white;box-shadow:0 0 0 2px ${(t.color||'var(--rose)')}40"></div>
       <div style="display:flex;align-items:center;justify-content:space-between">
-        <div style="font-size:.72rem;font-weight:600;color:var(--rose-dark)">${t.time}</div>
+        <div style="font-size:.75rem;font-weight:700;color:var(--rose-dark)">${t.time}</div>
         <button class="btn-edit" onclick="openEditTl(${i})" style="font-size:.58rem;padding:2px 6px">✏️</button>
       </div>
-      <div style="font-size:.84rem;color:var(--text);font-weight:500;margin-top:1px">${t.title}</div>
-      <div style="font-size:.68rem;color:var(--text-soft);margin-top:2px;line-height:1.5">${t.desc}</div>
+      <div style="font-size:.88rem;color:var(--text);font-weight:600;margin-top:1px">${t.title}</div>
+      <div style="font-size:.74rem;color:var(--text-mid);margin-top:2px;line-height:1.5">${t.desc}</div>
       ${t.resp?`<div style="font-size:.62rem;background:var(--rose-pale);color:var(--rose-dark);border-radius:6px;padding:2px 7px;display:inline-block;margin-top:4px">${t.resp}</div>`:''}
     </div>`).join('') +
     `<div style="margin-top:8px"><button onclick="openModal('modal-add-tl')" style="width:100%;padding:10px;border:1.5px dashed var(--border);border-radius:10px;background:none;color:var(--text-soft);font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer">＋ Agregar momento</button></div>`;
 
-  // Urgente badge
-  const urgPending=tasksData.filter(t=>t.phase==='urgent'&&t.urgency==='urgent'&&!completedTasks.has(t.id)).length;
-  const badge=document.getElementById('badge-tasks');
-  if(urgPending>0){badge.textContent=urgPending;badge.classList.add('show');}
-  else{badge.classList.remove('show');}
+  // badge handled above
 }
 
 // ══════════════════════════════════════
 // CHECKLIST
 // ══════════════════════════════════════
 function renderChecklist(){
-  const allTasks=[...tasksData,...customTasks];
-  const done=allTasks.filter(t=>completedTasks.has(t.id)).length;
+  const searchEl=document.getElementById('task-search');
+  const taskSearch=searchEl?searchEl.value.toLowerCase():'';
+  const allTasks=[...tasksData,...customTasks].filter(t=>!taskSearch||t.label.toLowerCase().includes(taskSearch)||t.meta.toLowerCase().includes(taskSearch));
+  const allTasksTotal=[...tasksData,...customTasks];
+  const done=allTasksTotal.filter(t=>completedTasks.has(t.id)).length;
   const total=allTasks.length;
   const pct=Math.round(done/total*100);
   document.getElementById('checklist-bar').style.width=pct+'%';
@@ -1582,7 +1839,8 @@ function renderChecklist(){
   let html='';
   phases.forEach(p=>{
     const tasks=allTasks.filter(t=>t.phase===p.key);
-    html+=`<div class="phase-label">${p.label}</div>`;
+    const phaseColor=p.key==='urgent'?'var(--red)':p.key==='july'?'var(--orange)':'var(--gold)';
+      html+=`<div class="phase-label" style="color:${phaseColor};font-weight:700">${p.label}</div>`;
     tasks.forEach(t=>{
       const isDone=completedTasks.has(t.id);
       const isLocked=t.locked;
@@ -1600,14 +1858,35 @@ function renderChecklist(){
 }
 
 function toggleTask(id){
-  if(completedTasks.has(id))completedTasks.delete(id);
-  else{completedTasks.add(id);if(navigator.vibrate)navigator.vibrate(30);}
+  if(completedTasks.has(id)){completedTasks.delete(id);}
+  else{
+    completedTasks.add(id);
+    if(navigator.vibrate)navigator.vibrate([30,20,30]);
+    const allTasks=[...tasksData,...customTasks];
+    const done=allTasks.filter(t=>completedTasks.has(t.id)).length;
+    const pct=Math.round(done/allTasks.length*100);
+    if(pct===100) showToast('🎉 ¡Todas las tareas completadas!',3000);
+    else if(pct%25===0) showToast(`🎯 ${pct}% completado!`,2000);
+    else showToast('✓ Tarea completada',1500);
+  }
   saveData();renderChecklist();renderDashboard();
 }
 
 // ══════════════════════════════════════
 // INVITADOS
 // ══════════════════════════════════════
+function goToTab(screen){
+  const navBtn=document.querySelector(`.nav-item[onclick*="'${screen}'"]`);
+  if(navBtn) goTo(screen, navBtn);
+}
+function goToMasTab(tab){
+  const masBtn=document.querySelector(`.nav-item[onclick*="'mas'"]`);
+  if(masBtn) goTo('mas', masBtn);
+  setTimeout(()=>{
+    const tabBtn=document.querySelector(`.inner-tab[onclick*="'${tab}'"]`);
+    if(tabBtn) showMasTab(tab, tabBtn);
+  }, 100);
+}
 function switchInvTab(tab, btn){
   currentInvTab=tab;
   document.querySelectorAll('.inv-group-tab').forEach(t=>t.classList.remove('active'));
@@ -1619,10 +1898,28 @@ function renderInvitados(){
   let filtered=invitados.filter(i=>i.name.toLowerCase().includes(search));
   if(currentInvTab==='novia') filtered=filtered.filter(i=>i.group==='novia'||!i.group);
   else if(currentInvTab==='novio') filtered=filtered.filter(i=>i.group==='novio');
-  document.getElementById('is-total').textContent=invitados.length;
-  document.getElementById('is-conf').textContent=invitados.filter(i=>i.status==='confirmed').length;
+  const sortEl=document.getElementById('inv-sort');
+  const sortBy=sortEl?sortEl.value:'name';
+  if(sortBy==='name') filtered.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(sortBy==='status') filtered.sort((a,b)=>{
+    const order={'confirmed':0,'pending':1,'declined':2};
+    return (order[a.status]||1)-(order[b.status]||1);
+  });
+  else if(sortBy==='group') filtered.sort((a,b)=>(a.group||'').localeCompare(b.group||''));
+  const totalInv=invitados.length;
+  const confInv=invitados.filter(i=>i.status==='confirmed').length;
+  document.getElementById('is-total').textContent=totalInv;
+  document.getElementById('is-conf').textContent=confInv;
   document.getElementById('is-pend').textContent=invitados.filter(i=>i.status==='pending').length;
   document.getElementById('is-decl').textContent=invitados.filter(i=>i.status==='declined').length;
+  // Capacity warning
+  const capWarn=document.getElementById('inv-capacity-warn');
+  if(capWarn){
+    if(confInv>40) capWarn.innerHTML='⚠️ Superaste el aforo máximo de 40 personas';
+    else if(confInv===40) capWarn.innerHTML='✅ Aforo completo — 40/40 confirmados';
+    else if(confInv>=35) capWarn.innerHTML=`🔶 Casi completo — ${confInv}/40 confirmados`;
+    else capWarn.innerHTML='';
+  }
   if(!filtered.length){
     document.getElementById('inv-list-container').innerHTML=`<div style="text-align:center;color:var(--text-soft);padding:30px;font-style:italic;font-size:.85rem">${invitados.length===0?'Agrega tu primer invitado con el botón ＋':'Sin resultados'}</div>`;
     return;
@@ -1661,45 +1958,120 @@ function deleteInv(i){invitados.splice(i,1);saveData();renderInvitados();}
 // REQUISITOS
 // ══════════════════════════════════════
 function renderRequisitos(){
-  const cd=[...reqDone].filter(id=>id.startsWith('rc')).length;
-  const vd=[...reqDone].filter(id=>id.startsWith('cv')).length;
-  document.getElementById('req-church-bar').style.width=Math.round(cd/8*100)+'%';
-  document.getElementById('req-church-pct').textContent=Math.round(cd/8*100)+'%';
-  document.getElementById('req-civil-bar').style.width=Math.round(vd/8*100)+'%';
-  document.getElementById('req-civil-pct').textContent=Math.round(vd/8*100)+'%';
-  let html=`<div class="req-group-header church">⛪ Religiosos — Parroquia Santa Marta <span>${cd}/8</span></div>`;
-  reqData.church.forEach(r=>{
+  const allChurch=[...reqData.church,...(customReqs.church||[])];
+  const allCivil=[...reqData.civil,...(customReqs.civil||[])];
+  const cd=allChurch.filter(r=>reqDone.has(r.id)).length;
+  const vd=allCivil.filter(r=>reqDone.has(r.id)).length;
+  const totalC=allChurch.length, totalV=allCivil.length;
+  document.getElementById('req-church-bar').style.width=Math.round(cd/totalC*100)+'%';
+  document.getElementById('req-church-pct').textContent=Math.round(cd/totalC*100)+'%';
+  document.getElementById('req-civil-bar').style.width=Math.round(vd/totalV*100)+'%';
+  document.getElementById('req-civil-pct').textContent=Math.round(vd/totalV*100)+'%';
+
+  const filter=currentReqFilter;
+  const showChurch=filter==='all'||filter==='church'||filter==='novia'||filter==='novio';
+  const showCivil=filter==='all'||filter==='civil'||filter==='novia'||filter==='novio';
+
+  const reqItemHtml=(r,type)=>{
     const done=reqDone.has(r.id);
-    html+=`<div class="req-item church-item ${done?'done':''}">
+    const isCustom=r.id.startsWith('cr_');
+    // Filter by persona
+    if(filter==='novia'&&r.persona==='novio') return '';
+    if(filter==='novio'&&r.persona==='novia') return '';
+    const personaBadge=r.persona?`<span style="font-size:.58rem;padding:1px 5px;border-radius:6px;background:${r.persona==='novia'?'var(--rose-pale)':'var(--blue-light)'};color:${r.persona==='novia'?'var(--rose-dark)':'var(--blue)'}">${r.persona==='novia'?'👰':'🤵'}</span>`:'';
+    return `<div class="req-item ${type}-item ${done?'done':''}">
       <div class="req-check" onclick="toggleReq('${r.id}')" style="cursor:pointer">${done?'✓':''}</div>
-      <div style="flex:1" onclick="toggleReq('${r.id}')"><div class="req-name">${r.name}</div><div class="req-note">${r.note}</div></div>
-      <div onclick="event.stopPropagation()" style="flex-shrink:0">
-        ${reqFiles[r.id] ?
-          `<span class="file-attached" onclick="viewFile('req','${r.id}')" style="font-size:.6rem;padding:3px 7px">📄 Ver</span>
-           <button onclick="removeReqFile('${r.id}')" style="background:none;border:none;color:#ddd;cursor:pointer;font-size:.75rem">✕</button>` :
-          `<button class="file-attach-btn" onclick="attachReqFile('${r.id}')" style="margin-top:0;padding:4px 8px;font-size:.62rem">📎</button>`
-        }
+      <div style="flex:1" onclick="toggleReq('${r.id}')">
+        <div class="req-name">${r.name} ${personaBadge}</div>
+        <div class="req-note" style="font-size:.72rem;color:var(--text-mid)">${r.note||''}</div>
+      </div>
+      <div onclick="event.stopPropagation()" style="flex-shrink:0;display:flex;align-items:center;gap:3px">
+        ${reqFiles[r.id]?`<span class="file-attached" onclick="viewFile('req','${r.id}')" style="font-size:.6rem;padding:3px 6px">📄</span><button onclick="removeReqFile('${r.id}')" style="background:none;border:none;color:#ddd;cursor:pointer;font-size:.7rem">✕</button>`:`<button class="file-attach-btn" onclick="attachReqFile('${r.id}')" style="margin-top:0;padding:3px 6px;font-size:.58rem">📎</button>`}
+        <button class="btn-edit" onclick="openEditReq('${r.id}','${type}')" style="font-size:.58rem;padding:2px 6px">✏️</button>
       </div>
     </div>`;
-  });
-  html+=`<div class="req-group-header civil" style="margin-top:14px">⚖️ Civiles — Municipalidad Arequipa <span>${vd}/8</span></div>`;
-  reqData.civil.forEach(r=>{
-    const done=reqDone.has(r.id);
-    html+=`<div class="req-item civil-item ${done?'done':''}">
-      <div class="req-check" onclick="toggleReq('${r.id}')" style="cursor:pointer">${done?'✓':''}</div>
-      <div style="flex:1" onclick="toggleReq('${r.id}')"><div class="req-name">${r.name}</div><div class="req-note">${r.note}</div></div>
-      <div onclick="event.stopPropagation()" style="flex-shrink:0">
-        ${reqFiles[r.id] ?
-          `<span class="file-attached" onclick="viewFile('req','${r.id}')" style="font-size:.6rem;padding:3px 7px">📄 Ver</span>
-           <button onclick="removeReqFile('${r.id}')" style="background:none;border:none;color:#ddd;cursor:pointer;font-size:.75rem">✕</button>` :
-          `<button class="file-attach-btn" onclick="attachReqFile('${r.id}')" style="margin-top:0;padding:4px 8px;font-size:.62rem">📎</button>`
-        }
-      </div>
-    </div>`;
-  });
+  };
+
+  let html='';
+  if(showChurch){
+    html+=`<div class="req-group-header church">⛪ Religiosos — Parroquia Santa Marta <span>${cd}/${totalC}</span></div>`;
+    html+=allChurch.map(r=>reqItemHtml(r,'church')).join('');
+    html+=`<button onclick="openAddReq('church')" style="width:100%;padding:8px;border:1.5px dashed var(--border);border-radius:0 0 10px 10px;background:none;color:var(--text-soft);font-family:'DM Sans',sans-serif;font-size:.75rem;cursor:pointer;margin-bottom:14px">＋ Agregar requisito religioso</button>`;
+  }
+  if(showCivil){
+    html+=`<div class="req-group-header civil">⚖️ Civiles — Municipalidad Arequipa <span>${vd}/${totalV}</span></div>`;
+    html+=allCivil.map(r=>reqItemHtml(r,'civil')).join('');
+    html+=`<button onclick="openAddReq('civil')" style="width:100%;padding:8px;border:1.5px dashed var(--border);border-radius:0 0 10px 10px;background:none;color:var(--text-soft);font-family:'DM Sans',sans-serif;font-size:.75rem;cursor:pointer">＋ Agregar requisito civil</button>`;
+  }
   document.getElementById('req-content').innerHTML=html;
 }
+
 function toggleReq(id){if(reqDone.has(id))reqDone.delete(id);else{reqDone.add(id);if(navigator.vibrate)navigator.vibrate(30);}saveData();renderRequisitos();}
+
+function filterReqs(f,btn){
+  currentReqFilter=f;
+  document.querySelectorAll('.req-filter-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderRequisitos();
+}
+
+function openAddReq(type){
+  document.getElementById('add-req-type').value=type;
+  document.getElementById('add-req-name').value='';
+  document.getElementById('add-req-note').value='';
+  document.getElementById('add-req-persona').value='ambos';
+  openModal('modal-add-req');
+}
+function saveAddReq(){
+  const type=document.getElementById('add-req-type').value;
+  const name=document.getElementById('add-req-name').value.trim();
+  if(!name)return;
+  const newReq={id:'cr_'+Date.now(),name,note:document.getElementById('add-req-note').value,persona:document.getElementById('add-req-persona').value};
+  if(!customReqs[type])customReqs[type]=[];
+  customReqs[type].push(newReq);
+  saveData();closeModal('modal-add-req');renderRequisitos();
+}
+
+function openEditReq(id,type){
+  const allC=[...reqData.church,...(customReqs.church||[])];
+  const allV=[...reqData.civil,...(customReqs.civil||[])];
+  const all=[...allC,...allV];
+  const r=all.find(r=>r.id===id);
+  if(!r)return;
+  document.getElementById('edit-req-id').value=id;
+  document.getElementById('edit-req-type').value=type;
+  document.getElementById('edit-req-name').value=r.name;
+  document.getElementById('edit-req-note').value=r.note||'';
+  document.getElementById('edit-req-persona').value=r.persona||'ambos';
+  const isCustom=id.startsWith('cr_');
+  document.getElementById('edit-req-del-btn').style.display=isCustom?'block':'none';
+  openModal('modal-edit-req');
+}
+function saveEditReq(){
+  const id=document.getElementById('edit-req-id').value;
+  const type=document.getElementById('edit-req-type').value;
+  const arr=customReqs[type]||[];
+  const idx=arr.findIndex(r=>r.id===id);
+  const data={name:document.getElementById('edit-req-name').value,note:document.getElementById('edit-req-note').value,persona:document.getElementById('edit-req-persona').value};
+  if(idx>=0){arr[idx]={...arr[idx],...data};customReqs[type]=arr;}
+  else{
+    // Edit default req — store override
+    if(!customReqs.overrides)customReqs.overrides={};
+    customReqs.overrides[id]=data;
+    // Update reqData
+    const defArr=type==='church'?reqData.church:reqData.civil;
+    const defIdx=defArr.findIndex(r=>r.id===id);
+    if(defIdx>=0)defArr[defIdx]={...defArr[defIdx],...data};
+  }
+  saveData();closeModal('modal-edit-req');renderRequisitos();
+}
+function deleteCustomReq(){
+  const id=document.getElementById('edit-req-id').value;
+  const type=document.getElementById('edit-req-type').value;
+  if(customReqs[type])customReqs[type]=customReqs[type].filter(r=>r.id!==id);
+  reqDone.delete(id);
+  saveData();closeModal('modal-edit-req');renderRequisitos();
+}
 
 // ══════════════════════════════════════
 // CONTRATOS
@@ -1718,7 +2090,7 @@ function renderContratos(){
       <div class="contrato-nombre">${c.cat} ${c.nombre}</div>
       <div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-soft);margin-bottom:4px"><span>Pagado: S/ ${c.pagado.toFixed(2)}</span><span>${pct}%</span></div><div style="height:6px;background:var(--rose-light);border-radius:10px;overflow:hidden"><div style="height:100%;width:${pct}%;background:${col};border-radius:10px"></div></div></div>
       <div style="display:flex;justify-content:space-between;align-items:center;background:var(--rose-pale);border-radius:8px;padding:7px 10px"><span style="color:var(--text-soft);font-size:.7rem">💳 ${c.fecha}</span><span style="font-weight:700;color:var(--rose-dark)">S/ ${c.total.toFixed(2)}</span></div>
-      ${c.notas?`<div style="font-size:.68rem;color:var(--text-soft);margin-top:8px;line-height:1.5">${c.notas}</div>`:''}
+      ${c.notas?`<div style="font-size:.74rem;color:var(--text-mid);margin-top:8px;line-height:1.5">${c.notas}</div>`:''}
       <div style="margin-top:4px">
         ${contratoFiles[c.id] ?
           `<span class="file-attached" onclick="viewFile('contrato','${c.id}')">📄 ${contratoFiles[c.id].name}</span>
@@ -1735,7 +2107,7 @@ function addContrato(){
   if(!nombre)return;
   contratos.push({id:'con_'+Date.now(),nombre,cat:document.getElementById('new-con-cat').value,total:parseFloat(document.getElementById('new-con-total').value)||0,pagado:parseFloat(document.getElementById('new-con-pagado').value)||0,fecha:document.getElementById('new-con-fecha').value||'Por definir',notas:document.getElementById('new-con-notas').value});
   ['new-con-nombre','new-con-total','new-con-pagado','new-con-fecha','new-con-notas'].forEach(id=>document.getElementById(id).value='');
-  saveData();closeModal('modal-contrato');renderContratos();
+  saveData();renderPresupuesto();closeModal('modal-contrato');renderContratos();
 }
 function deleteContrato(i){if(confirm('¿Eliminar contrato?')){contratos.splice(i,1);saveData();renderContratos();}}
 function openEditContrato(i){
@@ -1783,6 +2155,9 @@ function handleContratoFileEdit(e){
 function renderContactos(){
   const search=document.getElementById('contact-search')?.value.toLowerCase()||'';
   const filtered=contactos.filter(c=>c.nombre.toLowerCase().includes(search)||c.empresa.toLowerCase().includes(search));
+  // Update contact count header
+  const cntHeader=document.getElementById('contact-count');
+  if(cntHeader) cntHeader.textContent=`${contactos.length} contactos`;
   if(!filtered.length){document.getElementById('contactos-list').innerHTML=`<div style="text-align:center;color:var(--text-soft);padding:30px;font-style:italic;font-size:.85rem">${contactos.length===0?'Agrega tus proveedores con el botón ＋':'Sin resultados para esa búsqueda'}</div>`;return;}
   document.getElementById('contactos-list').innerHTML=filtered.map((c,i)=>{
     const ri=contactos.indexOf(c);
@@ -1821,7 +2196,11 @@ function renderPresupuesto(){
   document.getElementById('bud-total').textContent='S/ '+grandTotal.toLocaleString('es-PE',{minimumFractionDigits:2});
   document.getElementById('bud-pagado').textContent='S/ '+totalPag.toLocaleString('es-PE',{minimumFractionDigits:2});
   document.getElementById('bud-pendiente').textContent='S/ '+(grandTotal-totalPag).toLocaleString('es-PE',{minimumFractionDigits:2});
-  document.getElementById('bud-pct').textContent=grandTotal>0?Math.round(totalPag/grandTotal*100)+'%':'0%';
+  const budPct=grandTotal>0?Math.round(totalPag/grandTotal*100):0;
+  document.getElementById('bud-pct').textContent=budPct+'%';
+  // Update dashboard KPI
+  const kpiGas=document.getElementById('kpi-gastado');
+  if(kpiGas) kpiGas.textContent='S/'+Math.round(totalPag).toLocaleString();
   let html='<div style="font-size:.72rem;font-weight:600;color:var(--green);margin-bottom:6px">✅ Contratos</div>';
   contratos.forEach(c=>{
     html+=`<div class="budget-row confirmed"><span class="br-name">${c.cat} ${c.nombre}</span><div style="text-align:right"><div class="br-amount">S/ ${c.total.toFixed(2)}</div><div style="font-size:.65rem;color:var(--green)">Pagado: S/ ${c.pagado.toFixed(2)}</div></div></div>`;
@@ -1918,26 +2297,57 @@ function deleteCompra(i){compras.splice(i,1);saveData();renderCompras();}
 // CANCIONES
 // ══════════════════════════════════════
 function renderCanciones(){
-  document.getElementById('canciones-list').innerHTML=canciones.map((s,i)=>{
-    const isSpotify = s.link&&s.link.includes('spotify');
-    const isYT = s.link&&(s.link.includes('youtube')||s.link.includes('youtu.be'));
-    const linkClass = isSpotify?'song-link':isYT?'song-link youtube':'song-link generic';
-    const linkIcon = isSpotify?'🎧':isYT?'▶️':'🔗';
-    const ambos = s.votos.j&&s.votos.c;
-    return `<div class="cancion-card" style="${ambos?'border-left:3px solid var(--green)':''}">
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <div class="cancion-momento">${s.momento}</div>
-        <button class="btn-edit" onclick="openEditCancion(${i})">✏️ Editar</button>
-      </div>
-      <div class="cancion-titulo">${s.titulo}${ambos?' ✅':''}</div>
-      ${s.artista?`<div class="cancion-artista">${s.artista}</div>`:''}
-      ${s.link?`<a href="${s.link}" target="_blank" class="${linkClass}">${linkIcon} Escuchar</a>`:''}
-      <div class="cancion-votos" style="margin-top:8px">
-        <button class="voto-btn ${s.votos.j?'voted':''}" onclick="votarCancion(${i},'j')">💍 Josseline ${s.votos.j?'✓':''}</button>
-        <button class="voto-btn ${s.votos.c?'voted':''}" onclick="votarCancion(${i},'c')">💙 Clarck ${s.votos.c?'✓':''}</button>
-      </div>
-    </div>`;
-  }).join('');
+  const momentos=['💍 Entrada de novios','💃 Primer baile','👨‍👩‍👧 Baile con padres','🥂 Brindis','🎉 Hora loca','🎵 Ambiente general','🌹 Cierre'];
+  let html='';
+  momentos.forEach(momento=>{
+    const songs=canciones.filter(s=>s.momento===momento);
+    const totalVotos=songs.reduce((s,c)=>(c.votos.j?1:0)+(c.votos.c?1:0)+s,0);
+    const winner=songs.length>0?songs.reduce((a,b)=>{const va=(a.votos.j?1:0)+(a.votos.c?1:0);const vb=(b.votos.j?1:0)+(b.votos.c?1:0);return vb>va?b:a;},songs[0]):null;
+    html+=`<div style="margin-bottom:16px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-soft);font-weight:600">${momento}</div>
+        <button class="btn-edit" style="font-size:.65rem;padding:3px 8px" onclick="openAddCancionMomento('${momento}')">＋ Proponer</button>
+      </div>`;
+    if(songs.length===0){
+      html+=`<div style="background:var(--rose-pale);border-radius:10px;padding:10px;text-align:center;font-size:.75rem;color:var(--text-soft);font-style:italic">Sin propuestas aún</div>`;
+    } else {
+      songs.forEach((s,globalIdx)=>{
+        const i=canciones.indexOf(s);
+        const votos=(s.votos.j?1:0)+(s.votos.c?1:0);
+        const isWinner=winner&&s.id===winner.id&&totalVotos>0;
+        const pct=totalVotos>0?Math.round(votos/(totalVotos||1)*100):0;
+        const isSpotify=s.link&&s.link.includes('spotify');
+        const isYT=s.link&&(s.link.includes('youtube')||s.link.includes('youtu.be'));
+        const linkClass=isSpotify?'song-link':isYT?'song-link youtube':'song-link generic';
+        const linkIcon=isSpotify?'🎧':isYT?'▶️':'🔗';
+        html+=`<div class="cancion-card" style="margin-bottom:6px;${isWinner?'border-left:3px solid var(--green);background:linear-gradient(135deg,var(--green-light),white)':''}">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+            <div class="cancion-titulo">${s.titulo}${isWinner?' 🏆':''}</div>
+            <button class="btn-edit" onclick="openEditCancion(${i})" style="font-size:.58rem;padding:2px 6px">✏️</button>
+          </div>
+          ${s.artista?`<div class="cancion-artista">${s.artista}</div>`:''}
+          ${s.link?`<a href="${s.link}" target="_blank" class="${linkClass}" style="font-size:.62rem;padding:3px 8px">${linkIcon} Escuchar</a>`:''}
+          <div style="margin-top:8px">
+            <div style="display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-soft);margin-bottom:3px"><span>Votos</span><span>${votos}/2 (${pct}%)</span></div>
+            <div style="height:5px;background:var(--rose-light);border-radius:10px;overflow:hidden;margin-bottom:6px"><div style="height:100%;width:${pct}%;background:${isWinner?'var(--green)':'var(--rose)'};border-radius:10px;transition:width .3s"></div></div>
+            <div style="display:flex;gap:6px">
+              <button class="voto-btn ${s.votos.j?'voted':''}" onclick="votarCancion(${i},'j')" style="font-size:.65rem;padding:5px 8px">💍 ${s.votos.j?'✓ Josseline':'Josseline'}</button>
+              <button class="voto-btn ${s.votos.c?'voted':''}" onclick="votarCancion(${i},'c')" style="font-size:.65rem;padding:5px 8px">💙 ${s.votos.c?'✓ Clarck':'Clarck'}</button>
+            </div>
+          </div>
+        </div>`;
+      });
+    }
+    html+='</div>';
+  });
+  document.getElementById('canciones-list').innerHTML=html;
+}
+
+function openAddCancionMomento(momento){
+  document.getElementById('new-song-momento').value=momento;
+  document.getElementById('new-song-titulo').value='';
+  document.getElementById('new-song-artista').value='';
+  openModal('modal-cancion');
 }
 
 function openEditCancion(i){
@@ -1976,34 +2386,93 @@ function deleteCancion(i){canciones.splice(i,1);saveData();renderCanciones();}
 // ══════════════════════════════════════
 // GALERÍA
 // ══════════════════════════════════════
+// Albums data structure: {albumId: {name, emoji, fotos: [{src, label}]}}
+let albums={
+  'preboda':{name:'Pre Boda',emoji:'💕',fotos:[]},
+  'decoracion':{name:'Ideas Decoración',emoji:'💐',fotos:[]},
+  'vestido':{name:'Vestido',emoji:'👗',fotos:[]},
+  'referencias':{name:'Referencias',emoji:'✨',fotos:[]},
+};
+
 function renderGaleria(){
-  if(!galeriaFotos.length){
-    document.getElementById('galeria-grid').innerHTML='';
-    document.getElementById('galeria-empty').style.display='block';
+  const galeriaGrid=document.getElementById('galeria-grid');
+  const galeriaEmpty=document.getElementById('galeria-empty');
+  if(currentAlbum){
+    // Show album photos
+    const album=albums[currentAlbum];
+    if(!album){currentAlbum=null;renderGaleria();return;}
+    galeriaEmpty.style.display='none';
+    galeriaGrid.innerHTML=`
+      <div class="album-back" onclick="currentAlbum=null;renderGaleria()" style="grid-column:1/-1">‹ Volver a álbumes</div>
+      <div style="grid-column:1/-1;font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--rose-dark);margin-bottom:4px">${album.emoji} ${album.name}</div>
+      <div style="grid-column:1/-1;font-size:.72rem;color:var(--text-soft);margin-bottom:8px">${album.fotos.length} fotos</div>
+      ${album.fotos.map((f,i)=>`
+        <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1;box-shadow:var(--shadow-sm)">
+          <img src="${f.src}" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 50%)"></div>
+          <div style="position:absolute;bottom:6px;left:8px;color:white;font-size:.58rem">${f.label}</div>
+          <button onclick="deleteAlbumFoto('${currentAlbum}',${i})" style="position:absolute;top:5px;right:5px;background:rgba(0,0,0,.5);border:none;color:white;border-radius:50%;width:20px;height:20px;font-size:.65rem;cursor:pointer">✕</button>
+        </div>`).join('')}
+    `;
     return;
   }
-  document.getElementById('galeria-empty').style.display='none';
-  document.getElementById('galeria-grid').innerHTML=galeriaFotos.map((f,i)=>`
-    <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1;box-shadow:var(--shadow-sm)">
-      <img src="${f.src}" style="width:100%;height:100%;object-fit:cover">
-      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 50%)"></div>
-      <div style="position:absolute;bottom:6px;left:8px;color:white;font-size:.6rem">${f.label}</div>
-      <button onclick="deleteGaleriaFoto(${i})" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,.5);border:none;color:white;border-radius:50%;width:22px;height:22px;font-size:.7rem;cursor:pointer">✕</button>
-    </div>`).join('');
+  // Show albums list
+  galeriaEmpty.style.display='none';
+  const albumKeys=Object.keys(albums);
+  galeriaGrid.innerHTML=albumKeys.map(key=>{
+    const alb=albums[key];
+    const cover=alb.fotos.length>0?`<img src="${alb.fotos[0].src}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">`:'';
+    return `<div class="album-card" onclick="openAlbum('${key}')">
+      <div class="album-cover">${cover}<span style="position:relative;z-index:1;${alb.fotos.length>0?'text-shadow:0 2px 4px rgba(0,0,0,.5)':''}">${alb.emoji}</span></div>
+      <div class="album-info"><span class="album-name">${alb.name}</span><span class="album-count">${alb.fotos.length} fotos</span></div>
+    </div>`;
+  }).join('')+`
+    <div class="album-card" onclick="openAddAlbum()" style="border:1.5px dashed var(--border)">
+      <div class="album-cover" style="background:var(--rose-pale)"><span style="font-size:2rem;color:var(--text-soft)">＋</span></div>
+      <div class="album-info"><span class="album-name" style="color:var(--text-soft)">Nuevo álbum</span></div>
+    </div>`;
 }
+
+function openAlbum(key){currentAlbum=key;renderGaleria();}
+
 function handleGaleriaUpload(e){
   const files=Array.from(e.target.files);
+  const target=currentAlbum||'referencias';
+  if(!albums[target])albums[target]={name:target,emoji:'📸',fotos:[]};
   files.forEach(file=>{
     const reader=new FileReader();
     reader.onload=ev=>{
-      galeriaFotos.push({src:ev.target.result,label:file.name.replace(/\.[^.]+$/,'')});
+      albums[target].fotos.push({src:ev.target.result,label:file.name.replace(/\.[^.]+$/,'')});
+      saveAlbums();
       renderGaleria();
     };
     reader.readAsDataURL(file);
   });
   e.target.value='';
 }
+
+function deleteAlbumFoto(albumKey,i){
+  if(albums[albumKey])albums[albumKey].fotos.splice(i,1);
+  saveAlbums();renderGaleria();
+}
 function deleteGaleriaFoto(i){galeriaFotos.splice(i,1);renderGaleria();}
+
+function openAddAlbum(){
+  const name=prompt('Nombre del nuevo álbum:');
+  if(!name)return;
+  const emoji=prompt('Emoji del álbum (ej: 🌸):','📁');
+  const key='album_'+Date.now();
+  albums[key]={name,emoji:emoji||'📁',fotos:[]};
+  saveAlbums();renderGaleria();
+}
+
+function saveAlbums(){
+  try{localStorage.setItem('boda_albums',JSON.stringify(albums));}catch(e){showToast('⚠ Álbum grande');}
+}
+function loadAlbums(){
+  try{const a=localStorage.getItem('boda_albums');if(a)albums=JSON.parse(a);}catch(e){}
+}
+loadAlbums();
 
 // ══════════════════════════════════════
 // MODAL & FAB
@@ -2018,6 +2487,7 @@ function openAddModal(){
     else if(currentMasTab==='presupuesto')openModal('modal-gasto');
     else if(currentMasTab==='compras')openModal('modal-compra');
     else if(currentMasTab==='canciones')openModal('modal-cancion');
+    else if(currentMasTab==='cotizaciones')openModal('modal-cotizacion');
   }
 }
 function openModal(id){document.getElementById(id).classList.add('open');}
@@ -2055,10 +2525,11 @@ function addTask(){
   const name=document.getElementById('new-task-name').value.trim();
   if(!name)return;
   const p=document.getElementById('new-task-priority').value;
-  customTasks.push({id:'ct_'+Date.now(),label:name,meta:document.getElementById('new-task-date').value||'',phase:p==='urgent'?'urgent':p==='soon'?'july':'august',urgency:p});
+  customTasks.push({id:'ct_'+Date.now(),label:name,meta:document.getElementById('new-task-date').value||'',phase:p==='urgent'?'urgent':p==='soon'?'july':'august',urgency:p,deadline:document.getElementById('new-task-deadline').value||''});
   document.getElementById('new-task-name').value='';
   document.getElementById('new-task-date').value='';
-  saveData();closeModal('modal-task');renderChecklist();
+  document.getElementById('new-task-deadline').value='';
+  saveData();renderDashboard();closeModal('modal-task');renderChecklist();
 }
 
 // Close on overlay tap + swipe down
@@ -2236,8 +2707,65 @@ function sendNota(){
   input.value='';
   if(syncEnabled&&db){
     db.ref(`bodas/${bodaCode}/notas`).set(notas).catch(e=>console.log(e));
+  } else {
+    // Save locally if no Firebase
+    try{ localStorage.setItem('boda_notas', JSON.stringify(notas)); }catch(e){}
   }
   renderNotas();
+}
+
+// ══════════════════════════════════════
+// COTIZACIONES
+// ══════════════════════════════════════
+function renderCotizaciones(){
+  const filter=document.getElementById('cotiz-proveedor-filter')?.value||'';
+  const allCats=Object.keys(cotizaciones);
+  const filtered=filter?allCats.filter(k=>k===filter):allCats;
+  const cats={dj:'🎵 DJ/Música',decoracion:'💐 Decoración',vestido:'👗 Vestido',torta:'🎂 Torta',toldo:'⛺ Toldo',mozos:'🍹 Mozos',maquillaje:'💄 Maquillaje',otros:'📋 Otros'};
+  let html='';
+  if(!filtered.length||!filtered.some(k=>cotizaciones[k]&&cotizaciones[k].length)){
+    html=`<div style="text-align:center;color:var(--text-soft);padding:30px;font-style:italic;font-size:.84rem">Sin cotizaciones aún. ¡Agrega la primera con el botón ＋!</div>`;
+  } else {
+    filtered.forEach(cat=>{
+      const items=cotizaciones[cat]||[];
+      if(!items.length)return;
+      const winner=items.find(c=>c.selected);
+      html+=`<div style="font-size:.7rem;font-weight:600;color:var(--text-soft);text-transform:uppercase;letter-spacing:1px;margin:12px 0 8px;padding-left:4px">${cats[cat]||cat}</div>`;
+      items.forEach((c,i)=>{
+        html+=`<div class="cotiz-card ${c.selected?'winner':''}">
+          ${c.selected?'<div class="cotiz-winner-badge">✓ Elegida</div>':''}
+          <div class="cotiz-nombre">${c.nombre}</div>
+          <div class="cotiz-precio">S/ ${parseFloat(c.precio||0).toFixed(2)}</div>
+          ${c.incluye?`<div style="font-size:.72rem;color:var(--text-soft);margin-bottom:8px;line-height:1.5">${c.incluye}</div>`:''}
+          ${c.notas?`<div style="font-size:.68rem;color:var(--text-soft);margin-bottom:8px">${c.notas}</div>`:''}
+          <div class="cotiz-btns">
+            <button class="cotiz-choose ${c.selected?'selected':''}" onclick="toggleCotizWinner('${cat}',${i})">${c.selected?'✓ Elegida':'⭐ Elegir esta'}</button>
+            <button class="cotiz-del-btn" onclick="deleteCotiz('${cat}',${i})">🗑</button>
+          </div>
+        </div>`;
+      });
+    });
+  }
+  document.getElementById('cotizaciones-list').innerHTML=html;
+}
+
+function toggleCotizWinner(cat,idx){
+  if(!cotizaciones[cat])return;
+  cotizaciones[cat].forEach((c,i)=>c.selected=(i===idx?!c.selected:false));
+  saveData();renderCotizaciones();
+}
+function deleteCotiz(cat,idx){
+  if(cotizaciones[cat])cotizaciones[cat].splice(idx,1);
+  saveData();renderCotizaciones();
+}
+function saveCotizacion(){
+  const nombre=document.getElementById('new-cotiz-nombre').value.trim();
+  if(!nombre)return;
+  const cat=document.getElementById('new-cotiz-cat').value;
+  if(!cotizaciones[cat])cotizaciones[cat]=[];
+  cotizaciones[cat].push({id:'ctz_'+Date.now(),nombre,precio:document.getElementById('new-cotiz-precio').value,incluye:document.getElementById('new-cotiz-incluye').value,notas:document.getElementById('new-cotiz-notas').value,selected:false});
+  ['new-cotiz-nombre','new-cotiz-precio','new-cotiz-incluye','new-cotiz-notas'].forEach(id=>document.getElementById(id).value='');
+  saveData();closeModal('modal-cotizacion');renderCotizaciones();
 }
 
 function renderNotas(){
@@ -2252,7 +2780,7 @@ function renderNotas(){
     return `<div class="nota-bubble ${isMe?'mine':'other'}">
       <div class="nota-header">
         <span class="nota-author">${n.autor==='josseline'?'👰 Josseline':'🤵 Clarck'}</span>
-        <span class="nota-time">${n.fecha} ${n.hora}</span>
+        <span class="nota-time">${n.hora} · ${n.fecha}</span>
       </div>
       <div class="nota-text">${n.texto}</div>
       ${isMe?`<button class="nota-del" onclick="deleteNota(${i})">✕</button>`:''}
@@ -2294,6 +2822,17 @@ const calEvents=[
   {date:'2026-06-15',label:'⛪ Confirmar iglesia',type:'event'},
 ];
 
+function getTaskEvents(){
+  // Build calendar events from tasks with deadlines
+  const taskEvs=[];
+  const allTasks=[...tasksData,...customTasks];
+  allTasks.forEach(t=>{
+    if(!t.deadline)return;
+    taskEvs.push({date:t.deadline,label:t.label.replace(/[^ -~]/g,'').trim()||t.label,type:'task',done:completedTasks.has(t.id)});
+  });
+  return taskEvs;
+}
+
 function renderCalendar(){
   const months=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
   document.getElementById('cal-title').textContent=`${months[calMonth]} ${calYear}`;
@@ -2304,27 +2843,31 @@ function renderCalendar(){
   const offset=(firstDay===0?6:firstDay-1);
   const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
   const today=new Date();
+  const taskEvs=getTaskEvents();
+  const allEvs=[...calEvents,...taskEvs];
   for(let i=0;i<offset;i++) html+=`<div class="cal-day other-month"></div>`;
   for(let d=1;d<=daysInMonth;d++){
     const dateStr=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-    const evs=calEvents.filter(e=>e.date===dateStr);
+    const evs=allEvs.filter(e=>e.date===dateStr);
     const isToday=today.getFullYear()===calYear&&today.getMonth()===calMonth&&today.getDate()===d;
     const hasPayment=evs.some(e=>e.type==='payment');
+    const hasTask=evs.some(e=>e.type==='task'&&!e.done);
     const hasEvent=evs.length>0;
-    const cls=hasPayment?'payment-day':hasEvent?'has-event':isToday?'today':'';
-    html+=`<div class="cal-day ${cls}" onclick="${hasEvent?`showCalEvents('${dateStr}')`:''}">${d}${hasEvent?'<div class="cal-dot"></div>':''}</div>`;
+    const isBoda=(dateStr==='2026-08-29');
+    let cls=isBoda?'has-event':hasPayment?'payment-day':hasEvent?'has-event':isToday?'today':'';
+    const dotColor=hasPayment?'white':hasTask?'#ffd700':'white';
+    html+=`<div class="cal-day ${cls}" style="${isBoda?'box-shadow:0 0 0 2px #c9a96e;':''}" onclick="${(hasEvent||isBoda)?`showCalEvents('${dateStr}')`:''}" >${isBoda?'💍':d}${(hasEvent&&!isBoda)?`<div class="cal-dot" style="background:${dotColor}"></div>`:''}</div>`;
   }
   grid.innerHTML=html;
-  // Show events for current month
-  const monthEvs=calEvents.filter(e=>e.date.startsWith(`${calYear}-${String(calMonth+1).padStart(2,'0')}`));
+  const monthEvs=allEvs.filter(e=>e.date.startsWith(`${calYear}-${String(calMonth+1).padStart(2,'0')}`));
   const evEl=document.getElementById('cal-events-list');
   if(evEl&&monthEvs.length){
     evEl.innerHTML=`<div style="font-size:.72rem;font-weight:600;color:var(--text-soft);margin:8px 0 6px;text-transform:uppercase;letter-spacing:1px">Eventos del mes</div>`+
-      monthEvs.map(e=>`<div style="background:white;border-radius:10px;padding:9px 14px;margin-bottom:6px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:10px;font-size:.82rem">
-        <div style="width:36px;height:36px;border-radius:8px;background:${e.type==='payment'?'var(--red-light)':'var(--rose-pale)'};display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">${e.type==='payment'?'💳':'📌'}</div>
-        <div><div style="font-weight:600;color:var(--text)">${e.label}</div><div style="font-size:.68rem;color:var(--text-soft)">${new Date(e.date+'T12:00:00').toLocaleDateString('es-PE',{weekday:'long',day:'numeric',month:'long'})}</div></div>
+      monthEvs.map(e=>`<div style="background:white;border-radius:10px;padding:9px 14px;margin-bottom:6px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:10px;font-size:.82rem;${e.type==='task'&&e.done?'opacity:.45':''}">
+        <div style="width:36px;height:36px;border-radius:8px;background:${e.type==='payment'?'var(--red-light)':e.type==='task'?'var(--blue-light)':'var(--rose-pale)'};display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">${e.type==='payment'?'💳':e.type==='task'?'✅':'📌'}</div>
+        <div><div style="font-weight:700;font-size:.84rem;color:var(--text)">${e.label}${e.done?' ✓':''}</div><div style="font-size:.68rem;color:var(--text-soft)">${new Date(e.date+'T12:00:00').toLocaleDateString('es-PE',{weekday:'long',day:'numeric',month:'long'})}</div></div>
       </div>`).join('');
-  } else if(evEl){ evEl.innerHTML=''; }
+  } else if(evEl){ evEl.innerHTML='<div style="text-align:center;color:var(--text-soft);padding:20px;font-style:italic;font-size:.8rem">Sin eventos este mes</div>'; }
 }
 
 function calPrev(){calMonth--;if(calMonth<0){calMonth=11;calYear--;}renderCalendar();}
